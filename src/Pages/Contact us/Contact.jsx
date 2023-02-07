@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./Contact.module.css";
 
-import { GrMail } from "react-icons/gr";
-import { ImLocation } from "react-icons/im";
-import { BsFillTelephoneFill } from "react-icons/bs";
+// import { GrMail } from "react-icons/gr";
+// import { ImLocation } from "react-icons/im";
+// import { BsFillTelephoneFill } from "react-icons/bs";
 
 const Contact = () => {
 	const handleMessageSubmit = (e) => {
