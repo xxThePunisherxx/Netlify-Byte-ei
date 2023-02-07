@@ -1,0 +1,16 @@
+:root {
+    --headingOne-size: 5rem;
+    --headingOneHighlight-color: #0f5288;
+}
+
+
+.MainHeading {
+    text-align: center;
+    font-size: var(--headingOne-size);
+    padding: 5rem;
+    text-transform: capitalize;
+}
+
+.HeadingHighlight {
+    color: var(--headingOneHighlight-color);
+}

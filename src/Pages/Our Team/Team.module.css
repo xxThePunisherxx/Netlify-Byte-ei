@@ -1,0 +1,95 @@
+.Team_Wrapper {
+    padding: 5rem;
+    margin: 0 auto;
+}
+
+.Team_Wrapper h1 {
+    font-size: 5rem;
+    text-align: center;
+    padding: 3rem;
+}
+
+.HeadingHighlight {
+    color: #0f5288;
+}
+
+.Team_Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr
+}
+
+.Individual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Individual img {
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+
+}
+
+.Individual h1 {
+    font-size: 2rem;
+    padding: 0;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.Details_Grid {
+    display: grid;
+    width: 65%;
+    grid-template-columns: 60% 40%;
+}
+
+.Details_Grid h2 {
+    font-size: 1.5rem;
+}
+
+.Social_Links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    color: #0f5288;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+@media(max-width:1269px) {
+    .Team_Wrapper {
+        padding: 2rem;
+    }
+
+    .Team_Grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr
+    }
+
+    .Details_Grid {
+        width: 50%;
+    }
+}
+
+@media(max-width:800px) {
+    .Team_Wrapper {
+        padding: 1.5rem;
+    }
+
+    .Team_Grid {
+        display: grid;
+        grid-template-columns: 1fr
+    }
+
+    .Details_Grid {
+        width: 70%;
+    }
+
+    .Team_Wrapper h1 {
+        font-size: 3rem;
+        text-align: center;
+        padding: 2rem;
+    }
+}

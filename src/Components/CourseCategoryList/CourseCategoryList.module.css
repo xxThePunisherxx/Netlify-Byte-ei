@@ -1,0 +1,77 @@
+.Categories_Wrapper {
+    margin-top: 50px;
+    display: grid;
+    justify-items: center;
+}
+
+.Categories_Wrapper h1 {
+    font-size: 5rem;
+    padding: 5rem;
+    text-align: center;
+}
+
+.Categories_Grid {
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+
+}
+
+.Categories_Card h1 {
+    font-size: 1.5rem;
+    padding: 0rem;
+}
+
+.Categories_Card {
+
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgba(119, 122, 122, 0.228);
+
+}
+
+.Categories_Card button {
+    border: none;
+    font-size: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color ease .2s;
+
+}
+
+.Edit_Btn:hover {
+    color: green;
+}
+
+.Delete_Btn:hover {
+    color: red;
+}
+
+.new {
+
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: var(--submit-fontSize);
+    width: fit-content;
+    display: flex;
+    padding: 0.6em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #0f5288;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+
+    color: white;
+    border: none;
+    margin: 50px 0;
+    transition: all ease .2s;
+}
+
+.new:hover {
+    background-color: #0071e2;
+    color: black;
+}

@@ -1,0 +1,104 @@
+.carousel {
+    display: flex;
+    height: 600px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 1rem;
+
+}
+
+.carouselWrapper {
+    position: relative;
+    width: 1200px;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(211, 211, 211, 0.4);
+    box-shadow: -13px 13px 31px #f3f3f3,
+        13px -13px 31px #e9e9e9;
+}
+
+
+.cardImage {
+    border-radius: 50%;
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 50px;
+}
+
+.cardText {
+    width: 70%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.cardText h1 {
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.cardText h2 {
+    padding: 2rem 0;
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-left: 10px;
+    margin-top: -20px;
+    color: #0f5288;
+}
+
+
+
+.carouselArrowLeft,
+.carouselArrowRight {
+    position: absolute;
+    font-size: 40px;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding-bottom: 7px;
+    cursor: pointer;
+}
+
+.carouselArrowLeft:hover,
+.carouselArrowRight:hover {
+    color: #0f5288;
+}
+
+.carouselArrowLeft {
+    left: 15px;
+
+}
+
+.carouselArrowRight {
+    right: 15px;
+}
+
+.carouselPagination {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+
+
+/* .cardText h1 {
+    padding: 2rem 0;
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.cardText h2 {
+    padding: 2rem 0;
+    font-size: 2rem;
+    text-align: justify;
+    margin-left: 10px;
+    margin-top: -20px;
+    color: #0f5288;
+} */

@@ -1,0 +1,62 @@
+:root {
+    --headingOne-size: 5rem;
+    --HeadingHighlight: #0f5288;
+    --buttonHover-bg: #0f5288;
+}
+
+.HeadingHighlight {
+    color: var(--HeadingHighlight);
+}
+
+.ClientsContainer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ClientsContainer h1 {
+    text-align: center;
+    font-size: var(--headingOne-size);
+    padding: 5rem;
+}
+
+.ClientsContainer button {
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 2rem;
+    width: fit-content;
+    display: flex;
+    padding: 0.5em 0.9em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #0f5288;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
+    border: none;
+}
+
+
+.ClientsContainer button:hover {
+    background-color: #0071e2;
+    color: black;
+
+}
+
+.ClientsContainer button a {
+    color: black;
+}
+
+.ImagesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.ImagesGrid img {
+    width: 150px;
+}

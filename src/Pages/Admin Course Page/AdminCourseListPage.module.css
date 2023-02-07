@@ -1,0 +1,199 @@
+.allCourseGrid {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+    row-gap: 30px;
+    transition: all ease 2s;
+}
+
+.AdminCourseCard {
+    transition: transform ease .2s;
+    display: grid;
+    cursor: pointer;
+
+}
+
+.AdminCourseCard:hover {
+    transform: scale3d(1.03, 1.03, 1.03);
+}
+
+
+.AdminCourseCard_Info img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.AdminCourseCard_Info h1 {
+    font-size: 1.3rem;
+    margin: 5px 0;
+    padding-left: 5px;
+}
+
+.AdminCourseCard_Info h2 {
+    font-size: 1rem;
+    padding-right: 5px;
+    text-align: right;
+
+}
+
+.AdminCourseCard_Btn {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.AdminCourseCard_Btn button {
+    font-size: 1.8rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color ease .2s;
+
+}
+
+
+.Edit_Btn:hover {
+    color: green;
+}
+
+.Delete_Btn:hover {
+    color: red;
+}
+
+.new {
+
+    font-size: 25px;
+    width: fit-content;
+    display: flex;
+    padding: 0.5em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    border-radius: 20px;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+    /* background: linear-gradient(15deg, #4D194D, #3E1F47, #312244, #272640, #212F45, #1B3A4B, #144552, #0B525B, #065A60, #006466) no-repeat; */
+    background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
+    background-size: 300%;
+    background-position: left center;
+    transition: background .3s ease;
+    color: #fff;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 16px;
+    border: none;
+    margin: 10px auto;
+
+}
+
+.new:hover {
+    transform: scale(1.01);
+    background-size: 320%;
+    background-position: right center;
+}
+
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -55%);
+    height: 300px;
+    width: 600px;
+    /* background-color: #1d1d1d; */
+    background-color: rgb(43, 43, 43);
+    display: grid;
+    place-items: center;
+    align-content: center;
+    border-radius: 20px;
+}
+
+.close_btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.close_btn button {
+    font-size: 2rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border-top-right-radius: 20px;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all ease-in .2s;
+}
+
+.close_btn button:hover {
+    color: red;
+    /* background-color: white; */
+}
+
+.contnets {
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+}
+
+.contnets h1 {
+    color: rgba(255, 0, 0, 0.45);
+
+}
+
+.contnets h2 {
+    font-size: 15px;
+    color: white;
+    opacity: .3;
+}
+
+.button_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.button_grid button {
+    font-size: 1.4rem;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.button_grid .delete {
+    background-color: rgba(255, 0, 0, 0.45);
+    color: white;
+    transition: all ease-in .3s;
+}
+
+.button_grid .delete:hover {
+    color: rgba(255, 0, 0);
+    background-color: white;
+}
+
+.button_grid .cancel {
+    background-color: black;
+    color: white;
+    transition: all ease-in .3s;
+}
+
+.button_grid .cancel:hover {
+    color: black;
+    background-color: white;
+}
+
+
+
+.successBoard {
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    padding: 1rem;
+    background-color: green;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 3px solid black;
+    border-radius: 20px;
+    color: white;
+
+}

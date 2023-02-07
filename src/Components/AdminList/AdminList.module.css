@@ -1,0 +1,55 @@
+.allAdminGrid {
+    padding: 1rem;
+}
+
+.admin_Table {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.admin_Table img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.admin_Table h1 {
+    font-size: 1.3rem;
+}
+
+.admin_Table button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+    transition: color ease .2s;
+}
+
+.Edit_Btn:hover {
+    color: green;
+}
+
+.Delete_Btn:hover {
+    color: red;
+}
+
+.new {
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: var(--submit-fontSize);
+    width: fit-content;
+    display: flex;
+    padding: 0.6em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #0f5288;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
+    border: none;
+}
+
+.new:hover {
+    background-color: #0071e2;
+    color: black;
+}

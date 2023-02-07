@@ -1,0 +1,97 @@
+:root {
+    --buttonHover-bg: #0f5288;
+}
+
+a {
+    color: black;
+}
+
+.Hero_Container {
+    color: white;
+}
+
+.Hero {
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+.left {
+    padding-top: 2rem;
+    background-color: #0f5288;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+
+.left h1 {
+    font-size: 3rem;
+    margin-top: 150px;
+    margin-left: 16px;
+}
+
+.left h2 {
+    margin-top: 30px;
+    text-align: left;
+    margin-left: 16px;
+}
+
+.left button {
+    font-size: 25px;
+    width: fit-content;
+    display: flex;
+    padding: 0.5em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    border-radius: 20px;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+    /* background: linear-gradient(15deg, #4D194D, #3E1F47, #312244, #272640, #212F45, #1B3A4B, #144552, #0B525B, #065A60, #006466) no-repeat; */
+    background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
+    background-size: 300%;
+    background-position: left center;
+    transition: background .3s ease;
+    color: #fff;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.left button:hover {
+    transform: scale(1.01);
+    background-size: 320%;
+    background-position: right center;
+}
+
+
+.right {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+
+@media screen and (max-width: 1470px) {
+    .mid {
+        display: none;
+    }
+
+    .Hero {
+        display: block;
+    }
+
+
+    .Hero .left h1 {
+        margin: 10px 0;
+        font-size: 2.5rem;
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .Hero .left h2 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        padding: 1rem;
+        text-align: left;
+    }
+
+}

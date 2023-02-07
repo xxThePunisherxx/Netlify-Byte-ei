@@ -1,0 +1,56 @@
+.AdminSidebarWrapper {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.AdminSidebar {
+    padding: 10px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.87);
+    color: white;
+    margin-right: 50px;
+    position: sticky;
+    top: 0;
+
+}
+
+.Logo {
+    padding: 2rem;
+    border-bottom: 1px solid rgba(225, 225, 225, 0.253);
+}
+
+.Logo img {
+    height: 60px;
+}
+
+.DashboardLinks {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.DashboardLinks a {
+    padding: 1rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.2s ease-in;
+    margin: 5px 0;
+}
+
+.DashboardLinks a h1 {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.DashboardLinks a:last-child {
+    margin-top: 100px;
+
+}
+
+.DashboardLinks a:hover {
+    color: #0f5288;
+
+}

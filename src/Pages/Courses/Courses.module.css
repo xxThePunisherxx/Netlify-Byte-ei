@@ -1,0 +1,226 @@
+.TrainingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+}
+
+.TrainingGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 400px);
+    column-gap: 20px;
+    row-gap: 20px;
+
+
+}
+
+.MainHeading {
+    text-align: center;
+    font-size: 5rem;
+    padding: 5rem;
+}
+
+.HeadingHighlight {
+    color: #0f5288;
+}
+
+.Training {
+    display: flex;
+    flex-direction: column;
+    transition: all ease-in .2s;
+}
+
+.Training:hover {
+    cursor: pointer;
+    border-radius: 15px;
+    transform: scale3d(1.02, 1.02, 1.02);
+}
+
+.Training h1 {
+    font-size: 1.3rem;
+    padding: 15px;
+}
+
+.Training h2 {
+    font-size: 1rem;
+    padding: 15px;
+}
+
+
+
+.TrainingContainer button {
+    cursor: pointer;
+
+    margin-top: 20px;
+    font-size: 1.5rem;
+    width: fit-content;
+    display: flex;
+    padding: 0.4em .5em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #0f5288;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
+    border: none;
+}
+
+.TrainingContainer button:hover {
+    background-color: #0071e2;
+    color: black;
+}
+
+.Skel .imgDiv {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    border-radius: 20px;
+}
+
+.Skel .H1Div,
+.H2Div {
+    width: 99%;
+    height: 39px;
+    padding: 15px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    margin: 10px auto;
+    border-radius: 20px;
+
+}
+
+@keyframes Load {
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@media screen and (max-width: 2126px) {
+
+    .TrainingGrid {
+        grid-template-columns: repeat(4, 400px);
+    }
+
+    .MainHeading {
+        font-size: 4rem;
+        padding: 4rem;
+    }
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1669px) {
+
+    .TrainingGrid {
+        grid-template-columns: repeat(4, 300px);
+    }
+
+    .MainHeading {
+        font-size: 4rem;
+        padding: 4rem;
+    }
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+    :root {
+        --gridColumns: repeat(3, 300px);
+        --headingOne-size: 4rem;
+    }
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(3, 300px);
+    }
+
+    .MainHeading {
+        font-size: 4rem;
+        padding: 4rem;
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(2, 400px);
+    }
+
+    .MainHeading {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+
+}
+
+
+@media screen and (max-width: 840px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(2, 300px);
+    }
+
+    .MainHeading {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+
+}
+
+@media screen and (max-width: 669px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(1, 300px);
+    }
+
+    .MainHeading {
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+}

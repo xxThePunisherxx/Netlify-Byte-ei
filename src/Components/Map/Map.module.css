@@ -1,0 +1,23 @@
+.mapWrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.mapWrapper h1 {
+    font-size: 5rem;
+    padding: 5rem;
+}
+
+.highlight {
+    color: #0f5288;
+    text-transform: capitalize;
+}
+
+
+iframe {
+    border: none;
+    border-radius: 20px;
+
+}

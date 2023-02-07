@@ -1,0 +1,100 @@
+:root {
+    --grid-cols: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.Footer_Container {
+    background-color: #1d1d1d;
+    color: #e7e7e7;
+    display: grid;
+    padding: 2rem;
+    grid-template-columns: var(--grid-cols);
+    column-gap: 20px;
+}
+
+.Footer_Container h1 {
+    font-size: 1.8rem;
+}
+
+.Footer_Container h2 {
+    font-size: 1.3rem;
+}
+
+.Footer_Container>div {
+    margin: 15px 0;
+}
+
+.Logo_Container {
+    padding-bottom: 1rem;
+}
+
+.Logo_Container h2 {
+    cursor: pointer;
+}
+
+.Logo_Container img {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.Link_Containers ul {
+    margin-top: 20px;
+}
+
+.Link_Containers ul li a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: grey;
+    transition: all ease-in .2s
+}
+
+.Info_Container h1 {
+    margin-bottom: 10px;
+}
+
+.Info_Container h2 {
+    color: grey;
+    transition: all ease-in .2s
+}
+
+.Info_Container h2:hover {
+    color: #e2e2e2;
+}
+
+.Time {
+    margin-top: 20px;
+}
+
+.Link_Containers ul li a:hover {
+    color: #e2e2e2;
+}
+
+.Social_Container {
+    text-align: center;
+}
+
+.Social_links {
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    margin-top: 20px;
+}
+
+.Social_links a img {
+    height: 50px;
+}
+
+.TelLink a {
+    color: #e2e2e2;
+}
+
+@media screen and (max-width: 412px) {
+    :root {
+        --grid-cols: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .Logo_Container img {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+}

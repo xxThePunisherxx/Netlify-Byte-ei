@@ -1,0 +1,62 @@
+.EnrollFormComp_Wrapper {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form_Headings {
+    padding: 2rem;
+}
+
+.form_Headings h1 {
+    font-size: 5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.Heading_hightlight {
+    color: #0f5288;
+}
+
+.mandatory_hightlight {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.Enrorll_FormWrappper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.EnrollFormComp_Wrapper input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 2rem;
+    background-color: rgba(211, 211, 211, 0.286);
+}
+
+.Enrorll_FormWrappper input::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.Enrorll_FormWrappper button {
+    margin: 50px auto;
+    grid-column: 1 / span 2;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
+
+
+.Enrorll_FormWrappper select {
+    font-size: 2rem;
+    border-radius: 5px;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}

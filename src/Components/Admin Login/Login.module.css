@@ -1,0 +1,168 @@
+:root {
+    --Heading-div--padding: 2rem;
+    --main-Heading1: 5rem;
+    --main-Heading2: 1.5rem;
+    --main-Heading-highlight: #0f5288;
+    --form-input-fontSize: 2rem;
+    --forgot-opacity: 0.8;
+    --forgot-fontSize: 1.5rem;
+    --submit-fontSize: 2rem;
+}
+
+.AdminLoginWrapper {
+    display: flex;
+    height: 100vh;
+    background-color: #e0e0e047;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+}
+
+.AdminLogin {
+    display: flex;
+    padding: 3rem;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 41px -41px 82px #bebebe,
+        -41px 41px 82px #ffffff;
+
+}
+
+.Heading {
+    padding: var(--Heading-div--padding);
+}
+
+.Heading h1 {
+    font-size: var(--main-Heading1);
+
+}
+
+.HeadingHighlight {
+    color: var(--main-Heading-highlight);
+}
+
+.Heading h2 {
+    font-size: var(--main-Heading2);
+}
+
+.FormWrappper {
+    display: flex;
+    flex-direction: column;
+}
+
+.FormWrappper input {
+    font-size: var(--form-input-fontSize);
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 15px;
+    margin: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: inset 35px -35px 69px #bebebe68,
+        inset -35px 35px 69px #ffffff;
+
+}
+
+.FormWrappper input:focus {
+    background-color: #bebebe68;
+}
+
+.FormWrappper h1 {
+    opacity: var(--forgot-opacity);
+    text-align: left;
+    font-size: var(--forgot-fontSize);
+    margin-left: 20px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.FormWrappper button {
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: var(--submit-fontSize);
+    width: fit-content;
+    display: flex;
+    padding: 0.6em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
+    background-size: 300%;
+    background-position: left center;
+    transition: background .3s ease-in-out;
+    color: #fff;
+    border: none;
+
+}
+
+.FormWrappper button:hover {
+    background-size: 320%;
+    background-position: right center;
+
+
+}
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --Heading-div--padding: 2rem;
+        --main-Heading1: 5rem;
+        --main-Heading2: 1.5rem;
+        --main-Heading-highlight: #0f5288;
+        --form-input-fontSize: 2rem;
+        --forgot-opacity: 0.8;
+        --forgot-fontSize: 1.5rem;
+        --submit-fontSize: 2rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    :root {
+        --Heading-div--padding: 1.5rem;
+        --main-Heading1: 4rem;
+        --main-Heading2: 1.2rem;
+        --main-Heading-highlight: #0f5288;
+        --form-input-fontSize: 1.5rem;
+        --forgot-opacity: 0.8;
+        --forgot-fontSize: 1.2rem;
+        --submit-fontSize: 1.5rem;
+    }
+}
+
+@media screen and (max-width:600px) {
+    :root {
+        --Heading-div--padding: 1.4rem;
+        --main-Heading1: 3rem;
+        --main-Heading2: 1.2rem;
+        --main-Heading-highlight: #0f5288;
+        --form-input-fontSize: 1.3rem;
+        --forgot-opacity: 0.8;
+        --forgot-fontSize: 1rem;
+        --submit-fontSize: 1.2rem;
+    }
+
+    .AdminLogin {
+        padding: 0;
+        background-color: white;
+        box-shadow: none
+    }
+
+    .FormWrappper input {
+        font-size: var(--form-input-fontSize);
+        border-radius: 5px;
+        border: 2px solid black;
+        padding: 15px;
+        margin: 10px 20px;
+        /* border: none; */
+        border-radius: 20px;
+        box-shadow: none;
+
+    }
+
+    .FormWrappper input:focus {
+        background-color: #bebebe68;
+    }
+}

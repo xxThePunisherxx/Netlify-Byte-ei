@@ -1,0 +1,36 @@
+:root {
+    --headingOne-size: 5rem;
+}
+
+.ProjectWrapper h1 {
+    font-size: var(--headingOne-size);
+    padding: 5rem;
+    text-align: center;
+}
+
+.ProjectWrapper h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.headingHighlights {
+    color: #0f5288;
+}
+
+@media screen and (max-width: 1669px) {
+    :root {
+
+        --headingOne-size: 4rem;
+    }
+
+
+}
+
+@media screen and (max-width: 840px) {
+    :root {
+
+        --headingOne-size: 3rem;
+    }
+
+
+}
