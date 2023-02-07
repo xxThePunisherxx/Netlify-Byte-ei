@@ -24,11 +24,11 @@ export const Links = [
 		LinkName: "Contact",
 		Linkto: "/contact",
 	},
-	{
-		Key: 9,
-		LinkName: "Admin",
-		Linkto: "/admin",
-	},
+	// {
+	// 	Key: 9,
+	// 	LinkName: "Admin",
+	// 	Linkto: "/admin",
+	// },
 	// {
 	// 	Key: 6,
 	// 	LinkName: "Gallery",
