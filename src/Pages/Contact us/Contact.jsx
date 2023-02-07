@@ -74,7 +74,7 @@ const Contact = () => {
 					</div>
 				</div>
 			</div>
-			<div className={style.ContactInfo_wrapper}>
+			{/* <div className={style.ContactInfo_wrapper}>
 				<div className={style.Visit_Heading}>
 					<h1>
 						Come and <span className={style.HeadingHighlight}>visit us</span>
@@ -99,11 +99,10 @@ const Contact = () => {
 						<div className={style.Visit_Info_Card}>
 							<ImLocation />
 							Someplace
-							{/* //TODO: add google map link */}
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
