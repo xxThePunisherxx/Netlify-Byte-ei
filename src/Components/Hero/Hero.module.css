@@ -20,7 +20,6 @@ a {
     background-color: #0f5288;
     display: flex;
     flex-direction: column;
-
 }
 
 
@@ -37,6 +36,7 @@ a {
     margin-left: 16px;
 }
 
+
 .left button {
     font-size: 25px;
     width: fit-content;
@@ -45,10 +45,7 @@ a {
     gap: 0.4rem;
     font-weight: bold;
     border-radius: 20px;
-    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
-    /* background: linear-gradient(15deg, #4D194D, #3E1F47, #312244, #272640, #212F45, #1B3A4B, #144552, #0B525B, #065A60, #006466) no-repeat; */
-    background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
-    background-size: 300%;
+    background: linear-gradient(109.6deg, rgb(255, 219, 47) 11.2%, rgb(244, 253, 0) 100.2%);
     background-position: left center;
     transition: background .3s ease;
     color: #fff;
@@ -56,6 +53,7 @@ a {
     margin-top: 40px;
     margin-left: 16px;
 }
+
 
 .left button:hover {
     transform: scale(1.01);
@@ -71,15 +69,6 @@ a {
 
 
 @media screen and (max-width: 1470px) {
-    .mid {
-        display: none;
-    }
-
-    .Hero {
-        display: block;
-    }
-
-
     .Hero .left h1 {
         margin: 10px 0;
         font-size: 2.5rem;
@@ -93,5 +82,38 @@ a {
         padding: 1rem;
         text-align: left;
     }
+}
 
+@media screen and (max-width: 1140px) {
+    .Hero {
+        grid-template-columns: 1fr;
+        height: 80vh;
+        grid-template-rows: .2fr 1fr;
+    }
+
+
+
+    .left button {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 16px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .Hero {
+        grid-template-columns: 1fr;
+        height: fit-content;
+        grid-template-rows: 1fr;
+    }
+
+    .mid {
+        display: none;
+    }
+
+    .left button {
+        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-left: 16px;
+    }
 }

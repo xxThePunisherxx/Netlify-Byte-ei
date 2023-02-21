@@ -1,0 +1,95 @@
+.AddTestomonial_Wrapper {
+    display: grid;
+    justify-items: center;
+}
+
+.AddTestomonial_Wrapper h1 {
+    font-size: 5rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.Heading_Highlight {
+    color: #0f5288;
+}
+
+/*  */
+.Form_Wrapper input,
+.Form_Wrapper textarea {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 1100px;
+}
+
+.Form_Wrapper h1 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.Form_Wrapper h1:first-child {
+    margin-top: 0px;
+}
+
+.Form_Wrapper select {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 1100px;
+}
+
+.Form_Wrapper input:focus,
+.Form_Wrapper textarea:focus {
+    background-color: #b9b9b9;
+}
+
+
+
+.Form_Wrapper button {
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 2rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0.6em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #0f5288;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
+    border: none;
+
+}
+
+.Form_Wrapper button:hover {
+    background-color: #0071e2;
+    color: black;
+}
+
+.ImageUpload {
+    display: flex;
+    width: 1100px;
+}
+
+.ImageUpload input {
+    width: 70%;
+}
+
+.ImageUpload button {
+    font-size: 1rem;
+}
+
+.ck {
+    margin-bottom: 20px;
+}

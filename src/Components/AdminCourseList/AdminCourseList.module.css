@@ -1,15 +1,10 @@
-:root {
-    --headingOne-size: 5rem;
+.Heading_Highlight {
+    color: #0f5288;
+}
 
-    --headingOneHighlight-color: ;
-    --gridColumns: repeat(4, 350px);
-    --gridH1-fontsize: 1.3rem;
-    --gridH2-fontsize: 1rem;
-    --buttonHover-bg: #0f5288;
-    --button-border: black;
-    --enlarge: scale3d(1.1, 1.1, 1.1);
-    --grid-gap: 20px;
-
+.allCourseWrapper_Heading h1 {
+    font-size: 5rem;
+    text-transform: capitalize;
 }
 
 .allCourseWrapper {
@@ -86,8 +81,7 @@
     cursor: pointer;
     margin: 0 auto;
     margin-top: 20px;
-    font-size: var(--submit-fontSize);
-    width: fit-content;
+    font-size: 2rem;
     display: flex;
     padding: 0.6em 1.1em;
     gap: 0.4rem;
@@ -197,28 +191,11 @@
 }
 
 
-
-.successBoard {
-    position: fixed;
-    top: 0px;
-    right: 10px;
-    padding: 1rem;
-    background-color: green;
-    margin-top: 10px;
-    margin-right: 10px;
-    border: 3px solid black;
-    border-radius: 20px;
-    color: white;
-
-}
-
-
-
 .TrainingGrid {
     display: grid;
-    grid-template-columns: var(--gridColumns);
-    column-gap: var(--grid-gap);
-    row-gap: var(--grid-gap);
+    grid-template-columns: repeat(4, 350px);
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .Skel .imgDiv {

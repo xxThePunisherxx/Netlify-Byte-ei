@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./IndividualCourse.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { FaClock, FaUserTie } from "react-icons/fa";
@@ -15,7 +15,6 @@ const IndividualCourse = () => {
 			try {
 				let response = await axios.get("http://localhost:8080/api/training/" + courseID);
 				setIndividualTrainingData(response.data.trainings);
-				console.log(response.data.trainings);
 			} catch (error) {
 				if (error.response) {
 					console.log(error.response.status);
@@ -44,13 +43,17 @@ const IndividualCourse = () => {
 						</h2>
 					</div>
 					<div className={style.training_header_btn}>
-						<button>Send Enquiry</button>
+						<Link to={"/inquiry/googleForm"}>
+							<button>Send Enquiry</button>
+						</Link>
 
 						<button>
-							Enroll
-							<div className={style.arrow_wrapper}>
-								<div className={style.arrow}></div>
-							</div>
+							<Link to={"/enroll/googleForm"}>
+								Enroll
+								<div className={style.arrow_wrapper}>
+									<div className={style.arrow}></div>
+								</div>
+							</Link>
 						</button>
 					</div>
 				</div>

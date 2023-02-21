@@ -70,6 +70,7 @@
     font-size: 2rem;
     width: fit-content;
     display: flex;
+    align-items: center;
     padding: 0.6em 1.1em;
     gap: 0.4rem;
     font-weight: bold;
@@ -92,20 +93,6 @@
     grid-column: 1 / span 2;
 }
 
-.successBoard,
-.FailedBoard {
-    position: fixed;
-    top: 1;
-    right: 0;
-    padding: 1rem;
-    background-color: green;
-    margin-top: 10px;
-    margin-right: 10px;
-
-    border-radius: 20px;
-    color: white;
-
-}
 
 .ck {
     margin-bottom: 20px;
@@ -124,12 +111,7 @@
     font-size: 1rem;
 }
 
-/* @media screen and (max-width:1024px) {
-    :root {
-        --Heading-div--padding: 1.5rem;
-        --main-Heading1: 4rem;
-        --form-input-fontSize: 1.5rem;
-        --formLabel-fontSize: 1.5rem;
-        --submit-fontSize: 1.5rem;
-    }
-} */
+.Uplaod_Img {
+    margin-top: 20px;
+    width: 300px;
+}

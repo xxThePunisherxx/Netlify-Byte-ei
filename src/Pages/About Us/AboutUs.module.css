@@ -1,0 +1,241 @@
+.MainHeading_Wrapper {
+    min-height: 70vh;
+    padding: 0rem;
+    display: grid;
+    place-items: center;
+}
+
+.Texts {
+    width: 80%;
+}
+
+.Texts h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.Texts p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+.History {
+    padding: 0 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.left h1,
+.WhyUs h1,
+.vison_left h1,
+.CoreValues h1 {
+    text-align: left;
+    font-size: 3rem;
+}
+
+.left p,
+.vison_left p {
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+}
+
+.right img {
+    height: 650px;
+    border-radius: 20px;
+}
+
+.stack {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 20px;
+}
+
+.stack img {
+    height: 300px;
+}
+
+.WhyUs {
+    padding: 0 7rem;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 50px;
+    align-items: center;
+}
+
+.WhyUs ul li,
+.CoreValues ul li {
+    list-style-type: disc;
+}
+
+.WhyUs ::marker,
+.CoreValues ::marker {
+    color: gray;
+    font-size: 1.25rem;
+
+}
+
+.right_Why ul li,
+.CoreValues ul li {
+    margin-left: 30px;
+}
+
+.right_Why ul li p,
+.CoreValues ul li p {
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.left_why img {
+    height: 600px;
+    border-radius: 20px;
+}
+
+.MissionAndVision {
+    margin-top: 50px;
+    padding: 0 7rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 50px;
+    align-items: center;
+}
+
+.Vison_Right img {
+    width: 650px;
+    border-radius: 20px;
+}
+
+.CoreValues {
+    padding: 0 7rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+@media screen and (max-width: 1425px) {
+    .Vison_Right img {
+        width: 550px;
+    }
+}
+
+@media screen and (max-width: 1260px) {
+    .History {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    .right {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 50px;
+        justify-items: center;
+    }
+
+    .right img {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .stack img {
+        height: 315px;
+    }
+
+    .WhyUs {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    .left_why img {
+        display: none;
+    }
+
+
+    .MissionAndVision {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+        justify-items: center;
+    }
+
+    .Vison_Right img {
+        width: 100%;
+    }
+
+    .CoreValues {
+        padding: 0 5rem;
+    }
+
+    .MissionAndVision {
+        padding: 0 5rem;
+    }
+
+    .WhyUs {
+        padding: 0 5rem;
+    }
+
+    .History {
+        padding: 0 5rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .Texts h1 {
+        font-size: 2rem;
+    }
+
+    .Texts p {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+
+    .CoreValues {
+        padding: 0 3rem;
+    }
+
+    .MissionAndVision {
+        padding: 0 3rem;
+    }
+
+    .WhyUs {
+        padding: 0 3rem;
+    }
+
+    .History {
+        padding: 0 3rem;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .right {
+        grid-template-columns: 1fr;
+        row-gap: 50px;
+    }
+
+    .right img {
+        height: 650px;
+        border-radius: 20px;
+    }
+
+    .stack {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        column-gap: 20px;
+    }
+
+    .stack img {
+        height: 350px;
+
+    }
+}

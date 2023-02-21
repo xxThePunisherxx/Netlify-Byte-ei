@@ -7,30 +7,35 @@ import uuid from "react-uuid";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import Editor from "ckeditor5-custom-build/build/ckeditor";
 import useAuth from "../../hooks/useAuth";
+import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AddCourse = () => {
 	const { auth } = useAuth();
-
 	const addRef = useRef();
+
 	const navigate = useNavigate();
 	const [trainingCategory, setTrainingCategory] = useState([{}]);
-
 	const [ckPara, setCkPara] = useState("");
 	const [ckStructure, setCkStructure] = useState("");
-	// eslint-disable-next-line no-unused-vars
 	const [showSuccess, setShowSuccess] = useState(false);
-
-	// upload state
+	const [showFailed, setShowFailed] = useState(false);
+	const [showSuccessUpload, setShowSuccessUpload] = useState(false);
+	const [showFailedUpload, setShowFailedUpload] = useState(false);
 	const [selectedFile, setSelectedFile] = useState();
 	const [uploadedURl, setUploadedURl] = useState("");
+	const [showImage, setShowImage] = useState(false);
+	const [showSelectCat, setShowSelectCat] = useState(false);
 
 	useEffect(() => {
-		//get list of all training categories from  the db
 		const fetchData = async () => {
 			try {
-				let response = await axios.get("http://localhost:8080/api/category");
-				setTrainingCategory(response.data.categorys);
-				// console.log(response.data.categorys);
+				let response = await axios.get("http://localhost:8080/api/category", {
+					headers: {
+						Authorization: `Bearer ${auth.Token}`,
+						withCredentails: true,
+					},
+				});
+				setTrainingCategory(response?.data?.categorys);
 			} catch (error) {
 				if (error.response) {
 					console.log(error.response.status);
@@ -41,6 +46,7 @@ const AddCourse = () => {
 			}
 		};
 		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const handlesubmit = async (e) => {
@@ -52,32 +58,42 @@ const AddCourse = () => {
 			description: ckPara,
 			duration: enterdData.course_Duration,
 			priority: enterdData.course_Priority,
-			image: `http://${uploadedURl}`,
+			image: uploadedURl,
 			ratings: enterdData.course_Rating,
 			category: enterdData.dropdown,
 			career: enterdData.course_careerPath,
 			syllabus: ckStructure,
 		};
-		try {
-			const response = await axios.post("http://localhost:8080/api/training/add", postData, {
-				headers: {
-					Authorization: `${auth.Token}`,
-					withCredentails: true,
-				},
-			});
-			if (response.status === 201) {
-				setShowSuccess(true);
-				setTimeout(() => {
+
+		if (enterdData.dropdown !== "null") {
+			try {
+				const response = await axios.post("http://localhost:8080/api/training/add", postData, {
+					headers: {
+						Authorization: `Bearer ${auth.Token}`,
+						withCredentails: true,
+					},
+				});
+				if (response.status === 201) {
+					setShowSuccess(true);
 					setTimeout(() => {
-						setShowSuccess(false);
-					}, 1000);
-					navigate("/admin/dashboard");
-				}, 2000);
+						setTimeout(() => {
+							setShowSuccess(false);
+						}, 1000);
+						navigate("/admin/dashboard");
+					}, 2000);
+				}
+			} catch (err) {
+				setShowFailed(true);
+				setTimeout(() => {
+					setShowFailed(false);
+				}, 1000);
 			}
-		} catch (error) {
-			console.log(error);
+		} else if (enterdData.dropdown === "null") {
+			setShowSelectCat(true);
+			setTimeout(() => {
+				setShowSelectCat(false);
+			}, 1000);
 		}
-		// console.log(postData);
 	};
 	const fileSelectedHandler = async (event) => {
 		setSelectedFile(event.target.files[0]);
@@ -89,18 +105,28 @@ const AddCourse = () => {
 		try {
 			let response = await axios.post("http://localhost:8080/api/file/single", fd, {
 				headers: {
-					Authorization: `${auth.Token}`,
+					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
 				},
 			});
-			// console.log(response.data);
-			console.log(response.data.path.path);
-			setUploadedURl(response.data.path.path);
+			if (response) {
+				setUploadedURl(response.data.path.path);
+				setShowSuccessUpload(true);
+				setShowImage(true);
+				setTimeout(() => {
+					setShowSuccessUpload(false);
+				}, 1000);
+			}
 		} catch (err) {
-			console.log(err);
+			setShowFailedUpload(true);
+			setTimeout(() => {
+				setShowFailedUpload(false);
+			}, 1000);
 		}
 	};
+
 	useEffect(() => {
+		//* This will put cursor to first input feild on the form.
 		addRef.current.focus();
 	}, []);
 
@@ -143,6 +169,7 @@ const AddCourse = () => {
 							<input name="course_Image" type="file" required onChange={fileSelectedHandler}></input>
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
+						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
 						<h1>Course Priority</h1>
 						<input name="course_Priority" type="number" required></input>
 						<h1>Rating</h1>
@@ -150,8 +177,9 @@ const AddCourse = () => {
 						<h1>Career Path</h1>
 						<input name="course_careerPath" type="text" required></input>
 						<h1>Course Category</h1>
+						{showSelectCat && <h1 style={{ color: "red" }}>Select a course category</h1>}
 						<select name="dropdown">
-							<option>Select Category</option>
+							<option value="null">Select Category</option>
 							{trainingCategory.map((Category) => (
 								<option key={uuid()} value={Category._id}>
 									{Category.course_type}
@@ -160,17 +188,23 @@ const AddCourse = () => {
 						</select>
 						<button className={style.Spantwo}>Create</button>
 					</form>
-					{/* <form onSubmit={handleUpload}>
-						<h1>Course Image</h1>
-						<input name="course_Image" type="file" required onChange={fileSelectedHandler}></input>
-						<button>Upload</button>
-					</form> */}
 				</div>
 			</div>
 			{showSuccess && (
-				<div className={style.successBoard}>
-					<h1>Course Added succesfully</h1>
-				</div>
+				//* Success Message on succesfull course addition
+				<MessageBoard Message_type="successBoard" Message="Course Added succesfully" />
+			)}
+			{showSuccessUpload && (
+				//* Success Message on succesfull course addition
+				<MessageBoard Message_type="successBoard" Message="Image uploaded succesfully" />
+			)}
+			{showFailed && (
+				//* failed Message on course addition
+				<MessageBoard Message_type="FailedBoard" Message="Could not add course. Please try again." />
+			)}
+			{showFailedUpload && (
+				//* failed Message on course addition
+				<MessageBoard Message_type="FailedBoard" Message="Could not upload image. Please try again." />
 			)}
 		</>
 	);

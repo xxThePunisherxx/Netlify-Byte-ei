@@ -24,24 +24,9 @@ export const Links = [
 		LinkName: "Contact",
 		Linkto: "/contact",
 	},
-	// {
-	// 	Key: 9,
-	// 	LinkName: "Admin",
-	// 	Linkto: "/admin",
-	// },
-	// {
-	// 	Key: 6,
-	// 	LinkName: "Gallery",
-	// 	Linkto: "/gallery",
-	// },
-	// {
-	// 	Key: 7,
-	// 	LinkName: "Verify",
-	// 	Linkto: "/verify",
-	// },
 	{
-		Key: 8,
-		LinkName: "Our Services",
-		Linkto: "/services",
+		Key: 6,
+		LinkName: "Student projects",
+		Linkto: "/studentProjects",
 	},
 ];

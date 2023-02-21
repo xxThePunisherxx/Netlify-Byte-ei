@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
+
 const useFetch = (url) => {
+	const { auth } = useAuth();
+
 	const [ispending, setIsPending] = useState(true);
 	const [data, setData] = useState({ training: [] });
 	const [error, setError] = useState(null);
@@ -9,7 +13,12 @@ const useFetch = (url) => {
 	useEffect(() => {
 		async function fetchData() {
 			try {
-				let response = await axios.get(url);
+				let response = await axios.get(url, {
+					headers: {
+						Authorization: `Bearer ${auth.Token}`,
+						withCredentails: true,
+					},
+				});
 				setData(response.data);
 				setIsPending(false);
 				setResponse(response);
@@ -24,6 +33,7 @@ const useFetch = (url) => {
 			}
 		}
 		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [url]);
 	return { data, ispending, error, response };
 };

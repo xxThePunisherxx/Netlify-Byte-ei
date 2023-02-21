@@ -1,14 +1,13 @@
 import React from "react";
 import { useRef, useEffect, useState } from "react";
 import style from "./Login.module.css";
-
 import axios from "axios";
-
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useLocation } from "react-router-dom";
 
 const Login = () => {
+	const d = new Date();
 	const usernameRef = useRef();
 	const errorRef = useRef();
 	const navigate = useNavigate();
@@ -20,7 +19,9 @@ const Login = () => {
 	const [errMsg, setErrMsg] = useState("");
 
 	useEffect(() => {
-		if (auth.Role === "admin") {
+		// redirect to dashboard if auth.role is present
+		if (auth.Role) {
+			// if (auth.Role === "admin") {
 			navigate("/admin/dashboard");
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,23 +43,16 @@ const Login = () => {
 		};
 
 		try {
-			console.log("try??");
-			const response = await axios.post("http://localhost:8080/api/user/login", postData, true, {
-				withCredentials: true,
-				crossorigin: true,
-
-				headers: { "Access-Control-Allow-Origin": "*", "Content-Type": "application/json" },
-				credentials: "include",
-			});
-
+			const response = await axios.post("http://localhost:8080/api/user/login", postData);
 			const accessToken = response?.data?.token;
 			const role = response?.data?.user.role;
 			let localData = { LocalToken: accessToken, LocalRole: role };
+			let lt = { StoreLoginTime: d.getTime() };
 			localStorage.setItem("User Info", JSON.stringify(localData));
+			localStorage.setItem("User time", JSON.stringify(lt));
 			setAuth({ AuthRole: role, AuthAccessToken: accessToken });
 			setemail("");
 			setPassword("");
-			console.log(from);
 			window.location.href = `${from}`;
 		} catch (err) {
 			if (!err?.response) {
@@ -91,7 +85,6 @@ const Login = () => {
 					<input type="text" id="username" ref={usernameRef} onChange={(e) => setemail(e.target.value)} value={email} required />
 					<label htmlFor="password">password:</label>
 					<input type="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
-					<h1>Having trouble in signing in??</h1>
 					<button>Sign in</button>
 				</form>
 			</div>

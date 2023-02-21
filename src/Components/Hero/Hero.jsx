@@ -6,15 +6,14 @@ import { ImageList } from "../../Data/Carousel";
 
 const Hero = () => {
 	return (
-		// <div className={style.Home_Container}>
 		<div className={style.Hero_Container}>
 			<div className={style.Hero}>
 				<div className={style.left}>
 					<h1>Improve your skills faster</h1>
 					<h2>Speed up the skill aquisition procress by finding courses that matches your niche.</h2>
-					<Link to={"/enroll"}>
-						<button>Enroll now</button>
-					</Link>
+					<button>
+						<Link to={"/enroll"}>Enroll now</Link>
+					</button>
 				</div>
 				<div className={style.mid}>
 					<Carousel images={ImageList} EnableautoPlay={true} ShowItemFor={8000} />

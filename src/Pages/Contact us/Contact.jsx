@@ -1,10 +1,6 @@
 import React from "react";
 import style from "./Contact.module.css";
 
-// import { GrMail } from "react-icons/gr";
-// import { ImLocation } from "react-icons/im";
-// import { BsFillTelephoneFill } from "react-icons/bs";
-
 const Contact = () => {
 	const handleMessageSubmit = (e) => {
 		e.preventDefault();
@@ -38,7 +34,7 @@ const Contact = () => {
 				</div>
 			</div>
 
-			<div className={style.FAQ_Wrapper}>
+			{/* <div className={style.FAQ_Wrapper}>
 				<div className={style.FAQ_header}>
 					<h1>
 						Some <span className={style.HeadingHighlight}>FAQs</span>
@@ -70,35 +66,6 @@ const Contact = () => {
 									aspernatur reprehenderit nulla porro voluptates facilis necessitatibus, placeat magnam aperiam sint.
 								</p>
 							</details>
-						</div>
-					</div>
-				</div>
-			</div>
-			{/* <div className={style.ContactInfo_wrapper}>
-				<div className={style.Visit_Heading}>
-					<h1>
-						Come and <span className={style.HeadingHighlight}>visit us</span>
-					</h1>
-					<div className={style.Visit_Info}>
-						<a href="tel:9876543210">
-							<div className={style.Visit_Info_Card}>
-								<BsFillTelephoneFill />
-								+977-987654321
-							</div>
-						</a>
-						<div
-							className={style.Visit_Info_Card}
-							onClick={(e) => {
-								window.location.href = "mailto:test@gmail.com";
-								e.preventDefault();
-							}}
-						>
-							<GrMail />
-							someone@gmail.com
-						</div>
-						<div className={style.Visit_Info_Card}>
-							<ImLocation />
-							Someplace
 						</div>
 					</div>
 				</div>

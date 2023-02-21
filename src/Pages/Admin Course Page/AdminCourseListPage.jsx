@@ -7,17 +7,18 @@ import { Link } from "react-router-dom";
 import useFetch from "../../Utils/Hooks/fetch";
 import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminCourseListPage = () => {
 	const { auth } = useAuth();
 
 	const [showSuccecss, setshowSuccecss] = useState(false);
+	const [showFail, setShowFail] = useState(false);
+
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
 	const { data: trainingResponse } = useFetch("http://localhost:8080/api/training");
-
 	const trainingData = trainingResponse.training;
-
 	const handleDeletePopup = (id) => {
 		setShowconfirmDelete(true);
 		setToDelete(id);
@@ -26,13 +27,13 @@ const AdminCourseListPage = () => {
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {
-		let response = await axios.delete("http://localhost:8080/api/training/delete/" + ToDelete, {
-			headers: {
-				Authorization: `${auth.Token}`,
-				withCredentails: true,
-			},
-		});
 		try {
+			let response = await axios.delete("http://localhost:8080/api/training/delete/" + ToDelete, {
+				headers: {
+					Authorization: `Bearer ${auth.Token}`,
+					withCredentails: true,
+				},
+			});
 			if (response.status === 201) {
 				setTimeout(() => {
 					setshowSuccecss(true);
@@ -40,10 +41,13 @@ const AdminCourseListPage = () => {
 						setshowSuccecss(false);
 					}, 1000);
 					window.location.reload();
-				}, 2000);
+				}, 1000);
 			}
 		} catch (error) {
-			console.log("Error" + error.message);
+			setShowFail(true);
+			setTimeout(() => {
+				setShowFail(false);
+			}, 1000);
 		}
 	};
 
@@ -102,10 +106,10 @@ const AdminCourseListPage = () => {
 					</div>
 				</div>
 			)}
-			{showSuccecss && (
-				<div className={style.successBoard}>
-					<h1>Deleted Succesfully</h1>
-				</div>
+			{showSuccecss && <MessageBoard Message_type="successBoard" Message="Course Deleted Succesfully" />}
+			{showFail && (
+				//* Fail Message
+				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />
 			)}
 		</>
 	);

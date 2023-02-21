@@ -45,17 +45,14 @@ function Carousel({ images, EnableautoPlay, ShowItemFor }) {
 				{/* {console.log(images)} */}
 				{images.map((image, index) => {
 					return (
-						<>
-							<Link to={image.Link}>
-								<div key={index} className={index === current ? "carousel_card carousel_card-active" : "carousel_card"}>
-									<img className={style.cardImage} src={image.image} alt="" />
-									<div className={style.cardOverlay}>
-										<h2 className={style.cardTitle}>{image.title}</h2>
-									</div>
-									{/* <h1 className={style.bottomtext}>{image.title}</h1>//FIXME: */}
+						<Link to={image.Link} key={index}>
+							<div className={index === current ? "carousel_card carousel_card-active" : "carousel_card"}>
+								<img className={style.cardImage} src={image.image} alt="" />
+								<div className={style.cardOverlay}>
+									<h2 className={style.cardTitle}>{image.title}</h2>
 								</div>
-							</Link>
-						</>
+							</div>
+						</Link>
 					);
 				})}
 				<div className={style.carouselArrowLeft} onClick={slideLeft}>

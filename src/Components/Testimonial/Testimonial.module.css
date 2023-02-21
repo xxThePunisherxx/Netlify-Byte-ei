@@ -1,16 +1,30 @@
-:root {
-    --headingOne-size: 5rem;
-    --headingOneHighlight-color: #0f5288;
-}
-
-
 .MainHeading {
     text-align: center;
-    font-size: var(--headingOne-size);
+    font-size: 5rem;
     padding: 5rem;
     text-transform: capitalize;
 }
 
 .HeadingHighlight {
-    color: var(--headingOneHighlight-color);
+    color: #0f5288;
+}
+
+@media screen and (max-width: 960px) {
+    .MainHeading {
+        font-size: 4rem;
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: 669px) {
+    .MainHeading {
+        font-size: 3rem;
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .MainHeading {
+        display: none;
+    }
 }

@@ -1,13 +1,3 @@
-:root {
-    /* --Heading-div--padding: 2rem; */
-    --main-Heading1: 5rem;
-    --main-Heading2: 1.5rem;
-    --main-Heading-highlight: #0f5288;
-    --form-input-fontSize: 5rem;
-    --formLabel-fontSize: 1rem;
-    --submit-fontSize: 1rem;
-}
-
 .AddCourseWrapper {
     display: grid;
     place-items: center;
@@ -21,12 +11,12 @@
 }
 
 .heading h1 {
-    font-size: var(--main-Heading1);
+    font-size: 5rem;
     text-transform: capitalize;
 }
 
 .Headinghighlight {
-    color: var(--main-Heading-highlight);
+    color: #0f5288;
 }
 
 .AddCourse form {
@@ -76,7 +66,7 @@
     cursor: pointer;
     margin: 0 auto;
     margin-top: 20px;
-    font-size: var(--submit-fontSize);
+    font-size: 2rem;
     width: fit-content;
     display: flex;
     padding: 0.6em 1.1em;
@@ -118,12 +108,20 @@
     margin-bottom: 20px;
 }
 
-@media screen and (max-width:1024px) {
-    :root {
-        --Heading-div--padding: 1.5rem;
-        --main-Heading1: 4rem;
-        --form-input-fontSize: 1.5rem;
-        --formLabel-fontSize: 1.5rem;
-        --submit-fontSize: 1.5rem;
-    }
+.ImageUpload {
+    display: flex;
+    width: 1100px;
+}
+
+.ImageUpload input {
+    width: 70%;
+}
+
+.ImageUpload button {
+    font-size: 1rem;
+}
+
+.Uplaod_Img {
+    margin-top: 20px;
+    width: 300px;
 }

@@ -125,7 +125,7 @@
     }
 
     .MainHeading {
-        font-size: 4rem;
+        font-size: 5rem;
         padding: 4rem;
     }
 
@@ -143,7 +143,7 @@
     }
 
     .MainHeading {
-        font-size: 4rem;
+        font-size: 5rem;
         padding: 4rem;
     }
 
@@ -155,10 +155,10 @@
 }
 
 @media screen and (max-width: 1440px) {
-    :root {
+    /* :root {
         --gridColumns: repeat(3, 300px);
         --headingOne-size: 4rem;
-    }
+    } */
 
     .Training img {
         width: 100%;
@@ -170,7 +170,7 @@
     }
 
     .MainHeading {
-        font-size: 4rem;
+        font-size: 5rem;
         padding: 4rem;
     }
 }
@@ -228,7 +228,7 @@
     }
 
     .MainHeading {
-        font-size: 2rem;
+        font-size: 3rem;
         padding: 2rem;
     }
 

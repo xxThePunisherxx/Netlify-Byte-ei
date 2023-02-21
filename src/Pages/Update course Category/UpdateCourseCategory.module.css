@@ -1,16 +1,6 @@
-:root {
-    /* --Heading-div--padding: 2rem; */
-    --main-Heading1: 5rem;
-    --main-Heading2: 1.5rem;
-    --main-Heading-highlight: #0f5288;
-    --form-input-fontSize: 2rem;
-    --formLabel-fontSize: 2rem;
-    --submit-fontSize: 2rem;
-}
-
 .UpdateCourseCategoryWrapper {
     display: grid;
-    place-items: center;
+    justify-items: center;
 
 }
 
@@ -21,40 +11,36 @@
 }
 
 .heading h1 {
-    font-size: var(--main-Heading1);
+    font-size: 5rem;
     text-transform: capitalize;
 }
 
 .Headinghighlight {
-    color: var(--main-Heading-highlight);
+    color: #0f5288;
 }
 
 .UpdateCourseCategory form {
     padding: 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
-    row-gap: 10px;
-    align-items: center;
+
 }
 
-.FormWrapper input,
-.FormWrapper textarea {
-    font-size: var(--form-input-fontSize);
+.FormWrapper input {
+    font-size: 1.5rem;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     padding: 15px;
-    margin: 10px 20px;
-    border-radius: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 1100px;
 }
 
 .FormWrapper h1 {
-    font-size: var(--formLabel-fontSize);
-    /* text-align: center; */
+    font-size: 1.5rem;
+
 }
 
 .FormWrapper select {
-    font-size: var(--form-input-fontSize);
+    font-size: 1.5rem;
     border-radius: 5px;
     border: 2px solid black;
     padding: 15px;
@@ -72,37 +58,25 @@
     cursor: pointer;
     margin: 0 auto;
     margin-top: 20px;
-    font-size: var(--submit-fontSize);
+    font-size: 2rem;
     width: fit-content;
     display: flex;
     padding: 0.6em 1.1em;
     gap: 0.4rem;
     font-weight: bold;
-    border-radius: 20px;
-    background: linear-gradient(45deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
-    background-size: 300%;
-    background-position: left center;
-    transition: background .3s ease-in-out;
-    color: #fff;
+    background-color: #0f5288;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
     border: none;
 
 }
 
 .FormWrapper button:hover {
-    background-size: 320%;
-    background-position: right center;
+    background-color: #0071e2;
+    color: black;
 }
 
 .Spantwo {
     grid-column: 1 / span 2;
-}
-
-@media screen and (max-width:1024px) {
-    :root {
-        --Heading-div--padding: 1.5rem;
-        --main-Heading1: 4rem;
-        --form-input-fontSize: 1.5rem;
-        --formLabel-fontSize: 1.5rem;
-        --submit-fontSize: 1.5rem;
-    }
 }
