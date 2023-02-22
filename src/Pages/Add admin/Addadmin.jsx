@@ -77,7 +77,7 @@ const Addadmin = () => {
 				name: enterdData.user_Name,
 			};
 			try {
-				const response = await axios.post("http://localhost:8080/api/user/register", postData, {
+				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/user/register", postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,

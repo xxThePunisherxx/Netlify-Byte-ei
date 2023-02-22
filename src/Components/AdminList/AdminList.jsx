@@ -16,7 +16,7 @@ const AdminList = () => {
 	const [showFail, setShowFail] = useState(false);
 	const dummyArr = [0, 1, 2]; // just for adding skeleton.
 	const { auth } = useAuth();
-	const { data: trainingData, ispending } = useFetchAuth("http://localhost:8080/api/user/admin/users");
+	const { data: trainingData, ispending } = useFetchAuth("https://learning-management-system-kx6y.onrender.com/api/user/admin/users");
 	const handleDeletePopup = (id) => {
 		// show popup for confirming delete.
 		setShowconfirmDelete(true);
@@ -29,7 +29,7 @@ const AdminList = () => {
 
 	const handleConfirm = async () => {
 		try {
-			let response = await axios.delete("http://localhost:8080/api/user/delete/" + ToDelete, {
+			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/user/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

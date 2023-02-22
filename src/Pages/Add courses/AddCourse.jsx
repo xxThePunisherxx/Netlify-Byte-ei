@@ -29,7 +29,7 @@ const AddCourse = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				let response = await axios.get("http://localhost:8080/api/category", {
+				let response = await axios.get("https://learning-management-system-kx6y.onrender.com/api/category", {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -67,7 +67,7 @@ const AddCourse = () => {
 
 		if (enterdData.dropdown !== "null") {
 			try {
-				const response = await axios.post("http://localhost:8080/api/training/add", postData, {
+				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/training/add", postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -103,7 +103,7 @@ const AddCourse = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("http://localhost:8080/api/file/single", fd, {
+			let response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

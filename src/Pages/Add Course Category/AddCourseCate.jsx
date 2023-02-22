@@ -24,7 +24,7 @@ const AddCourseCate = () => {
 			course_type: enterdData.course_Category,
 		};
 		try {
-			const response = await axios.post("http://localhost:8080/api/category/add", postData, {
+			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/category/add", postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

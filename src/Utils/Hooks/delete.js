@@ -9,8 +9,8 @@ const useDelete = (url, id) => {
 	useEffect(() => {
 		async function fetchData() {
 			try {
-				// 	let response = await axios.get("http://localhost:8080/api/training");
-				let response = await axios.delete("http://localhost:8080/api/training/delete/" + id);
+				// 	let response = await axios.get("https://learning-management-system-kx6y.onrender.com/api/training");
+				let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/training/delete/" + id);
 				// 	setData(response.data);
 				// setIsDeleting(false);
 				setResponse(response);

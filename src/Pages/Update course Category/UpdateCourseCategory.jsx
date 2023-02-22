@@ -15,7 +15,7 @@ const UpdateCourseCategory = () => {
 	const navigate = useNavigate();
 	const editcatRef = useRef();
 	const { categoryID } = useParams();
-	const { data: UserData, ispending } = useFetchAuth(`http://localhost:8080/api/category/${categoryID}`);
+	const { data: UserData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/category/${categoryID}`);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -26,7 +26,7 @@ const UpdateCourseCategory = () => {
 			course_type: enterdData.course_Category,
 		};
 		try {
-			const response = await axios.put(`http://localhost:8080/api/category/update/${categoryID}`, postData, {
+			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/category/update/${categoryID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

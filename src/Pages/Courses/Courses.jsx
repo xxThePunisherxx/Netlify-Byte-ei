@@ -6,7 +6,7 @@ import useFetch from "../../Utils/Hooks/fetch";
 const Courses = () => {
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7]; // just for adding skeleton.
 
-	const { data: trainingData, ispending } = useFetch("http://localhost:8080/api/training");
+	const { data: trainingData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
 	let TrrainingDataArr = trainingData?.training;
 
 	return (

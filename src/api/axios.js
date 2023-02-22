@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-	baseURL: "http://localhost:8080",
+	baseURL: "https://learning-management-system-kx6y.onrender.com",
 });

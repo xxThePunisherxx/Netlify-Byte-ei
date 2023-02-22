@@ -17,7 +17,7 @@ const CourseCategoryList = () => {
 	const [showFail, setShowFail] = useState(false);
 
 	const dummyArr = [0, 1, 2, 3, 4, 5]; // just for adding skeleton.
-	const { data: trainingData, ispending } = useFetchAuth("http://localhost:8080/api/category");
+	const { data: trainingData, ispending } = useFetchAuth("https://learning-management-system-kx6y.onrender.com/api/category");
 	//  * new function
 	const handleDeletePopup = (id) => {
 		// show popup for confirming delete.
@@ -32,7 +32,7 @@ const CourseCategoryList = () => {
 	const handleConfirm = async () => {
 		// console.log("sdadasd");
 		try {
-			let response = await axios.delete("http://localhost:8080/api/category/delete/" + ToDelete, {
+			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/category/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

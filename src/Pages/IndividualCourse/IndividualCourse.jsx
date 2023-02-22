@@ -13,7 +13,7 @@ const IndividualCourse = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				let response = await axios.get("http://localhost:8080/api/training/" + courseID);
+				let response = await axios.get("https://learning-management-system-kx6y.onrender.com/api/training/" + courseID);
 				setIndividualTrainingData(response.data.trainings);
 			} catch (error) {
 				if (error.response) {

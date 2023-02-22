@@ -14,7 +14,7 @@ const UpdateAdmin = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
 
-	const { data: UserData, ispending } = useFetchAuth(`http://localhost:8080/api/user/admin/user/${adminID}`);
+	const { data: UserData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/user/admin/user/${adminID}`);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,7 +30,7 @@ const UpdateAdmin = () => {
 		}
 
 		try {
-			const response = await axios.put(`http://localhost:8080/api/user/role/${adminID}`, postData, {
+			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/user/role/${adminID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

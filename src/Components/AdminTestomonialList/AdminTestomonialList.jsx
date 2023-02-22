@@ -16,7 +16,7 @@ const AdminTestomonialList = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
-	const { data: TestomonialResponse, ispending } = useFetch("http://localhost:8080/api/testimonial");
+	const { data: TestomonialResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/testimonial");
 
 	const handleDeletePopup = (id) => {
 		// show popup for confirming delete.
@@ -29,7 +29,7 @@ const AdminTestomonialList = () => {
 	};
 	const handleConfirm = async () => {
 		try {
-			let response = await axios.delete("http://localhost:8080/api/testimonial/delete/" + ToDelete, {
+			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/testimonial/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

@@ -4,7 +4,7 @@ import TestomonialCarousel from "../../Components/TestomonialCarousel/Testomonia
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Testimonial = () => {
-	const { data: TestomonialServerResponse, ispending } = useFetch("http://localhost:8080/api/testimonial");
+	const { data: TestomonialServerResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/testimonial");
 	const Testominials = TestomonialServerResponse.testimonial;
 
 	return (
