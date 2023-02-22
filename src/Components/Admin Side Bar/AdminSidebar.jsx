@@ -18,7 +18,7 @@ const AdminSidebar = () => {
 		<div className={style.AdminSidebarWrapper}>
 			<div className={style.AdminSidebar}>
 				<div className={style.Logo}>
-					<Link to={"admin/dashboard"}>
+					<Link to={"/admin/dashboard"}>
 						<img src={Logo} alt="" />
 					</Link>
 				</div>
