@@ -32,6 +32,7 @@ import AddTeam from "./Pages/AddTeam/AddTeam";
 import UpdateTeam from "./Pages/UpdateTeam/UpdateTeam";
 import InquireyForm from "./Components/Inquirey/InquireyForm";
 import AddPlacementPartnet from "./Pages/AddPlacementPartner/AddPlacementPartnet";
+import AdminTeamListPage from "./Pages/AdminTeamListPage/AdminTeamListPage";
 
 function App() {
 	return (
@@ -68,6 +69,7 @@ function App() {
 						<Route path="dashboard" element={<AdminDashboard />} />
 						<Route path="addCategory" element={<AddCourseCate />} />
 						<Route path="allCourse" element={<AdminCourseListPage />} />
+						<Route path="allTeam" element={<AdminTeamListPage />} />
 						<Route path="addTestomonial" element={<AddTestomonial />} />
 						<Route path="addTeam" element={<AddTeam />} />
 						<Route path="addPlacementPartner" element={<AddPlacementPartnet />} />

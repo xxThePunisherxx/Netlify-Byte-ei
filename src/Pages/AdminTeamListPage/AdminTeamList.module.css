@@ -17,7 +17,6 @@
     column-gap: 20px;
     row-gap: 30px;
     transition: all ease 2s;
-    justify-items: center;
 }
 
 .AdminCourseCard {
@@ -206,29 +205,6 @@
     grid-template-columns: repeat(4, 350px);
     column-gap: 20px;
     row-gap: 20px;
-}
-
-.new {
-    cursor: pointer;
-    margin: 20px auto;
-    /* margin-top: 20px; */
-    font-size: 2rem;
-    display: flex;
-    padding: 0.6em 1.1em;
-    gap: 0.4rem;
-    font-weight: bold;
-    background-color: #2bb673;
-    border-radius: 10px;
-    transition: all ease-in .2s;
-    color: white;
-    border: none;
-
-}
-
-.new:hover {
-    color: #2bb673;
-    background-color: white;
-    border: 1px solid #2bb673;
 }
 
 .Skel .imgDiv {

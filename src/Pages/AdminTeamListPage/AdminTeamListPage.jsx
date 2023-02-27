@@ -9,7 +9,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import MessageBoard from "../../Components/Message Board/MessageBoard";
 
-const AdminTeamList = () => {
+const AdminTeamListPage = () => {
 	const { auth } = useAuth();
 	const dummyArr = [0, 1, 2, 3]; // just for adding skeleton.
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
@@ -71,7 +71,7 @@ const AdminTeamList = () => {
 							</div>
 						)}
 						{!ispending &&
-							TeamResponse.team.slice(0, 8).map((Team) => (
+							TeamResponse.team.map((Team) => (
 								<div key={uuid()} className={style.AdminCourseCard}>
 									<div className={style.AdminCourseCard_Info}>
 										<img src={Team.image} alt={Team.title}></img>
@@ -84,6 +84,7 @@ const AdminTeamList = () => {
 												<MdModeEditOutline />
 											</button>
 										</Link>
+
 										<button className={style.Delete_Btn} onClick={() => handleDeletePopup(Team._id)}>
 											<MdDeleteSweep />
 										</button>
@@ -91,11 +92,6 @@ const AdminTeamList = () => {
 								</div>
 							))}
 					</div>
-					{!ispending && (
-						<Link to={"/admin/allTeam"}>
-							<button className={style.new}>View All</button>
-						</Link>
-					)}
 				</div>
 			</div>
 			{ShowconfirmDelete && (
@@ -127,4 +123,4 @@ const AdminTeamList = () => {
 	);
 };
 
-export default AdminTeamList;
+export default AdminTeamListPage;
