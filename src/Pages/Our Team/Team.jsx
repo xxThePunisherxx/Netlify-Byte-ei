@@ -2,8 +2,8 @@ import React from "react";
 import style from "./Team.module.css";
 import uuid from "react-uuid";
 // import { TeamList } from "../../Data/TeamList";
-import { SiGmail } from "react-icons/si";
-import { FaTwitter } from "react-icons/fa";
+// import { SiGmail } from "react-icons/si";
+// import { FaTwitter } from "react-icons/fa";
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Team = () => {
