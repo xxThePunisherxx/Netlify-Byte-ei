@@ -1,17 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useRef } from "react";
-import style from "./AddTestomonial.module.css";
+import style from "./AddTeam.module.css";
 import axios from "axios";
-import useFetch from "../../Utils/Hooks/fetch";
 import useAuth from "../../hooks/useAuth";
-import uuid from "react-uuid";
 import MessageBoard from "../../Components/Message Board/MessageBoard";
 
-const AddTestomonial = () => {
-	const testominialRef = useRef();
+const AddTeam = () => {
+	const teamRef = useRef();
 	const { auth } = useAuth();
 	const navigate = useNavigate();
 	const [selectedFile, setSelectedFile] = useState();
@@ -21,57 +18,41 @@ const AddTestomonial = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
 	const [showImage, setShowImage] = useState(false);
-	const [showMaxLen, setShowMaxLen] = useState(false);
-	const [showSelectCat, setShowSelectCat] = useState(false);
-
-	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-		if (enterdData.testominial.length > 300) {
-			setShowMaxLen(true);
-			setTimeout(() => {
-				setShowMaxLen(false);
-			}, 3000);
-		}
-
+		console.log(enterdData);
 		const postData = {
-			name: enterdData.students_name,
+			name: enterdData.team_name,
+			position: enterdData.team_position,
+			socialPlatform: enterdData.team_social_email,
+			email: enterdData.team_email,
 			image: uploadedURl,
-			description: enterdData.testominial,
-			course: enterdData.dropDown,
 		};
-		if (enterdData.dropdown !== "null" && enterdData.testominial.length < 300) {
-			console.log("Asdadkhgasdjgasd");
-			try {
-				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/testimonial/add", postData, {
-					headers: {
-						Authorization: `Bearer ${auth.Token}`,
-						withCredentails: true,
-					},
-				});
-				if (response.status === 201) {
-					setShowSuccess(true);
-					setTimeout(() => {
-						setTimeout(() => {
-							setShowSuccess(false);
-						}, 1000);
-						navigate("/admin/dashboard");
-					}, 2000);
-				}
-			} catch (err) {
-				setShowFailed(true);
+
+		try {
+			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/team/add", postData, {
+				headers: {
+					Authorization: `Bearer ${auth.Token}`,
+					withCredentails: true,
+				},
+			});
+			if (response.status === 201) {
+				setShowSuccess(true);
 				setTimeout(() => {
-					setShowFailed(false);
-				}, 1000);
+					setTimeout(() => {
+						setShowSuccess(false);
+					}, 1000);
+					navigate("/admin/dashboard");
+				}, 2000);
 			}
-		} else if (enterdData.dropdown === "null") {
-			setShowSelectCat(true);
+		} catch (err) {
+			setShowFailed(true);
 			setTimeout(() => {
-				setShowSelectCat(false);
-			}, 3000);
+				setShowFailed(false);
+			}, 1000);
 		}
 	};
 	// file upload functions
@@ -105,7 +86,7 @@ const AddTestomonial = () => {
 		}
 	};
 	useEffect(() => {
-		testominialRef.current.focus();
+		teamRef.current.focus();
 	}, []);
 
 	return (
@@ -113,30 +94,23 @@ const AddTestomonial = () => {
 			<div className={style.AddTestomonial_Wrapper}>
 				<div className="AddTestomonial">
 					<h1>
-						Add <span className={style.Heading_Highlight}>Testominial</span>
+						Add <span className={style.Heading_Highlight}>Team Member</span>
 					</h1>
 					<form onSubmit={handleSubmit} autoComplete="off" className={style.Form_Wrapper}>
-						<h1>Students name</h1>
-						<input name="students_name" type="text" required ref={testominialRef}></input>
-						<h1>Students photo</h1>
+						<h1>Full Name</h1>
+						<input name="team_name" type="text" required ref={teamRef}></input>
+						<h1>Image</h1>
 						<div className={style.ImageUpload}>
-							<input name="students_Image" type="file" onChange={fileSelectedHandler}></input>
+							<input name="team_Image" type="file" required onChange={fileSelectedHandler}></input>
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-						<h1 className={style.ck}>Testomonial </h1>
-						{showMaxLen && <h1 style={{ color: "red" }}>Maximum of 300 characters</h1>}
-						<textarea name="testominial" rows="5" cols="40" placeholder="Max length 300 characters"></textarea>
-						<h1>Course Enrolled</h1>
-						{showSelectCat && <h1 style={{ color: "red" }}>Select a course category</h1>}
-						<select name="dropDown">
-							<option value="null">Select Category</option>
-							{trainingResponse.training.map((Category) => (
-								<option key={uuid()} value={Category.title}>
-									{Category.title}
-								</option>
-							))}
-						</select>
+						<h1>Position</h1>
+						<input name="team_position" type="text" required></input>
+						<h1>Email</h1>
+						<input name="team_email" type="email" required></input>
+						<h1>Social Link</h1>
+						<input name="team_social_email" type="text" required></input>
 						<button>Submit</button>
 					</form>
 				</div>
@@ -144,7 +118,7 @@ const AddTestomonial = () => {
 
 			{showSuccess && (
 				//* Success Message on succesfull course addition
-				<MessageBoard Message_type="successBoard" Message="Testomonial Added Succesfully" />
+				<MessageBoard Message_type="successBoard" Message=" Added Succesfully" />
 			)}
 			{showSuccessUpload && (
 				//* Success Message on succesfull course addition
@@ -152,7 +126,7 @@ const AddTestomonial = () => {
 			)}
 			{showFailed && (
 				//* failed Message on course addition
-				<MessageBoard Message_type="FailedBoard" Message="Could not add testomonial. Please try again." />
+				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />
 			)}
 			{showFailedUpload && (
 				//* failed Message on course addition
@@ -162,4 +136,4 @@ const AddTestomonial = () => {
 	);
 };
 
-export default AddTestomonial;
+export default AddTeam;

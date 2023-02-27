@@ -2,9 +2,13 @@ import React from "react";
 import style from "./Hero.module.css";
 import { Link } from "react-router-dom";
 import Carousel from "../Carousel/Carousel";
-import { ImageList } from "../../Data/Carousel";
+import useFetch from "../../Utils/Hooks/fetch";
 
 const Hero = () => {
+	const { data: trainingData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const filteredData = trainingData.training.filter((Individual) => Individual.priority < 8);
+	console.log(filteredData);
+
 	return (
 		<div className={style.Hero_Container}>
 			<div className={style.Hero}>
@@ -16,11 +20,17 @@ const Hero = () => {
 					</button>
 				</div>
 				<div className={style.mid}>
-					<Carousel images={ImageList} EnableautoPlay={true} ShowItemFor={8000} />
+					{ispending && (
+						<div className="loader">
+							<div className="scanner">
+								<span>Loading...</span>
+							</div>
+						</div>
+					)}
+					{!ispending && <Carousel images={filteredData} EnableautoPlay={false} ShowItemFor={8000} />}
 				</div>
 			</div>
 		</div>
-		// </div>
 	);
 };
 

@@ -43,6 +43,7 @@
 .DashboardLinks a h1 {
     font-size: 1.5rem;
     display: inline-block;
+    transition: all ease-in .2s;
 }
 
 .DashboardLinks a:last-child {
@@ -50,8 +51,9 @@
 
 }
 
-.DashboardLinks a:hover {
-    color: #0f5288;
+.DashboardLinks a h1:hover {
+    color: #2bb673;
+    /* font-size: 3rem; */
 }
 
 

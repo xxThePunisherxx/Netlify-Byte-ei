@@ -54,7 +54,12 @@ const AdminCourseListPage = () => {
 	return (
 		<>
 			<div className={style.allCourseWrapper}>
-				<h1>Active Courses</h1>
+				{/* <h1>Active Courses</h1> */}
+				<div className={style.heading}>
+					<h1>
+						Add <span className={style.Headinghighlight}> Course</span>
+					</h1>
+				</div>
 				<div className={style.allCourseGrid}>
 					{trainingData.map((Training) => (
 						<div key={uuid()} className={style.AdminCourseCard}>

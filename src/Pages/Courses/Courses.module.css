@@ -20,7 +20,7 @@
 }
 
 .HeadingHighlight {
-    color: #0f5288;
+    color: #2bb673;
 }
 
 .Training {
@@ -56,7 +56,7 @@
     padding: 0.4em .5em;
     gap: 0.4rem;
     font-weight: bold;
-    background-color: #0f5288;
+    background-color: #2bb673;
     border-radius: 10px;
     transition: all ease-in .2s;
     color: white;
@@ -64,8 +64,9 @@
 }
 
 .TrainingContainer button:hover {
-    background-color: #0071e2;
-    color: black;
+    color: #2bb673;
+    background-color: white;
+    border: 1px solid #2bb673;
 }
 
 .Skel .imgDiv {

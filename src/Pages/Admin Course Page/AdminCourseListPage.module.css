@@ -7,6 +7,17 @@
     transition: all ease 2s;
 }
 
+.heading h1 {
+    font-size: 5rem;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 2rem;
+}
+
+.Headinghighlight {
+    color: #2bb673;
+}
+
 .AdminCourseCard {
     transition: transform ease .2s;
     display: grid;

@@ -32,23 +32,22 @@ const IndividualCourse = () => {
 			<div className={style.Training_header}>
 				<div className={style.Training_contents}>
 					<h1>{IndividualtrainingData.title}</h1>
-					<h2>Short description: still left to be implemented on backend</h2>
 					<div className={style.Training_header_sub}>
 						<h2>
-							<FaClock /> &nbsp; Duration: {IndividualtrainingData.duration}
+							<FaClock /> &nbsp; Duration &nbsp; {IndividualtrainingData.duration}
 						</h2>
 
 						<h2>
-							<FaUserTie /> &nbsp; Career: {IndividualtrainingData.career}
+							<FaUserTie /> &nbsp; Career&nbsp; {IndividualtrainingData.career}
 						</h2>
 					</div>
 					<div className={style.training_header_btn}>
-						<Link to={"/inquiry/googleForm"}>
+						<Link to={"/inquiry"}>
 							<button>Send Enquiry</button>
 						</Link>
 
 						<button>
-							<Link to={"/enroll/googleForm"}>
+							<Link to={"/enroll"}>
 								Enroll
 								<div className={style.arrow_wrapper}>
 									<div className={style.arrow}></div>
@@ -60,21 +59,12 @@ const IndividualCourse = () => {
 			</div>
 			<div className={style.Training_DescriptionWrapper}>
 				<div className={style.Training_Description}>
-					<h1>{IndividualtrainingData.title}</h1>
-					<p dangerouslySetInnerHTML={{ __html: IndividualtrainingData.description }}></p>
+					<h1 className={style.Description_Heading}>{IndividualtrainingData.title}</h1>
+					<div dangerouslySetInnerHTML={{ __html: IndividualtrainingData.description }}></div>
 				</div>
 				<div className={style.course_overview}>
 					<div className={style.BannerHeading}>
 						<h1>Course Outline</h1>
-						{/* <h1>
-							Course Outline:&nbsp;<span className={style.course_overview_title_span}>{IndividualtrainingData.title}</span>
-						</h1> */}
-						{/*  //! are we keeping it?? */}
-						{/* <div className={style.arrow}>
-							<button>
-								<AiFillCaretDown />
-							</button>
-						</div> */}
 					</div>
 
 					<div>
@@ -84,13 +74,6 @@ const IndividualCourse = () => {
 					</div>
 				</div>
 			</div>
-			{/* //TODO: are we gonna implement this ?? */}
-			{/* <div className={style.succesStory}>
-				<h1>Card for students who get employeed after completing this training.</h1>
-			</div> */}
-			{/* <div className={style.upComming}>
-				<h1>list of next intake starting and end data </h1>
-			</div> */}
 		</div>
 	);
 };

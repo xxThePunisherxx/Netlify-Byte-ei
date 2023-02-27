@@ -1,32 +1,39 @@
-.AddCourseCategoryWrapper {
-    display: grid;
-    place-items: center;
-
-}
-
-.AddCourseCategory {
+.EnrollFormComp_Wrapper {
+    padding: 2rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.heading h1 {
+.form_Headings {
+    padding: 2rem;
+}
+
+.form_Headings h1 {
     font-size: 5rem;
-    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.Headinghighlight {
+.Heading_hightlight {
     color: #2bb673;
 }
 
-.AddCourseCategory form {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
+.mandatory_hightlight {
+    color: red;
+    font-size: 1.5rem;
 }
 
-.FormWrapper input,
-.FormWrapper textarea {
+.Enrorll_FormWrappper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+
+.EnrollFormComp_Wrapper input,
+.EnrollFormComp_Wrapper textarea {
     font-size: 1.5rem;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -34,20 +41,15 @@
     margin-top: 10px;
     border-radius: 10px;
     width: 1100px;
-}
-
-.FormWrapper h1 {
-    font-size: 1.5rem;
 
 }
 
-
-.FormWrapper input:focus,
-.FormWrapper textarea:focus {
+.EnrollFormComp_Wrapper input:focus,
+.EnrollFormComp_Wrapper textarea:focus {
     background-color: #b9b9b9;
 }
 
-.FormWrapper button {
+.Enrorll_FormWrappper button {
     cursor: pointer;
     margin: 0 auto;
     margin-top: 20px;
@@ -65,12 +67,20 @@
     border: none;
 }
 
-.FormWrapper button:hover {
+.Enrorll_FormWrappper button:hover {
     color: #2bb673;
     background-color: white;
     border: 1px solid #2bb673;
 }
 
-.Spantwo {
-    grid-column: 1 / span 2;
+
+.Enrorll_FormWrappper select {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 1100px;
 }

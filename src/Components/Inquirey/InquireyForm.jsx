@@ -1,10 +1,10 @@
 import React from "react";
 import { useRef, useEffect } from "react";
-import style from "./EnrollForm.module.css";
+import style from "./InquireyForm.module.css";
 import useFetch from "../../Utils/Hooks/fetch";
 import uuid from "react-uuid";
 
-const EnrollForm = () => {
+const InquireyForm = () => {
 	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
 
 	const EnrollRef = useRef();
@@ -24,7 +24,7 @@ const EnrollForm = () => {
 		<div className={style.EnrollFormComp_Wrapper}>
 			<div className={style.form_Headings}>
 				<h1>
-					Enroll <span className={style.Heading_hightlight}> Form</span>
+					Inquirey <span className={style.Heading_hightlight}> Form</span>
 				</h1>
 				<h2>
 					Please fill out the form below to get started. All feilds with (<span className={style.mandatory_hightlight}>*</span>) are mandatory
@@ -54,12 +54,12 @@ const EnrollForm = () => {
 				<input name="mobile number" type="text" required></input>
 
 				<h1>
-					Academic Level
+					Message
 					<span className={style.mandatory_hightlight}>
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
-				<input name="Academic level" type="text" required></input>
+				<textarea name="Message" type="text" rows={10} required></textarea>
 				<h1>
 					Course
 					<span className={style.mandatory_hightlight}>
@@ -80,4 +80,4 @@ const EnrollForm = () => {
 	);
 };
 
-export default EnrollForm;
+export default InquireyForm;

@@ -79,6 +79,26 @@ const AdminSidebar = () => {
 						className={({ isActive }) => {
 							return "AdminDash-" + (isActive ? "Active" : "Inactive");
 						}}
+						to={"/admin/addTeam"}
+					>
+						<h1>
+							<AiOutlineAppstoreAdd /> &nbsp;Add Team member
+						</h1>
+					</NavLink>
+					<NavLink
+						className={({ isActive }) => {
+							return "AdminDash-" + (isActive ? "Active" : "Inactive");
+						}}
+						to={"/admin/addPlacementPartner"}
+					>
+						<h1>
+							<AiOutlineAppstoreAdd /> &nbsp;Add Placement Partner
+						</h1>
+					</NavLink>
+					<NavLink
+						className={({ isActive }) => {
+							return "AdminDash-" + (isActive ? "Active" : "Inactive");
+						}}
 						to={"/"}
 					>
 						<h1>
