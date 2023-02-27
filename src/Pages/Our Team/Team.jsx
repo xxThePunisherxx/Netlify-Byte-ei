@@ -38,10 +38,12 @@ const Team = () => {
 						{TeamResponse.team.map((Person) => (
 							<div key={uuid()} className={style.Individual}>
 								<img src={Person.image} alt={Person.name} />
-								<h1>{Person.name || "No server response"}</h1>
+								<h1>{Person.name}</h1>
 								<div className={style.Details_Grid}>
-									<h2>{Person.position || "No server response"}</h2>
-									<div className={style.Social_Links}>
+									<div className={style.Text_Ellipse}>
+										<h2>{Person.position}</h2>
+									</div>
+									{/* <div className={style.Social_Links}>
 										<SiGmail
 											onClick={(e) => {
 												window.location.href = `mailto:${Person.email}`;
@@ -51,7 +53,7 @@ const Team = () => {
 										<a href={Person.socialPlatform}>
 											<FaTwitter />
 										</a>
-									</div>
+									</div> */}
 								</div>
 							</div>
 						))}

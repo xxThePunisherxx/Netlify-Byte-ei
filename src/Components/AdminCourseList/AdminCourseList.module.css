@@ -1,5 +1,5 @@
 .Heading_Highlight {
-    color: #0f5288;
+    color: #2bb673;
 }
 
 .allCourseWrapper_Heading h1 {
@@ -86,18 +86,17 @@
     padding: 0.6em 1.1em;
     gap: 0.4rem;
     font-weight: bold;
-    background-color: #0f5288;
+    background-color: #2bb673;
     border-radius: 10px;
     transition: all ease-in .2s;
-
     color: white;
     border: none;
-
 }
 
 .new:hover {
-    background-color: #0071e2;
-    color: black;
+    color: #2bb673;
+    background-color: white;
+    border: 1px solid #2bb673;
 }
 
 .popup {

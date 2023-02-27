@@ -98,7 +98,7 @@ const RemoveCourse = () => {
 			career: enterdData.course_careerPath,
 			syllabus: ckStructure,
 		};
-		console.log(postData);
+
 		try {
 			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/training/update/${courseID}`, postData, {
 				headers: {
@@ -115,10 +115,6 @@ const RemoveCourse = () => {
 					navigate("/admin/dashboard");
 				}, 2000);
 			}
-			// console.log(response);
-			// setTimeout(() => {
-			// 	navigate("/admin/dashboard");
-			// }, 1000);
 		} catch (error) {
 			// console.log(error);
 			setShowFailed(true);
@@ -193,13 +189,11 @@ const RemoveCourse = () => {
 							}}
 						/>
 						<h1>Course Image</h1>
-						{/* <input name="course_Image" defaultValue={IndividualtrainingData.image} type="text" required></input> */}
 						<div className={style.ImageUpload}>
-							<input name="course_Image" type="file" required onChange={fileSelectedHandler}></input>
+							<input name="course_Image" type="file" onChange={fileSelectedHandler}></input>
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-
 						<h1>Course Priority</h1>
 						<input name="course_Priority" defaultValue={IndividualtrainingData.priority} type="number" required></input>
 						<h1>Rating</h1>
@@ -207,7 +201,6 @@ const RemoveCourse = () => {
 						<h1>Career Path</h1>
 						<input name="course_careerPath" defaultValue={IndividualtrainingData.career} type="text" required></input>
 						<h1>Course Category</h1>
-
 						<select name="dropdown">
 							<option value={IndividualtrainingDataCat._id} disabled={IndividualtrainingDataCat.disable}>
 								{IndividualtrainingDataCat.course_type}

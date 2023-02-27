@@ -1,11 +1,11 @@
 :root {
     --headingOne-size: 5rem;
-    --HeadingHighlight: #0f5288;
-    --buttonHover-bg: #0f5288;
+    --HeadingHighlight: #2bb673;
+    --buttonHover-bg: #2bb673;
 }
 
 .HeadingHighlight {
-    color: var(--HeadingHighlight);
+    color: #2bb673;
 }
 
 .ClientsContainer {
@@ -17,7 +17,7 @@
 
 .ClientsContainer h1 {
     text-align: center;
-    font-size: var(--headingOne-size);
+    font-size: 5rem;
     padding: 5rem;
 }
 
@@ -31,7 +31,7 @@
     padding: 0.5em 0.9em;
     gap: 0.4rem;
     font-weight: bold;
-    background-color: #0f5288;
+    background-color: #2bb673;
     border-radius: 10px;
     transition: all ease-in .2s;
     color: white;
@@ -40,9 +40,9 @@
 
 
 .ClientsContainer button:hover {
-    background-color: #0071e2;
-    color: black;
-
+    color: #2bb673;
+    background-color: white;
+    border: 1px solid #2bb673;
 }
 
 .ClientsContainer button a {

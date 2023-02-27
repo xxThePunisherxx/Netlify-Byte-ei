@@ -1,35 +1,104 @@
 import React from "react";
+import { useRef, useEffect, useState } from "react";
+
 import style from "./Contact.module.css";
 
 const Contact = () => {
-	const handleMessageSubmit = (e) => {
+	const EnrollRef = useRef();
+
+	const [windowDimenion, detectHW] = useState({
+		winWidth: window.innerWidth,
+		winHeight: window.innerHeight,
+	});
+	const detectSize = () => {
+		detectHW({
+			winWidth: window.innerWidth,
+			winHeight: window.innerHeight,
+		});
+	};
+
+	useEffect(() => {
+		window.addEventListener("resize", detectSize);
+
+		return () => {
+			window.removeEventListener("resize", detectSize);
+		};
+	}, [windowDimenion]);
+
+	const handlesubmit = (e) => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
+
 		console.log(enterdData);
 	};
+	useEffect(() => {
+		EnrollRef.current.focus();
+	}, []);
+
 	return (
 		<div className={style.Contact_Wrapper}>
 			<div className={style.message_Wrapper}>
 				<div className={style.message_heading}>
 					<h1>
-						We've been waiting <br />
-						<span className={style.HeadingHighlight}> for you.</span>
+						We are eager to hear <br />
+						<span className={style.HeadingHighlight}> from you.</span>
 					</h1>
 					<h2>We want to hear form you. Let us know how we can help.</h2>
 
-					<form onSubmit={handleMessageSubmit} autoComplete="off" className={style.MessageForm}>
-						<h2>Send us a Message</h2>
-						<h1>Name</h1>
-						<input name="message_Sender" type="text" required></input>
-						<h1>Email</h1>
-						<input name="message_Sender_Email" type="email" required></input>
-						<h1>Contact number</h1>
-						<input name="message_Sender_Contact" type="text" required></input>
-						<h1>Message</h1>
-						<textarea name="message_content" type="text"></textarea>
-						<br />
-						<button>Submit</button>
+					{/* <iframe
+						src="https://docs.google.com/forms/d/e/1FAIpQLSfEBJhFbBBoX1Aldybh3C_LjFy01DaS2EOVJVltSLRGXLf1og/viewform?embedded=true"
+						width={windowDimenion.winWidth - 50}
+						height="812"
+						title="Message"
+					>
+						Loading…
+					</iframe> */}
+					<form onSubmit={handlesubmit} autoComplete="off" className={style.Enrorll_FormWrappper}>
+						<h1>
+							Legal Name
+							<span className={style.mandatory_hightlight}>
+								<sup>*&nbsp;</sup>
+							</span>
+						</h1>
+						<input name="Full name" type="text" required ref={EnrollRef}></input>
+						<h1>
+							Email
+							<span className={style.mandatory_hightlight}>
+								<sup>*&nbsp;</sup>
+							</span>
+						</h1>
+						<input name="Email" type="email" required></input>
+						<h1>
+							Mobile
+							<span className={style.mandatory_hightlight}>
+								<sup>*&nbsp;</sup>
+							</span>
+						</h1>
+						<input name="mobile number" type="text" required></input>
+
+						<h1>
+							Message
+							<span className={style.mandatory_hightlight}>
+								<sup>*&nbsp;</sup>
+							</span>
+						</h1>
+						<textarea name="Message" type="text" rows={10} required></textarea>
+						{/* <h1>
+							Course
+							<span className={style.mandatory_hightlight}>
+								<sup>*&nbsp;</sup>
+							</span>
+						</h1> */}
+						{/* <select name="dropdown">
+							<option>Select Category</option>
+							{trainingResponse.training.map((Category) => (
+								<option key={uuid()} value={Category.title}>
+									{Category.title}
+								</option>
+							))}
+						</select> */}
+						<button className={style.Spantwo}>Submit</button>
 					</form>
 				</div>
 			</div>

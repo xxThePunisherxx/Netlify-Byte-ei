@@ -8,12 +8,10 @@
 .carouselWrapper {
     position: relative;
     width: 1200px;
-    height: 600px;
+    height: 500px;
     padding: 10px;
     border-radius: 20px;
-    background: rgba(211, 211, 211, 0.4);
-    box-shadow: -13px 13px 31px #f3f3f3,
-        13px -13px 31px #e9e9e9;
+
 }
 
 .cardImage {
@@ -42,7 +40,7 @@
     font-size: 1.2rem;
     text-align: justify;
     margin-left: 10px;
-    color: #0f5288;
+    color: #2bb673;
 }
 
 
@@ -62,7 +60,7 @@
 
 .carouselArrowLeft:hover,
 .carouselArrowRight:hover {
-    color: #0f5288;
+    color: #2bb673;
 }
 
 .carouselArrowLeft {
@@ -81,11 +79,6 @@
     transform: translate(-50%, -1%);
 }
 
-
-/* TODO: hide items on less than 425px. max height is 980px
-
-
- */
 
 @media screen and (max-width: 1669px) {
     .carouselWrapper {

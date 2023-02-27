@@ -2,11 +2,13 @@ import React from "react";
 import style from "./StudentProjects.module.css";
 import { Link } from "react-router-dom";
 import useFetch from "../../Utils/Hooks/fetch";
+import uuid from "react-uuid";
 
 const StudentProject = () => {
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7]; // just for adding skeleton.
 
-	const { data: ProjectData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/student");
+	const { data: ProjectData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/studentProject");
+	console.log(ProjectData);
 	let ProjectDataArr = ProjectData?.projects;
 	return (
 		<div className={style.TrainingContainer}>
@@ -16,7 +18,7 @@ const StudentProject = () => {
 			{ispending && (
 				<div className={style.TrainingGrid}>
 					{dummyArr.map(() => (
-						<div className={style.Training}>
+						<div key={uuid()} className={style.Training}>
 							<div className={style.Skel}>
 								<div className={style.imgDiv}></div>
 								<div className={style.H1Div}></div>

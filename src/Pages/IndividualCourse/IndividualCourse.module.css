@@ -1,3 +1,4 @@
+/*  Hero image */
 .Training_header {
     margin: 0 auto;
     padding: 5rem;
@@ -9,10 +10,7 @@
     background-position: center;
 }
 
-.Training_header_sub h2:first-child {
-    margin-right: 20px;
-}
-
+/*  Duration and Career */
 .Training_contents {
     width: 80%;
     margin: 0 auto;
@@ -24,12 +22,18 @@
     color: white;
 }
 
+.Training_header_sub h2:first-child {
+    margin-right: 20px;
+}
+
+
+
 .Training_header h1 {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .Training_header h2 {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
 }
 
 .training_header_btn {
@@ -64,7 +68,7 @@
 }
 
 .training_header_btn button:nth-child(1):hover {
-    background-color: #0f5288;
+    background-color: #2bb673;
     color: white;
 }
 
@@ -75,6 +79,7 @@
     max-width: 60%;
 }
 
+
 .training_header_btn button a {
     display: flex;
     justify-content: center;
@@ -84,9 +89,7 @@
     color: white;
 }
 
-/* .training_header_btn button:hover {
-    color: white;
-} */
+
 
 .training_header_btn button {
     --primary-color: #645bff;
@@ -147,121 +150,104 @@
     right: 0;
 }
 
+/*  Course description and Syllabus  */
+
 .Training_DescriptionWrapper {
     padding: 5rem;
 }
 
-.Training_Description {
-    width: 80%;
+.Training_Description,
+.course_overview {
+    width: 90%;
     margin: 0 auto;
     padding: 10px;
 }
 
-.Training_Description h1 {
+/*  Ckeditor texts style */
+
+.Description_Heading {
     width: fit-content;
-    font-size: 1.7rem;
-    color: #0f5288;
-    text-align: left;
-    text-transform: uppercase;
+    font-size: 3rem;
+    color: #2bb673;
+    text-transform: capitalize;
     font-weight: 800;
-    border-bottom: 3px solid #0f5288;
+    border-bottom: 2px solid #2bb673;
     margin-bottom: 20px;
 }
 
-.Training_Description p {
-    font-size: 1.2rem;
-    text-align: justify;
+.course_overview_contents h1 {
+    font-size: 2rem;
+    /* text-align: justify; */
     line-height: 1.4em;
+    margin: 5px 0;
 }
 
-.course_overview {
-    width: 80%;
-    margin: 0 auto;
+
+
+.Training_Description h2,
+.course_overview_contents h2 {
+    font-size: 2rem;
+    /* text-align: justify; */
+    line-height: 1.4em;
+    margin: 5px 0;
 }
+
+.Training_Description h3,
+.course_overview_contents h3 {
+    font-size: 1.7rem;
+    /* text-align: justify; */
+    line-height: 1.4em;
+    margin: 5px 0;
+    /* margin-left: 20px; */
+}
+
+.Training_Description p,
+.course_overview_contents p {
+    font-size: 1.5rem;
+    text-align: justify;
+    line-height: 1.3em;
+    margin: 2px 0;
+    padding-left: 10px;
+}
+
+.Training_Description ol,
+.Training_Description ul,
+.course_overview_contents ol,
+.course_overview_contents ul {
+    margin-left: 30px;
+    text-align: justify;
+}
+
+.Training_Description ol li,
+.Training_Description ul li,
+.course_overview_contents ol li,
+.course_overview_contents ul li {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+
+
 
 .BannerHeading {
-    background-color: #0f5288;
+    background-color: #2bb673;
     color: white;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin: 20px auto;
     padding: 0 20px;
-    border-radius: 2px;
+    border-radius: 10px;
+    padding: 2px;
+
 }
 
 .BannerHeading h1 {
-    padding: 2px;
-    line-height: 1.4em;
+    font-size: 3rem;
+    font-weight: 800;
 }
 
-.BannerHeading .course_overview_title_span {
-    text-transform: uppercase;
-}
-
-.BannerHeading .arrow button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: white;
-    font-size: 1.5rem;
-
-}
-
-.course_overview_contents {
-    padding-left: 20px;
-}
-
-.course_overview_contents:first-child h2,
-h2,
-h3 {
-    margin-top: 0px;
-}
-
-.course_overview_contents h2,
-h2,
-h3 {
-    margin-top: 20px;
-}
-
-.course_overview_contents h2 ul,
-ol {
-    padding-left: 25px;
-}
-
-
-
-.Syllabus ul li {
-    list-style: decimal;
-    margin-left: 25px;
-    font-size: 1.35rem;
-}
-
-.Syllabus ol li {
-    list-style: decimal;
-    margin-left: 25px;
-    font-size: 1.35rem;
-}
-
-
-.Training_Description {
-    color: black;
-}
-
-.Training_Description h2 {
-    margin-bottom: 10px;
-}
-
-.Training_Description p {
-    font-size: 1.5rem;
-    text-align: justify;
-    color: black;
-    margin-top: 5px;
-}
 
 @media screen and (max-width: 2126px) {
     .Training_header_sub {
-        max-width: 55%;
+        max-width: 75%;
     }
 }
 

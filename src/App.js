@@ -12,7 +12,7 @@ import ClientLayout from "./Components/ClientLayout/ClientLayout";
 import AddCourse from "./Pages/Add courses/AddCourse";
 import AdminLayout from "./Components/AdminLayout/AdminLayout";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard";
-// import EnrollForm from "./Components/Enroll Form/EnrollForm";
+import EnrollForm from "./Components/Enroll Form/EnrollForm";
 import Updatecourse from "./Pages/Update course/UpdateCourse";
 import AddCourseCate from "./Pages/Add Course Category/AddCourseCate";
 import UpdateCourseCategory from "./Pages/Update course Category/UpdateCourseCategory";
@@ -25,11 +25,13 @@ import Unauthorized from "./Pages/Unauthorized/Unauthorized";
 import UpdateAdmin from "./Pages/Update Admin/UpdateAdmin";
 import AddTestomonial from "./Pages/Add Testomonial/AddTestomonial";
 import AboutUs from "./Pages/About Us/AboutUs";
-import GoogleForm from "./Pages/Enquirery/GoogleForm";
-import EnrollForm from "./Pages/Enroll/EnrollForm";
 import StudentProject from "./Pages/Student Project/StudentProject";
 import AdminSidebar from "./Components/Admin Side Bar/AdminSidebar";
 import UpdateTestomonial from "./Pages/UpdateTestomonial/UpdateTestomonial";
+import AddTeam from "./Pages/AddTeam/AddTeam";
+import UpdateTeam from "./Pages/UpdateTeam/UpdateTeam";
+import InquireyForm from "./Components/Inquirey/InquireyForm";
+import AddPlacementPartnet from "./Pages/AddPlacementPartner/AddPlacementPartnet";
 
 function App() {
 	return (
@@ -48,8 +50,8 @@ function App() {
 				<Route path="/unauthorized" element={<Unauthorized />} />
 				<Route path="/test" element={<Test />} /> just for quick testing of page
 				<Route path="/course-view/:courseID" element={<IndividualCourse />} />
-				<Route path="/inquiry/googleForm" element={<GoogleForm />} />
-				<Route path="/enroll/googleForm" element={<EnrollForm />} />
+				<Route path="/inquiry" element={<InquireyForm />} />
+				<Route path="/enroll" element={<EnrollForm />} />
 				<Route path="*" element={<NotFound />} />
 			</Route>
 			<Route>
@@ -62,10 +64,13 @@ function App() {
 						<Route path="updateCourse/:courseID" element={<Updatecourse />} />
 						<Route path="updateCourseCategory/:categoryID" element={<UpdateCourseCategory />} />
 						<Route path="updateTestomonial/:testomonialID" element={<UpdateTestomonial />} />
+						<Route path="updateTeam/:teamID" element={<UpdateTeam />} />
 						<Route path="dashboard" element={<AdminDashboard />} />
 						<Route path="addCategory" element={<AddCourseCate />} />
 						<Route path="allCourse" element={<AdminCourseListPage />} />
 						<Route path="addTestomonial" element={<AddTestomonial />} />
+						<Route path="addTeam" element={<AddTeam />} />
+						<Route path="addPlacementPartner" element={<AddPlacementPartnet />} />
 					</Route>
 				</Route>
 				<Route element={<RequireAuth allowedRoles={["superAdmin"]} />}>

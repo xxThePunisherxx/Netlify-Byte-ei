@@ -5,12 +5,14 @@
 }
 
 .HeadingHighlight {
-    color: #0f5288;
+    color: #2bb673;
 }
 
 .Team_Grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
 .Individual {
@@ -20,9 +22,10 @@
 }
 
 .Individual img {
-    width: 80%;
-    height: 70%;
+    width: 90%;
+    /* height: 70%; */
     border-radius: 10px;
+    margin-top: 50px;
 
 }
 
@@ -35,29 +38,40 @@
 
 .Details_Grid {
     display: grid;
-    width: 65%;
-    grid-template-columns: 60% 40%;
+    width: 85%;
+    grid-template-rows: 1fr 1fr;
 }
 
 .Details_Grid h2 {
     font-size: 1.5rem;
     margin-top: 0px;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 .Social_Links {
     display: flex;
-    justify-content: space-around;
-    font-size: 1.5rem;
-    color: #0f5288;
+    justify-content: space-between;
+    font-size: 2rem;
+    color: #2bb673;
     align-items: center;
     cursor: pointer;
+    width: 25%;
+    margin-left: 60px;
 }
 
 .TrainingGrid {
     display: grid;
     padding: 5rem;
-    /* min-height: 80vh; */
+}
 
+.Text_Ellipse * {
+    width: 95%;
+    overflow-wrap: break-word;
+    hyphens: manual;
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
 }
 
 .SkelWrapper {

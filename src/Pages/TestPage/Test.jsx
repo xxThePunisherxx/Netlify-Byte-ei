@@ -1,7 +1,7 @@
 import React from "react";
 
 import style from "./Test.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Test = () => {
 	// const [test, setTest] = useState([{ firstName: "", lastName: { middleName: "", finalName: "" } }]);
