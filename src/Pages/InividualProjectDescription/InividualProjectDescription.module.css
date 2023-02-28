@@ -1,0 +1,48 @@
+.Project_Heading {
+    color: white;
+    margin: 0 auto;
+    padding: 5rem;
+    background-image: url(https://images.pexels.com/photos/2115217/pexels-photo-2115217.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-color: rgba(0, 0, 0, 0.85);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.Project_Heading h1 {
+    font-size: 5rem;
+}
+
+.Project_Heading h2 {
+    margin-left: 50px;
+    color: #2bb673;
+}
+
+.Project_Body {
+    padding: 5rem;
+}
+
+
+
+.Project_Body h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.ck_description h1 {
+    font-size: 2rem;
+    text-align: justify;
+}
+
+.ck_description h2 {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.ck_description h3,
+.ck_description p {
+    font-size: 1.3rem;
+    text-align: justify;
+}
