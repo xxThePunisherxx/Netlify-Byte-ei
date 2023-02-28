@@ -7,7 +7,7 @@
 
 .carouselWrapper {
     position: relative;
-    width: 1200px;
+    width: calc(100vw - 20%);
     height: 500px;
     padding: 10px;
     border-radius: 20px;
@@ -25,7 +25,8 @@
 .cardText {
     padding-left: 20px;
     padding-right: 40px;
-    width: 1100px;
+    margin: 0 auto;
+    width: calc(100% - 80px);
     height: 500px;
     overflow-wrap: break-word;
 }
@@ -94,6 +95,7 @@
 @media screen and (max-width: 1200px) {
     .carouselWrapper {
         height: 600px;
+
     }
 
     .cardImage {
@@ -135,11 +137,15 @@
         width: 120px;
         height: 120px;
     }
+
+    .cardText {
+        width: calc(100% - 50px);
+    }
 }
 
 @media screen and (max-width: 580px) {
     .carouselWrapper {
-        height: 800px;
+        height: 750px;
     }
 
     .cardImage {
@@ -150,7 +156,7 @@
 
 @media screen and (max-width: 510px) {
     .carouselWrapper {
-        height: 800px;
+        height: 750px;
         width: 510px;
     }
 
@@ -161,6 +167,13 @@
 }
 
 @media screen and (max-width: 465px) {
+    .carouselWrapper {
+        height: 850px;
+        width: 510px;
+    }
+}
+
+@media screen and (max-width: 400px) {
     .carouselWrapper {
         display: none;
     }
