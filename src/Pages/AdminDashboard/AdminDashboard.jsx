@@ -7,6 +7,8 @@ import CourseCategoryList from "../../Components/CourseCategoryList/CourseCatego
 import useAuth from "../../hooks/useAuth";
 import AdminTestomonialList from "../../Components/AdminTestomonialList/AdminTestomonialList";
 import AdminTeamList from "../../Components/AdminTeamList/AdminTeamList";
+import AdminStudentProjectList from "../../Components/AdminStudentProjectList/AdminStudentProjectList";
+import AdminPlacementPartnerList from "../../Components/AdminPlacementPartnerList/AdminPlacementPartnerList";
 
 const AdminDashboard = () => {
 	const { auth } = useAuth();
@@ -17,6 +19,8 @@ const AdminDashboard = () => {
 			<CourseCategoryList />
 			<AdminTestomonialList />
 			<AdminTeamList />
+			<AdminStudentProjectList />
+			<AdminPlacementPartnerList />
 		</div>
 	);
 };
