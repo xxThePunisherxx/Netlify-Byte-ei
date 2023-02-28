@@ -45,62 +45,39 @@ const Contact = () => {
 						<span className={style.HeadingHighlight}> from you.</span>
 					</h1>
 					<h2>We want to hear form you. Let us know how we can help.</h2>
-
-					{/* <iframe
-						src="https://docs.google.com/forms/d/e/1FAIpQLSfEBJhFbBBoX1Aldybh3C_LjFy01DaS2EOVJVltSLRGXLf1og/viewform?embedded=true"
-						width={windowDimenion.winWidth - 50}
-						height="812"
-						title="Message"
-					>
-						Loading…
-					</iframe> */}
-					<form onSubmit={handlesubmit} autoComplete="off" className={style.Enrorll_FormWrappper}>
-						<h1>
-							Legal Name
-							<span className={style.mandatory_hightlight}>
-								<sup>*&nbsp;</sup>
-							</span>
-						</h1>
-						<input name="Full name" type="text" required ref={EnrollRef}></input>
-						<h1>
-							Email
-							<span className={style.mandatory_hightlight}>
-								<sup>*&nbsp;</sup>
-							</span>
-						</h1>
-						<input name="Email" type="email" required></input>
-						<h1>
-							Mobile
-							<span className={style.mandatory_hightlight}>
-								<sup>*&nbsp;</sup>
-							</span>
-						</h1>
-						<input name="mobile number" type="text" required></input>
-
-						<h1>
-							Message
-							<span className={style.mandatory_hightlight}>
-								<sup>*&nbsp;</sup>
-							</span>
-						</h1>
-						<textarea name="Message" type="text" rows={10} required></textarea>
-						{/* <h1>
-							Course
-							<span className={style.mandatory_hightlight}>
-								<sup>*&nbsp;</sup>
-							</span>
-						</h1> */}
-						{/* <select name="dropdown">
-							<option>Select Category</option>
-							{trainingResponse.training.map((Category) => (
-								<option key={uuid()} value={Category.title}>
-									{Category.title}
-								</option>
-							))}
-						</select> */}
-						<button className={style.Spantwo}>Submit</button>
-					</form>
 				</div>
+				<form onSubmit={handlesubmit} autoComplete="off" className={style.Enrorll_FormWrappper}>
+					<h1>
+						Legal Name
+						<span className={style.mandatory_hightlight}>
+							<sup>*&nbsp;</sup>
+						</span>
+					</h1>
+					<input name="Full name" type="text" required ref={EnrollRef}></input>
+					<h1>
+						Email
+						<span className={style.mandatory_hightlight}>
+							<sup>*&nbsp;</sup>
+						</span>
+					</h1>
+					<input name="Email" type="email" required></input>
+					<h1>
+						Mobile
+						<span className={style.mandatory_hightlight}>
+							<sup>*&nbsp;</sup>
+						</span>
+					</h1>
+					<input name="mobile number" type="text" required></input>
+
+					<h1>
+						Message
+						<span className={style.mandatory_hightlight}>
+							<sup>*&nbsp;</sup>
+						</span>
+					</h1>
+					<textarea name="Message" type="text" rows={10} required></textarea>
+					<button className={style.Spantwo}>Submit</button>
+				</form>
 			</div>
 
 			{/* <div className={style.FAQ_Wrapper}>
