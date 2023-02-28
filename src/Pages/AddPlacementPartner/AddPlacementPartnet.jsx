@@ -26,10 +26,11 @@ const AddPlacementPartnet = () => {
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
 		const postData = {
-			course_type: enterdData.course_Category,
+			companyWebsite: enterdData.company_website,
+			image: uploadedURl,
 		};
 		try {
-			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/placement/add", postData, {
+			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/partner/add", postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -91,14 +92,14 @@ const AddPlacementPartnet = () => {
 					</div>
 					<form onSubmit={handleSubmit} autoComplete="off" className={style.FormWrapper}>
 						<h1>Company Website </h1>
-						<input name="course_Category" type="text" required ref={cateRef}></input>
+						<input name="company_website" type="text" required ref={cateRef}></input>
 						<h1>Company Image</h1>
 						<div className={style.ImageUpload}>
 							<input name="course_Image" type="file" required onChange={fileSelectedHandler}></input>
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-						<button className={style.Spantwo}>Add category</button>
+						<button className={style.Spantwo}>Add Partner</button>
 					</form>
 				</div>
 			</div>

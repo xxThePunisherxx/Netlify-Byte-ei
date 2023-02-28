@@ -19,7 +19,6 @@ const UpdateTeam = () => {
 	const [showImage, setShowImage] = useState(false);
 	const [TestomonialResponse, setTestomonialResponse] = useState({});
 
-	// const { data: TeamData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/team/${teamID}`);
 	useEffect(() => {
 		const fetchData = async () => {
 			// get request to get pre-update value of the course.
@@ -46,7 +45,6 @@ const UpdateTeam = () => {
 		fetchData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [teamID]);
-	console.log(`https://learning-management-system-kx6y.onrender.com/api/team/update/${teamID}`);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
