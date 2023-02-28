@@ -1,36 +1,283 @@
-:root {
-    --headingOne-size: 5rem;
-}
-
 .ProjectWrapper h1 {
-    font-size: var(--headingOne-size);
+    font-size: 5rem;
     padding: 5rem;
     text-align: center;
 }
 
-.ProjectWrapper h2 {
+/* .ProjectWrapper h2 {
     font-size: 30px;
     text-align: center;
-}
+} */
 
 .headingHighlights {
     color: #2bb673;
 }
 
+/* 
 @media screen and (max-width: 1669px) {
-    :root {
-
-        --headingOne-size: 4rem;
+    .ProjectWrapper h1 {
+        font-size: 5rem;
+        padding: 4rem;
     }
 
 
 }
 
-@media screen and (max-width: 840px) {
-    :root {
+@media screen and (max-width: 960px) {
+    .ProjectWrapper h1 {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+}
 
-        --headingOne-size: 3rem;
+@media screen and (max-width: 669px) {
+    .ProjectWrapper h1 {
+        font-size: 3rem;
+        padding: 2rem;
+    }
+} */
+
+.TrainingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    margin-bottom: 50px;
+}
+
+.TrainingGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 400px);
+    column-gap: 20px;
+    row-gap: 20px;
+    width: 85%;
+    margin: 50px auto;
+}
+
+.MainHeading {
+    text-align: center;
+    font-size: 5rem;
+    padding: 5rem;
+}
+
+.HeadingHighlight {
+    color: #2bb673;
+}
+
+.Training {
+    width: 100%;
+}
+
+.Training:hover {
+    border-radius: 15px;
+    transform: scale3d(1.02, 1.02, 1.02);
+}
+
+.Training image {
+    width: 90%;
+}
+
+.Training h1 {
+    font-size: 1.3rem;
+    padding: 15px;
+}
+
+.Training h2 {
+    font-size: 1rem;
+    padding: 15px;
+}
+
+
+
+.ProjectWrapper button {
+    cursor: pointer;
+
+    margin-top: 20px;
+    font-size: 1.5rem;
+    width: fit-content;
+    display: flex;
+    padding: 0.4em .5em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #2bb673;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
+    border: none;
+}
+
+.ProjectWrapper button:hover {
+    color: #2bb673;
+    background-color: white;
+    border: 1px solid #2bb673;
+}
+
+
+.Skel .imgDiv {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    border-radius: 20px;
+}
+
+.Skel .H1Div,
+.H2Div {
+    width: 99%;
+    height: 39px;
+    padding: 15px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    margin: 10px auto;
+    border-radius: 20px;
+
+}
+
+@keyframes Load {
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@media screen and (max-width: 2126px) {
+
+    .TrainingGrid {
+        grid-template-columns: repeat(4, 400px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 5rem;
+        padding: 5rem;
     }
 
 
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1669px) {
+
+    .TrainingGrid {
+        grid-template-columns: repeat(4, 300px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 4rem;
+        padding: 4rem;
+    }
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(3, 300px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 4rem;
+        padding: 4rem;
+    }
+}
+
+
+@media screen and (max-width: 960px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(2, 400px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+
+}
+
+
+@media screen and (max-width: 840px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(2, 300px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+
+}
+
+@media screen and (max-width: 669px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(1, 350px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 2rem;
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+
+    .Training img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .TrainingGrid {
+        grid-template-columns: repeat(1, 250px);
+    }
+
+    .ProjectWrapper h1 {
+        font-size: 2rem;
+        padding: 2rem;
+    }
 }
