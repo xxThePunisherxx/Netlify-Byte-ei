@@ -6,8 +6,8 @@
 
 .AdminSidebar {
     padding: 10px;
-    height: 100vh;
     width: 300px;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.87);
     color: white;
     margin-right: 50px;
@@ -21,18 +21,18 @@
 }
 
 .Logo img {
-    height: 60px;
+    height: 90px;
 }
 
 .DashboardLinks {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
 
 }
 
 .DashboardLinks a {
-    padding: 1rem;
+    padding: .8rem;
     border-radius: 20px;
     font-size: 1.5rem;
     color: white;
@@ -46,19 +46,15 @@
     transition: all ease-in .2s;
 }
 
-.DashboardLinks a:last-child {
-    margin-top: 100px;
-
-}
 
 .DashboardLinks a h1:hover {
     color: #2bb673;
-    /* font-size: 3rem; */
+
 }
 
 
-@media screen and (max-width: 1440px) {
+/* @media screen and (max-width: 1440px) {
     .AdminSidebar {
         width: 100px;
     }
-}
+} */
