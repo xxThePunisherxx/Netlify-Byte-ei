@@ -3,17 +3,45 @@ import { useRef, useEffect } from "react";
 import style from "./EnrollForm.module.css";
 import useFetch from "../../Utils/Hooks/fetch";
 import uuid from "react-uuid";
+import axios from "axios";
 
 const EnrollForm = () => {
 	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
 
 	const EnrollRef = useRef();
-	const handlesubmit = (e) => {
+	const handlesubmit = async (e) => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-
-		console.log(enterdData);
+		const postData = {
+			legalName: enterdData.Full_name,
+			email: enterdData.Email,
+			academicLevel: enterdData.Academic_level,
+			phoneNumber: enterdData.mobile_number,
+			course: enterdData.dropdown,
+		};
+		console.log(postData);
+		if (enterdData.dropdown !== "null") {
+			try {
+				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/form/add", postData);
+				if (response.status === 201) {
+					console.log("Success");
+					// setShowSuccess(true);
+					// setTimeout(() => {
+					// 	setTimeout(() => {
+					// 		setShowSuccess(false);
+					// 	}, 1000);
+					// 	navigate("/admin/dashboard");
+					// }, 2000);
+				}
+			} catch (err) {
+				console.log("Failed");
+				// setShowFailed(true);
+				// setTimeout(() => {
+				// 	setShowFailed(false);
+				// }, 1000);
+			}
+		}
 	};
 
 	useEffect(() => {
@@ -37,7 +65,7 @@ const EnrollForm = () => {
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
-				<input name="Full name" type="text" required ref={EnrollRef}></input>
+				<input name="Full_name" type="text" required ref={EnrollRef}></input>
 				<h1>
 					Email
 					<span className={style.mandatory_hightlight}>
@@ -51,7 +79,7 @@ const EnrollForm = () => {
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
-				<input name="mobile number" type="text" required></input>
+				<input name="mobile_number" type="text" required></input>
 
 				<h1>
 					Academic Level
@@ -59,7 +87,7 @@ const EnrollForm = () => {
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
-				<input name="Academic level" type="text" required></input>
+				<input name="Academic_level" type="text" required></input>
 				<h1>
 					Course
 					<span className={style.mandatory_hightlight}>
@@ -67,7 +95,7 @@ const EnrollForm = () => {
 					</span>
 				</h1>
 				<select name="dropdown">
-					<option>Select Category</option>
+					<option value="null">Select Category</option>
 					{trainingResponse.training.map((Category) => (
 						<option key={uuid()} value={Category.title}>
 							{Category.title}

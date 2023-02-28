@@ -1,0 +1,56 @@
+.HeadingHighlight {
+    color: #2bb673;
+}
+
+.ClientsContainer {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ClientsContainer h1 {
+    text-align: center;
+    font-size: 5rem;
+    padding: 5rem;
+}
+
+.ClientsContainer button {
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 2rem;
+    width: fit-content;
+    display: flex;
+    padding: 0.5em 0.9em;
+    gap: 0.4rem;
+    font-weight: bold;
+    background-color: #2bb673;
+    border-radius: 10px;
+    transition: all ease-in .2s;
+    color: white;
+    border: none;
+}
+
+
+.ClientsContainer button:hover {
+    color: #2bb673;
+    background-color: white;
+    border: 1px solid #2bb673;
+}
+
+.ClientsContainer button a {
+    color: black;
+}
+
+.ImagesGrid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.ImagesGrid img {
+    width: 150px;
+}

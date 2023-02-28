@@ -7,9 +7,8 @@ import uuid from "react-uuid";
 const StudentProject = () => {
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7]; // just for adding skeleton.
 
-	const { data: ProjectData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/studentProject");
-	console.log(ProjectData);
-	let ProjectDataArr = ProjectData?.projects;
+	const { data: ProjectData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/project");
+	let ProjectDataArr = ProjectData?.studentProjects;
 	return (
 		<div className={style.TrainingContainer}>
 			<h1 className={style.MainHeading}>
@@ -33,9 +32,8 @@ const StudentProject = () => {
 					{ProjectDataArr.map((item) => (
 						<div className={style.Training} key={item._id}>
 							<img src={item.image} alt={item.Title} />
-							<h1>{item.title}</h1>
-							<h2>Duration: {item.duration}</h2>
-							<Link to={`/course-view/${item._id}`}>
+							<div dangerouslySetInnerHTML={{ __html: item.title }}></div>
+							<Link to={`/project-view/${item._id}`}>
 								<button>Learn more</button>
 							</Link>
 						</div>

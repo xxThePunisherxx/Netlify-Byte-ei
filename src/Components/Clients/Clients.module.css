@@ -1,9 +1,3 @@
-:root {
-    --headingOne-size: 5rem;
-    --HeadingHighlight: #2bb673;
-    --buttonHover-bg: #2bb673;
-}
-
 .HeadingHighlight {
     color: #2bb673;
 }
@@ -59,4 +53,25 @@
 
 .ImagesGrid img {
     width: 150px;
+}
+
+@media screen and (max-width: 1669px) {
+    .ClientsContainer h1 {
+        font-size: 5rem;
+        padding: 4rem;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .ClientsContainer h1 {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: 669px) {
+    .ClientsContainer h1 {
+        font-size: 3rem;
+        padding: 2rem;
+    }
 }

@@ -1,25 +1,47 @@
-import React, { useState, useRef, useEffect } from "react";
-import style from "./AddPlacementPartnet.module.css";
+import React, { useState, useEffect } from "react";
+import style from "./UpdatePartner.module.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import MessageBoard from "../../Components/Message Board/MessageBoard";
 import useAuth from "../../hooks/useAuth";
 
-const AddPlacementPartnet = () => {
+const UpdatePartner = () => {
+	const { partnerID } = useParams();
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [uploadedURl, setUploadedURl] = useState("");
-	const [showImage, setShowImage] = useState(false);
 	const [selectedFile, setSelectedFile] = useState();
 	const [showSuccessUpload, setShowSuccessUpload] = useState(false);
 	const [showFailedUpload, setShowFailedUpload] = useState(false);
-
+	const [PartnerResponse, setPartnerResponse] = useState({});
+	const [showImage, setShowImage] = useState(false);
 	const { auth } = useAuth();
-
-	const cateRef = useRef();
 	const navigate = useNavigate();
+
 	useEffect(() => {
-		cateRef.current.focus();
+		const fetchData = async () => {
+			// get request to get pre-update value of the course.
+			try {
+				let response = await axios.get(`https://learning-management-system-kx6y.onrender.com/api/partner/${partnerID}`, {
+					headers: {
+						Authorization: `Bearer ${auth.Token}`,
+						withCredentails: true,
+					},
+				});
+				setPartnerResponse(response.data.partner);
+				setUploadedURl(response.data.partner.image);
+				setShowImage(true);
+			} catch (error) {
+				if (error.response) {
+					console.log(error.response.status);
+					console.log(error.response.headers);
+				} else {
+					console.log(`Error: ${error.message}`);
+				}
+			}
+		};
+		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,7 +52,7 @@ const AddPlacementPartnet = () => {
 			image: uploadedURl,
 		};
 		try {
-			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/partner/add", postData, {
+			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/partner/update/${partnerID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -87,25 +109,25 @@ const AddPlacementPartnet = () => {
 				<div className={style.AddCourseCategory}>
 					<div className={style.heading}>
 						<h1>
-							Add <span className={style.Headinghighlight}> Placement Partner</span>
+							Update <span className={style.Headinghighlight}> Placement Partner</span>
 						</h1>
 					</div>
 					<form onSubmit={handleSubmit} autoComplete="off" className={style.FormWrapper}>
 						<h1>Company Website </h1>
-						<input name="company_website" type="text" required ref={cateRef}></input>
+						<input name="company_website" type="text" required defaultValue={PartnerResponse.companyWebsite}></input>
 						<h1>Company Image</h1>
 						<div className={style.ImageUpload}>
-							<input name="course_Image" type="file" required onChange={fileSelectedHandler}></input>
+							<input name="course_Image" type="file" onChange={fileSelectedHandler}></input>
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-						<button className={style.Spantwo}>Add Partner</button>
+						<button className={style.Spantwo}>Update Partner</button>
 					</form>
 				</div>
 			</div>
 			{showSuccess && (
 				//* Success Message
-				<MessageBoard Message_type="successBoard" Message="Course category Added successfully" />
+				<MessageBoard Message_type="successBoard" Message="Updated successfully" />
 			)}
 			{showFail && (
 				//* Fail Message
@@ -123,4 +145,4 @@ const AddPlacementPartnet = () => {
 	);
 };
 
-export default AddPlacementPartnet;
+export default UpdatePartner;

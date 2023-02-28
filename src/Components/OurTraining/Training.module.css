@@ -156,10 +156,6 @@
 }
 
 @media screen and (max-width: 1440px) {
-    /* :root {
-        --gridColumns: repeat(3, 300px);
-        --headingOne-size: 4rem;
-    } */
 
     .Training img {
         width: 100%;
@@ -170,10 +166,6 @@
         grid-template-columns: repeat(3, 300px);
     }
 
-    .MainHeading {
-        font-size: 5rem;
-        padding: 4rem;
-    }
 }
 
 
@@ -209,10 +201,7 @@
         grid-template-columns: repeat(2, 300px);
     }
 
-    .MainHeading {
-        font-size: 3rem;
-        padding: 3rem;
-    }
+
 
 }
 

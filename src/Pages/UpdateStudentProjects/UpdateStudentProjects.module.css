@@ -13,7 +13,10 @@
     color: #2bb673;
 }
 
-/*  */
+.Form_Wrapper {
+    margin-top: 20px;
+}
+
 .Form_Wrapper input,
 .Form_Wrapper textarea {
     font-size: 1.5rem;
@@ -96,6 +99,7 @@
 }
 
 .Uplaod_Img {
-    width: 300px;
     margin-top: 50px;
+    width: 300px;
+
 }

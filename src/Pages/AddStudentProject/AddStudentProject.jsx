@@ -1,15 +1,18 @@
 import React from "react";
-import style from "./UpdateTeam.module.css";
-import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import style from "./AddStudentProject.module.css";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import Editor from "ckeditor5-custom-build/build/ckeditor";
 import MessageBoard from "../../Components/Message Board/MessageBoard";
 
-const UpdateTeam = () => {
+const AddStudentProject = () => {
+	const teamRef = useRef();
 	const { auth } = useAuth();
 	const navigate = useNavigate();
-	const { teamID } = useParams();
 	const [selectedFile, setSelectedFile] = useState();
 	const [uploadedURl, setUploadedURl] = useState("");
 	const [showSuccessUpload, setShowSuccessUpload] = useState(false);
@@ -17,34 +20,7 @@ const UpdateTeam = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
 	const [showImage, setShowImage] = useState(false);
-	const [TestomonialResponse, setTestomonialResponse] = useState({});
-
-	useEffect(() => {
-		const fetchData = async () => {
-			// get request to get pre-update value of the course.
-			try {
-				let response = await axios.get(`https://learning-management-system-kx6y.onrender.com/api/team/${teamID}`, {
-					headers: {
-						Authorization: `Bearer ${auth.Token}`,
-						withCredentails: true,
-					},
-				});
-
-				setTestomonialResponse(response.data.team);
-				setUploadedURl(response.data.team.image);
-				setShowImage(true);
-			} catch (error) {
-				if (error.response) {
-					console.log(error.response.status);
-					console.log(error.response.headers);
-				} else {
-					console.log(`Error: ${error.message}`);
-				}
-			}
-		};
-		fetchData();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [teamID]);
+	const [ckPara, setCkPara] = useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -52,15 +28,15 @@ const UpdateTeam = () => {
 		let enterdData = Object.fromEntries(data.entries());
 		console.log(enterdData);
 		const postData = {
-			name: enterdData.team_name,
-			position: enterdData.team_position,
-			socialPlatform: enterdData.team_social_email,
-			email: enterdData.team_email,
+			title: enterdData.project_name,
+			description: ckPara,
 			image: uploadedURl,
+			githubLink: enterdData.repo,
+			name: enterdData.student_name,
 		};
 
 		try {
-			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/team/update/${teamID}`, postData, {
+			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/project/add", postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -112,30 +88,40 @@ const UpdateTeam = () => {
 			}, 1000);
 		}
 	};
+	useEffect(() => {
+		teamRef.current.focus();
+	}, []);
 
 	return (
 		<>
 			<div className={style.AddTestomonial_Wrapper}>
-				<div className={style.AddTestomonial}>
+				<div className="AddTestomonial">
 					<h1>
-						Update <span className={style.Heading_Highlight}>Team Member</span>
+						Add <span className={style.Heading_Highlight}>Students Project</span>
 					</h1>
-
 					<form onSubmit={handleSubmit} autoComplete="off" className={style.Form_Wrapper}>
-						<h1>Full Name</h1>
-						<input name="team_name" type="text" required defaultValue={TestomonialResponse.name}></input>
+						<h1>Project Name Name</h1>
+						<input name="project_name" type="text" required ref={teamRef}></input>
 						<h1>Image</h1>
 						<div className={style.ImageUpload}>
-							<input name="team_Image" type="file" onChange={fileSelectedHandler}></input>
+							<input name="project_Image" type="file" required onChange={fileSelectedHandler}></input>
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-						<h1>Position</h1>
-						<input name="team_position" type="text" required defaultValue={TestomonialResponse.position}></input>
-						<h1>Email</h1>
-						<input name="team_email" type="email" required defaultValue={TestomonialResponse.email}></input>
-						<h1>Social Link</h1>
-						<input name="team_social_email" type="text" required defaultValue={TestomonialResponse.socialPlatform}></input>
+						<h1>Description</h1>
+						<CKEditor
+							editor={Editor}
+							data={ckPara}
+							onChange={(event, editor) => {
+								const dataPara = editor.getData();
+								setCkPara(dataPara);
+							}}
+						/>
+						<h1>Repository Link</h1>
+						<input name="repo" type="text" required></input>
+						<h1>Stuents name</h1>
+						<input name="student_name" type="text" required></input>
+
 						<button>Submit</button>
 					</form>
 				</div>
@@ -143,7 +129,7 @@ const UpdateTeam = () => {
 
 			{showSuccess && (
 				//* Success Message on succesfull course addition
-				<MessageBoard Message_type="successBoard" Message="Updated Succesfully" />
+				<MessageBoard Message_type="successBoard" Message=" Added Succesfully" />
 			)}
 			{showSuccessUpload && (
 				//* Success Message on succesfull course addition
@@ -151,7 +137,7 @@ const UpdateTeam = () => {
 			)}
 			{showFailed && (
 				//* failed Message on course addition
-				<MessageBoard Message_type="FailedBoard" Message="Could not Update. Please try again." />
+				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />
 			)}
 			{showFailedUpload && (
 				//* failed Message on course addition
@@ -161,4 +147,4 @@ const UpdateTeam = () => {
 	);
 };
 
-export default UpdateTeam;
+export default AddStudentProject;

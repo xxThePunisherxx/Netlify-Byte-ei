@@ -1,21 +1,32 @@
-.AddTestomonial_Wrapper {
+.AddCourseCategoryWrapper {
     display: grid;
-    justify-items: center;
+    place-items: center;
+
 }
 
-.AddTestomonial_Wrapper h1 {
+.AddCourseCategory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading h1 {
     font-size: 5rem;
-    text-align: center;
     text-transform: capitalize;
 }
 
-.Heading_Highlight {
+.Headinghighlight {
     color: #2bb673;
 }
 
-/*  */
-.Form_Wrapper input,
-.Form_Wrapper textarea {
+.AddCourseCategory form {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.FormWrapper input,
+.FormWrapper textarea {
     font-size: 1.5rem;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -25,35 +36,18 @@
     width: 1100px;
 }
 
-.Form_Wrapper h1 {
+.FormWrapper h1 {
     font-size: 1.5rem;
-    margin-top: 20px;
-    text-align: left;
+
 }
 
-.Form_Wrapper h1:first-child {
-    margin-top: 0px;
-}
 
-.Form_Wrapper select {
-    font-size: 1.5rem;
-    border-radius: 5px;
-    border: 2px solid black;
-    padding: 15px;
-    margin-top: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 1100px;
-}
-
-.Form_Wrapper input:focus,
-.Form_Wrapper textarea:focus {
+.FormWrapper input:focus,
+.FormWrapper textarea:focus {
     background-color: #b9b9b9;
 }
 
-
-
-.Form_Wrapper button {
+.FormWrapper button {
     cursor: pointer;
     margin: 0 auto;
     margin-top: 20px;
@@ -69,13 +63,16 @@
     transition: all ease-in .2s;
     color: white;
     border: none;
-
 }
 
-.Form_Wrapper button:hover {
+.FormWrapper button:hover {
     color: #2bb673;
     background-color: white;
     border: 1px solid #2bb673;
+}
+
+.Spantwo {
+    grid-column: 1 / span 2;
 }
 
 .ImageUpload {
@@ -91,11 +88,7 @@
     font-size: 1rem;
 }
 
-.ck {
-    margin-bottom: 20px;
-}
-
 .Uplaod_Img {
+    margin-top: 20px;
     width: 300px;
-    margin-top: 50px;
 }

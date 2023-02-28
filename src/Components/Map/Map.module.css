@@ -19,5 +19,44 @@
 iframe {
     border: none;
     border-radius: 20px;
+}
+
+@media screen and (max-width: 1669px) {
+
+    .mapWrapper h1 {
+        font-size: 5rem;
+        padding: 4rem;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .TrainingGrid {
+        grid-template-columns: repeat(3, 300px);
+    }
+
+}
+
+
+@media screen and (max-width: 960px) {
+
+    .mapWrapper h1 {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+
+}
+
+
+@media screen and (max-width: 840px) {
+    .TrainingGrid {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+@media screen and (max-width: 669px) {
+    .mapWrapper h1 {
+        font-size: 3rem;
+        padding: 2rem;
+    }
 
 }
