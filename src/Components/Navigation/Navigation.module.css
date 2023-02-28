@@ -103,7 +103,7 @@ ul {
 
 }
 
-@media(max-width: 1412px) {
+@media(max-width: 1010px) {
     .navToggler {
         display: flex;
     }
