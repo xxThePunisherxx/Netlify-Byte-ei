@@ -6,7 +6,7 @@ import Comming from "./Pages/CommingSoon/Comming";
 import ClientsAll from "./Pages/Clients/ClientsAll";
 import NotFound from "./Pages/NotFound/NotFound";
 import Admin from "./Pages/Admin/Admin";
-import Test from "./Pages/TestPage/Test";
+// import Test from "./Pages/TestPage/Test";
 import IndividualCourse from "./Pages/IndividualCourse/IndividualCourse";
 import ClientLayout from "./Components/ClientLayout/ClientLayout";
 import AddCourse from "./Pages/Add courses/AddCourse";
@@ -33,6 +33,10 @@ import UpdateTeam from "./Pages/UpdateTeam/UpdateTeam";
 import InquireyForm from "./Components/Inquirey/InquireyForm";
 import AddPlacementPartnet from "./Pages/AddPlacementPartner/AddPlacementPartnet";
 import AdminTeamListPage from "./Pages/AdminTeamListPage/AdminTeamListPage";
+import AddStudentProject from "./Pages/AddStudentProject/AddStudentProject";
+import UpdateStudentProjects from "./Pages/UpdateStudentProjects/UpdateStudentProjects";
+import InividualProjectDescription from "./Pages/InividualProjectDescription/InividualProjectDescription";
+import UpdatePartner from "./Pages/UpdatePartner/UpdatePartner";
 
 function App() {
 	return (
@@ -49,8 +53,9 @@ function App() {
 				<Route path="/studentProjects" element={<StudentProject />} />
 				<Route path="/allClients" element={<ClientsAll />} />
 				<Route path="/unauthorized" element={<Unauthorized />} />
-				<Route path="/test" element={<Test />} /> just for quick testing of page
+				{/* <Route path="/test" element={<Test />} /> just for quick testing of page */}
 				<Route path="/course-view/:courseID" element={<IndividualCourse />} />
+				<Route path="/project-view/:projectID" element={<InividualProjectDescription />} />
 				<Route path="/inquiry" element={<InquireyForm />} />
 				<Route path="/enroll" element={<EnrollForm />} />
 				<Route path="*" element={<NotFound />} />
@@ -66,6 +71,8 @@ function App() {
 						<Route path="updateCourseCategory/:categoryID" element={<UpdateCourseCategory />} />
 						<Route path="updateTestomonial/:testomonialID" element={<UpdateTestomonial />} />
 						<Route path="updateTeam/:teamID" element={<UpdateTeam />} />
+						<Route path="updateStudentProject/:projectID" element={<UpdateStudentProjects />} />
+						<Route path="updatePartner/:partnerID" element={<UpdatePartner />} />
 						<Route path="dashboard" element={<AdminDashboard />} />
 						<Route path="addCategory" element={<AddCourseCate />} />
 						<Route path="allCourse" element={<AdminCourseListPage />} />
@@ -73,6 +80,7 @@ function App() {
 						<Route path="addTestomonial" element={<AddTestomonial />} />
 						<Route path="addTeam" element={<AddTeam />} />
 						<Route path="addPlacementPartner" element={<AddPlacementPartnet />} />
+						<Route path="addStudentProject" element={<AddStudentProject />} />
 					</Route>
 				</Route>
 				<Route element={<RequireAuth allowedRoles={["superAdmin"]} />}>
