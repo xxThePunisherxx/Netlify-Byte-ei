@@ -3,6 +3,9 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const useFetch = (url) => {
+	//
+	// ---------------------------------- this hook  fetchs data form unrestriced backend API ----------------------------------------------------------------
+
 	const { auth } = useAuth();
 
 	const [ispending, setIsPending] = useState(true);
