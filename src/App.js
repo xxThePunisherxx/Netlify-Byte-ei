@@ -37,6 +37,7 @@ import AddStudentProject from "./Pages/AddStudentProject/AddStudentProject";
 import UpdateStudentProjects from "./Pages/UpdateStudentProjects/UpdateStudentProjects";
 import InividualProjectDescription from "./Pages/InividualProjectDescription/InividualProjectDescription";
 import UpdatePartner from "./Pages/UpdatePartner/UpdatePartner";
+import SubmittedFormData from "./Pages/SubmittedFormData/SubmittedFormData";
 
 function App() {
 	return (
@@ -81,6 +82,7 @@ function App() {
 						<Route path="addTeam" element={<AddTeam />} />
 						<Route path="addPlacementPartner" element={<AddPlacementPartnet />} />
 						<Route path="addStudentProject" element={<AddStudentProject />} />
+						<Route path="formData" element={<SubmittedFormData />} />
 					</Route>
 				</Route>
 				<Route element={<RequireAuth allowedRoles={["superAdmin"]} />}>
