@@ -27,7 +27,9 @@
 
 }
 
-.Enroll_Table_Data button {
+.Enroll_Table_Data button,
+.Contact_Table_Data button,
+.Inquirey_Table_Data button {
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
