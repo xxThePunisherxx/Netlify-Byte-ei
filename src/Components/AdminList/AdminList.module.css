@@ -20,7 +20,6 @@
     margin-top: 10px;
 }
 
-
 .admin_Table h1 {
     font-size: 1.3rem;
     text-align: left;
@@ -46,6 +45,7 @@
     background-color: transparent;
     font-size: 2rem;
     transition: color ease .2s;
+    cursor: pointer;
 }
 
 .Edit_Btn:hover {
