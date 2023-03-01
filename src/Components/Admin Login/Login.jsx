@@ -51,8 +51,10 @@ const Login = () => {
 			localStorage.setItem("User Info", JSON.stringify(localData));
 			localStorage.setItem("User time", JSON.stringify(lt));
 			setAuth({ AuthRole: role, AuthAccessToken: accessToken });
-			setemail("");
-			setPassword("");
+			if (response.data) {
+				setemail("");
+				setPassword("");
+			}
 			window.location.href = `${from}`;
 		} catch (err) {
 			if (!err?.response) {
