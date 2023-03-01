@@ -1,13 +1,13 @@
 .UpdateAdmin_Wrapper {
     display: grid;
-    justify-items: center;
+    /* justify-items: center; */
 }
 
 .UpdateAdmin_Wrapper h1 {
     text-transform: capitalize;
     font-size: 5rem;
     text-align: center;
-    /* padding: 5rem; */
+
 }
 
 .Heading_Highlight {
@@ -15,7 +15,10 @@
 }
 
 .Form_Wrapper {
+    /* padding: 3rem; */
     padding: 3rem;
+    width: calc(100vw - 300px - 15%);
+    margin: 0 auto;
 }
 
 .Form_Wrapper h1 {
@@ -24,6 +27,13 @@
     padding: 0;
     text-transform: capitalize;
     text-align: left;
+}
+
+.Form_Wrapper h2 {
+    font-size: 1rem;
+    opacity: .5;
+    margin-left: 20px;
+    text-align-last: left;
 }
 
 .Form_Wrapper h1:first-child {
@@ -38,7 +48,7 @@
     padding: 15px;
     margin-top: 10px;
     border-radius: 10px;
-    width: 1100px;
+    width: 100%;
 }
 
 .Form_Wrapper input:focus,
@@ -54,7 +64,7 @@
     margin-top: 10px;
     border-radius: 10px;
     cursor: pointer;
-    width: 1100px;
+    width: 100%;
 }
 
 .Form_Wrapper button {
