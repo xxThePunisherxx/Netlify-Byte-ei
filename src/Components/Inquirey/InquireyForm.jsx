@@ -3,17 +3,53 @@ import { useRef, useEffect } from "react";
 import style from "./InquireyForm.module.css";
 import useFetch from "../../Utils/Hooks/fetch";
 import uuid from "react-uuid";
+import axios from "axios";
+import { useState } from "react";
 
 const InquireyForm = () => {
 	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const [showSelectCat, setShowSelectCat] = useState(false);
 
 	const EnrollRef = useRef();
-	const handlesubmit = (e) => {
+	const handlesubmit = async (e) => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-
-		console.log(enterdData);
+		const postData = {
+			legalName: enterdData.Full_name,
+			email: enterdData.Email,
+			message: enterdData.Message,
+			phoneNumber: enterdData.mobile_number,
+			course: enterdData.dropdown,
+		};
+		// console.log(enterdData);
+		console.log(postData);
+		if (enterdData.dropdown !== "null") {
+			try {
+				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/enquiry/add", postData);
+				if (response.status === 201) {
+					console.log("Success");
+					// setShowSuccess(true);
+					// setTimeout(() => {
+					// 	setTimeout(() => {
+					// 		setShowSuccess(false);
+					// 	}, 1000);
+					// 	navigate("/admin/dashboard");
+					// }, 2000);
+				}
+			} catch (err) {
+				console.log("Failed");
+				// setShowFailed(true);
+				// setTimeout(() => {
+				// 	setShowFailed(false);
+				// }, 1000);
+			}
+		} else if (enterdData.dropdown === "null") {
+			setShowSelectCat(true);
+			setTimeout(() => {
+				setShowSelectCat(false);
+			}, 2000);
+		}
 	};
 
 	useEffect(() => {
@@ -37,7 +73,7 @@ const InquireyForm = () => {
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
-				<input name="Full name" type="text" required ref={EnrollRef}></input>
+				<input name="Full_name" type="text" required ref={EnrollRef}></input>
 				<h1>
 					Email
 					<span className={style.mandatory_hightlight}>
@@ -51,7 +87,7 @@ const InquireyForm = () => {
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
-				<input name="mobile number" type="text" required></input>
+				<input name="mobile_number" type="text" required></input>
 
 				<h1>
 					Message
@@ -66,8 +102,10 @@ const InquireyForm = () => {
 						<sup>*&nbsp;</sup>
 					</span>
 				</h1>
+				{showSelectCat && <h1 style={{ color: "red" }}>Select a course category</h1>}
+
 				<select name="dropdown">
-					<option>Select Category</option>
+					<option value="null">Select Course</option>
 					{trainingResponse.training.map((Category) => (
 						<option key={uuid()} value={Category.title}>
 							{Category.title}

@@ -109,6 +109,17 @@ const AdminSidebar = () => {
 						className={({ isActive }) => {
 							return "AdminDash-" + (isActive ? "Active" : "Inactive");
 						}}
+						to={"/admin/formData"}
+					>
+						<h1>
+							<AiFillHome />
+							&nbsp; Form Data
+						</h1>
+					</NavLink>
+					<NavLink
+						className={({ isActive }) => {
+							return "AdminDash-" + (isActive ? "Active" : "Inactive");
+						}}
 						to={"/"}
 					>
 						<h1>
@@ -116,6 +127,7 @@ const AdminSidebar = () => {
 							&nbsp; HomePage
 						</h1>
 					</NavLink>
+
 					<NavLink
 						className={({ isActive }) => {
 							return "AdminDash-" + (isActive ? "Active" : "Inactive");

@@ -11,6 +11,7 @@
 
 .FormWrappper {
     padding: 3rem;
+    width: calc(100vw - 300px - 15%);
     margin: 0 auto;
 }
 
@@ -38,7 +39,7 @@
     padding: 15px;
     margin-top: 10px;
     border-radius: 10px;
-    width: 1100px;
+    width: 100%;
 }
 
 .FormWrappper input:focus {
@@ -87,4 +88,16 @@
     font-size: 1.5rem;
     list-style: disc;
     margin-left: 35px;
+}
+
+@media(max-width:1269px) {
+
+    .Addadmin_wrapper h1 {
+        font-size: 3rem;
+    }
+
+    .FormWrappper h1 {
+        font-size: 1.5rem;
+
+    }
 }

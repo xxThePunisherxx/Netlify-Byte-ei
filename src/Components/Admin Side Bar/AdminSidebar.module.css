@@ -7,12 +7,12 @@
 .AdminSidebar {
     padding: 10px;
     width: 300px;
-    height: 100vh;
+    max-height: 100vh;
     background-color: rgba(0, 0, 0, 0.87);
     color: white;
-    margin-right: 50px;
     position: sticky;
     top: 0;
+    overflow-y: auto;
 }
 
 .Logo {

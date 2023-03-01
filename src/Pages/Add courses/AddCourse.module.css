@@ -13,6 +13,7 @@
 .heading h1 {
     font-size: 5rem;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .Headinghighlight {
@@ -21,9 +22,10 @@
 
 .AddCourse form {
     padding: 3rem;
-    width: 100%;
+    width: calc(100vw - 300px - 28%);
     margin: 0 auto;
 }
+
 
 .FormWrappper input,
 .FormWrappper textarea {
@@ -33,7 +35,7 @@
     padding: 15px;
     margin-top: 10px;
     border-radius: 10px;
-    width: 1100px;
+    width: 100%;
 }
 
 .FormWrappper h1 {
@@ -53,7 +55,7 @@
     margin-top: 10px;
     border-radius: 10px;
     cursor: pointer;
-    width: 1100px;
+    width: 100%;
 }
 
 .FormWrappper input:focus,
@@ -101,7 +103,7 @@
 
 .ImageUpload {
     display: flex;
-    width: 1100px;
+    flex-wrap: wrap;
 }
 
 .ImageUpload input {
@@ -115,4 +117,26 @@
 .Uplaod_Img {
     margin-top: 20px;
     width: 300px;
+}
+
+@media(max-width:1400px) {
+    .AddCourse form {
+
+        width: calc(100vw - 300px - 15%);
+    }
+
+}
+
+@media(max-width:1269px) {
+    .AddCourse form {
+        padding: 2rem;
+        width: calc(100vw - 300px - 5%);
+        margin: 0 auto;
+    }
+
+    .heading h1 {
+        font-size: 3rem;
+        padding: 3rem;
+
+    }
 }

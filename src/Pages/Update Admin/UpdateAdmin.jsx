@@ -57,15 +57,18 @@ const UpdateAdmin = () => {
 		<>
 			<div className={style.UpdateAdmin_Wrapper}>
 				<div className={style.UpdateAdmin}>
-					<h1>
-						Update <span className={style.Heading_Highlight}>details</span>
-					</h1>
+					<div>
+						<h1>
+							Update <span className={style.Heading_Highlight}>details</span>
+						</h1>
+					</div>
 					{!ispending && (
 						<form onSubmit={handleSubmit} autoComplete="off" className={style.Form_Wrapper}>
 							<h1>User Name</h1>
 							<input name="user_name" defaultValue={UserData.user.name} type="text" required ref={UpdateRef}></input>
 							<h1>Password</h1>
-							<input name="user_password" placeholder="Enter value to change password else leave it blank." type="password"></input>
+							<h2>Enter value to change password or else leave it blank.</h2>
+							<input name="user_password" type="password"></input>
 							<h1>Email</h1>
 							<input name="user_email" defaultValue={UserData.user.email} type="email"></input>
 							<h1>Role</h1>
