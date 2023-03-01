@@ -146,10 +146,7 @@ const Addadmin = () => {
 
 					<h1>Retype Password</h1>
 					<input name="retype_password" type="password"></input>
-					<button className={style.Spantwo}>Create account</button>
-
-					{/* <h1>Access Level:</h1> */}
-					{/* //TODO: may get removed */}
+					<button>Create account</button>
 				</form>
 			</div>
 			{showSuccess && (

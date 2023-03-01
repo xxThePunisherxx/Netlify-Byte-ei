@@ -70,7 +70,7 @@ const UpdateCourseCategory = () => {
 								required
 								ref={editcatRef}
 							></input>
-							<button className={style.Spantwo}>Submit</button>
+							<button>Submit</button>
 						</form>
 					)}
 				</div>

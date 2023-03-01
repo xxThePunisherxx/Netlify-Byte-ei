@@ -211,7 +211,7 @@ const RemoveCourse = () => {
 								</option>
 							))}
 						</select>
-						<button className={style.Spantwo}>Update</button>
+						<button>Update</button>
 					</form>
 				</div>
 			</div>

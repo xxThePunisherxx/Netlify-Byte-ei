@@ -186,7 +186,7 @@ const AddCourse = () => {
 								</option>
 							))}
 						</select>
-						<button className={style.Spantwo}>Create</button>
+						<button>Create</button>
 					</form>
 				</div>
 			</div>

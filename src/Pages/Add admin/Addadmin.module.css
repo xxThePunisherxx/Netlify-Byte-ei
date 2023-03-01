@@ -72,9 +72,6 @@
     border: 1px solid #2bb673;
 }
 
-.Spantwo {
-    grid-column: 1 / span 2;
-}
 
 .Valid_Email h1,
 .Pwd_match h1,
