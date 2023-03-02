@@ -156,6 +156,12 @@ details[open] summary::after {
 
 }
 
+.err h1 {
+    font-size: 1.5rem;
+    color: red;
+    text-align: center;
+}
+
 /*! -------------------------------------- FAQ stuff------------------------------------------------------
  @media(max-width:1000px) {
 
@@ -181,16 +187,34 @@ details[open] summary::after {
     .SuccesFormSubmit_Message {
         padding: 7rem;
     }
+
+    .message_heading h1,
+    .FAQ_header h1 {
+        font-size: 3.5rem;
+        text-align: center;
+    }
 }
 
 @media(max-width:700px) {
     .SuccesFormSubmit_Message {
         padding: 5rem;
     }
+
+    .message_heading h1,
+    .FAQ_header h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
 }
 
 @media(max-width:500px) {
     .SuccesFormSubmit_Message {
         padding: 1.5rem;
+    }
+
+    .message_heading h1,
+    .FAQ_header h1 {
+        font-size: 2rem;
+        text-align: center;
     }
 }

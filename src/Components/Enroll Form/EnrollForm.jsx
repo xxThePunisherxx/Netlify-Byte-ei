@@ -103,7 +103,12 @@ const EnrollForm = () => {
 								</option>
 							))}
 						</select>
-						<button className={style.Spantwo}>Submit</button>
+						{Error && (
+							<div className={style.err}>
+								<h1>Something went wrong</h1>
+							</div>
+						)}
+						<button>Submit</button>
 					</form>
 				</div>
 			)}
@@ -138,11 +143,6 @@ const EnrollForm = () => {
 						media to stay updated on our latest news and offers.
 					</h1>
 					<h1>Thank you for choosing us and have a great day!</h1>
-				</div>
-			)}
-			{Error && (
-				<div className={style.err}>
-					<h1>Something went wrong</h1>
 				</div>
 			)}
 		</>
