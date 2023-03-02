@@ -17,17 +17,24 @@ const SubmittedFormData = () => {
 		"https://learning-management-system-kx6y.onrender.com/api/enquiry"
 	);
 
-	// const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
+	// ------------------------------state to handle delete confirmation poups---------------------------------------------------------------------
+
 	const [ShowconfirmDeleteEnroll, setShowconfirmDeleteEnroll] = useState(false);
 	const [ShowconfirmDeleteInquirey, setShowconfirmDeleteInquirey] = useState(false);
 	const [ShowconfirmDeleteContact, setShowconfirmDeleteContact] = useState(false);
 
+	//  ------------------------------------------ state to store id of things to delete -------------------------------------------------------
+
 	const [ToDeleteEnroll, setToDeleteEnroll] = useState(null);
 	const [ToDeleteInquirey, setToDeleteInquirey] = useState();
 	const [ToDeleteContact, setToDeleteContact] = useState();
+
+	//  --------------------------------------------- message board ---------------------------------------------------------------------------
+
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
-	// ! remove on final deploy
+
+	// ----------------------------------------------- Function to handle respective delete popus --------------------------------------------
 
 	const handleDeletePopupEnroll = (id) => {
 		setShowconfirmDeleteEnroll(true);
@@ -42,6 +49,8 @@ const SubmittedFormData = () => {
 		setToDeleteContact(id);
 	};
 
+	// -------------------------------------------- functions to handle respective cancel action on popups -------------------------------------------
+
 	const handleCancelEnroll = () => {
 		setShowconfirmDeleteEnroll(false);
 	};
@@ -50,9 +59,9 @@ const SubmittedFormData = () => {
 	};
 	const handleCancelContact = () => {
 		setShowconfirmDeleteContact(false);
-		// setToDeleteContact(null);
 	};
 
+	// ----------------------------------------- function to handle delete confirmation on respective popups -------------------------------------------
 	const handleConfirmEnroll = async () => {
 		try {
 			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/form/delete/" + ToDeleteEnroll, {
@@ -138,7 +147,9 @@ const SubmittedFormData = () => {
 		<>
 			<div className={style.FormData_Wrapper}>
 				<div className={style.EnrollFormDataWrapper}>
-					<h1>Data From Enroll Form </h1>
+					<h1>
+						Data From <span className={style.HeadingHighlight}> Enroll Form</span>
+					</h1>
 					{!EnrollDataPending && (
 						<div className={style.Enroll_Data}>
 							<div className={style.Enroll_Table_Headings}>
@@ -163,7 +174,10 @@ const SubmittedFormData = () => {
 						</div>
 					)}
 					<div className={style.InquireyFormDataWrapper}>
-						<h1>Data From Inquirey Form </h1>
+						<h1>
+							Data From
+							<span className={style.HeadingHighlight}> Inquirey Form</span>
+						</h1>
 						{!InquireyDataPending && (
 							<div className={style.Enroll_Data}>
 								<div className={style.Inquirey_Table_Headings}>
@@ -193,7 +207,10 @@ const SubmittedFormData = () => {
 						)}
 					</div>
 					<div className={style.ContactFormDataWrapper}>
-						<h1>Data From Contact Us Form </h1>
+						<h1>
+							Data From
+							<span className={style.HeadingHighlight}> Contact Us Form</span>
+						</h1>
 						{!ContactDataPending && (
 							<div className={style.Contact_Data}>
 								<div className={style.Contact_Table_Headings}>
@@ -222,7 +239,9 @@ const SubmittedFormData = () => {
 					</div>
 				</div>
 			</div>
+
 			{ShowconfirmDeleteEnroll && (
+				// --------------------------------------------- Delete Enroll form data popup ---------------------------------------------------------
 				<div className={style.popup}>
 					<div className={style.close_btn}>
 						<h1>
@@ -246,6 +265,7 @@ const SubmittedFormData = () => {
 				</div>
 			)}
 			{ShowconfirmDeleteInquirey && (
+				//  ----------------------------------------- delete inquirey form data popup --------------------------------------------------------
 				<div className={style.popup}>
 					<div className={style.close_btn}>
 						<h1>
@@ -269,6 +289,7 @@ const SubmittedFormData = () => {
 				</div>
 			)}
 			{ShowconfirmDeleteContact && (
+				//  -------------------------------------------------------- delete contact form  data popup -----------------------------------------
 				<div className={style.popup}>
 					<div className={style.close_btn}>
 						<h1>
@@ -291,6 +312,7 @@ const SubmittedFormData = () => {
 					</div>
 				</div>
 			)}
+
 			{showSuccess && (
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Removed succesfully" />
