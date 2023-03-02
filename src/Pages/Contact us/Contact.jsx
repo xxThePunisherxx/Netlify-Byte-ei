@@ -37,7 +37,7 @@ const Contact = () => {
 
 	return (
 		<>
-			{Success && (
+			{!Success && (
 				<div className={style.Contact_Wrapper}>
 					<div className={style.message_Wrapper}>
 						<div className={style.message_heading}>
@@ -109,7 +109,7 @@ const Contact = () => {
 					</div> */}
 				</div>
 			)}
-			{!Success && (
+			{Success && (
 				<div className={style.SuccesFormSubmit_Message}>
 					{/* Feeback form  response */}
 					{/* <h1>
