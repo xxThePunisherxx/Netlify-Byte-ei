@@ -36,7 +36,7 @@
 }
 
 .Individual_FAQ {
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
     border-radius: 10px;
     padding: 10px;
@@ -48,13 +48,14 @@
 }
 
 .Individual_FAQ p {
-    margin-left: 80px;
+    /* margin-left: 80px; */
     font-weight: 400;
     text-align: left;
 }
 
 summary {
     display: block;
+    text-align: left;
 }
 
 summary::after {
@@ -137,6 +138,22 @@ details[open] summary::after {
     margin-top: 10px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.SuccesFormSubmit_Message {
+    padding: 11rem;
+}
+
+.SuccesFormSubmit_Message h1 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-align: justify;
+    font-weight: 500;
+}
+
+.SuccesFormSubmit_Message h1 a {
+    color: #2bb673;
+
 }
 
 @media(max-width:1000px) {
