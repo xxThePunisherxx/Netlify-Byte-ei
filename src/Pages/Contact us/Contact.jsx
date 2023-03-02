@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRef } from "react";
 import style from "./Contact.module.css";
 import axios from "axios";
