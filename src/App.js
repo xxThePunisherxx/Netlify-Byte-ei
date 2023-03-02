@@ -26,7 +26,6 @@ import UpdateAdmin from "./Pages/Update Admin/UpdateAdmin";
 import AddTestomonial from "./Pages/Add Testomonial/AddTestomonial";
 import AboutUs from "./Pages/About Us/AboutUs";
 import StudentProject from "./Pages/Student Project/StudentProject";
-import AdminSidebar from "./Components/Admin Side Bar/AdminSidebar";
 import UpdateTestomonial from "./Pages/UpdateTestomonial/UpdateTestomonial";
 import AddTeam from "./Pages/AddTeam/AddTeam";
 import UpdateTeam from "./Pages/UpdateTeam/UpdateTeam";
