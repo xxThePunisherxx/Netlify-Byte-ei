@@ -31,7 +31,7 @@ const Contact = () => {
 			setError(true);
 			setTimeout(() => {
 				setError(false);
-			}, 1000);
+			}, 2000);
 		}
 	};
 
@@ -77,6 +77,11 @@ const Contact = () => {
 								</span>
 							</h1>
 							<textarea name="Message" type="text" rows={10} required></textarea>
+							{Error && (
+								<div className={style.err}>
+									<h1>Something went wrong. Please try again later</h1>
+								</div>
+							)}
 							<button className={style.Spantwo}>Submit</button>
 						</form>
 					</div>
@@ -141,11 +146,6 @@ const Contact = () => {
 						media to stay updated on our latest news and offers.
 					</h1>
 					<h1>Thank you for choosing us and have a great day!</h1>
-				</div>
-			)}
-			{Error && (
-				<div className={style.err}>
-					<h1>Something went wrong</h1>
 				</div>
 			)}
 		</>

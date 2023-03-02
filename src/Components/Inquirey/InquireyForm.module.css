@@ -94,6 +94,12 @@
     font-weight: 500;
 }
 
+.err h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    color: red;
+}
+
 @media(max-width:1600px) {
     .SuccesFormSubmit_Message {
         padding: 9rem;
@@ -104,16 +110,34 @@
     .SuccesFormSubmit_Message {
         padding: 7rem;
     }
+
+    .message_heading h1,
+    .FAQ_header h1 {
+        font-size: 3.5rem;
+        text-align: center;
+    }
 }
 
 @media(max-width:700px) {
     .SuccesFormSubmit_Message {
         padding: 5rem;
     }
+
+    .message_heading h1,
+    .FAQ_header h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
 }
 
 @media(max-width:500px) {
     .SuccesFormSubmit_Message {
         padding: 1.5rem;
+    }
+
+    .message_heading h1,
+    .FAQ_header h1 {
+        font-size: 2rem;
+        text-align: center;
     }
 }

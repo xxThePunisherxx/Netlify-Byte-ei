@@ -106,6 +106,11 @@ const InquireyForm = () => {
 								</option>
 							))}
 						</select>
+						{Error && (
+							<div className={style.err}>
+								<h1>Something went wrong</h1>
+							</div>
+						)}
 						<button className={style.Spantwo}>Submit</button>
 					</form>
 				</div>
@@ -141,11 +146,6 @@ const InquireyForm = () => {
 
 					<h1>We look forward to hearing from you soon and providing you with the best solution for your needs.</h1>
 					<h1>Thank you for choosing us and have a great day!</h1>
-				</div>
-			)}
-			{Error && (
-				<div className={style.err}>
-					<h1>Something went wrong</h1>
 				</div>
 			)}
 		</>
