@@ -44,7 +44,6 @@ const AddTestomonial = () => {
 			course: enterdData.dropDown,
 		};
 		if (enterdData.dropdown !== "null" && enterdData.testominial.length < 300) {
-			console.log("Asdadkhgasdjgasd");
 			try {
 				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/testimonial/add", postData, {
 					headers: {

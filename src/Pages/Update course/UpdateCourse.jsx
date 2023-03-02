@@ -86,7 +86,6 @@ const RemoveCourse = () => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-		console.log(enterdData);
 		const postData = {
 			title: enterdData.course_Name,
 			description: ckPara,
@@ -116,7 +115,6 @@ const RemoveCourse = () => {
 				}, 2000);
 			}
 		} catch (error) {
-			// console.log(error);
 			setShowFailed(true);
 			setTimeout(() => {
 				setShowFailed(false);

@@ -9,7 +9,6 @@ const InividualProjectDescription = () => {
 	const { projectID } = useParams();
 	let githubLink = "";
 	const { data: ProjectData, ispending } = useFetch(`https://learning-management-system-kx6y.onrender.com/api/project/${projectID}`);
-	console.log(ProjectData.studentProject);
 	if (ProjectData.studentProject) {
 		githubLink = `https://${ProjectData.studentProject.githubLink}`;
 	}

@@ -30,7 +30,6 @@ const CourseCategoryList = () => {
 	};
 
 	const handleConfirm = async () => {
-		// console.log("sdadasd");
 		try {
 			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/category/delete/" + ToDelete, {
 				headers: {
@@ -38,7 +37,6 @@ const CourseCategoryList = () => {
 					withCredentails: true,
 				},
 			});
-			console.log(response);
 			if (response.status === 201) {
 				setTimeout(() => {
 					setShowSuccess(true);

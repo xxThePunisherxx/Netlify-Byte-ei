@@ -69,8 +69,6 @@ const Addadmin = () => {
 		}
 
 		if (isValidEmail && isValidPassword && enterdData.Password === enterdData.retype_password && isValidName) {
-			console.log(enterdData);
-			console.log("validated and ready to be sent to server");
 			const postData = {
 				password: enterdData.Password,
 				email: enterdData.user_email,

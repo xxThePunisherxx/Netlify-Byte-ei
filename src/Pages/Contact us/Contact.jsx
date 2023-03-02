@@ -27,7 +27,6 @@ const Contact = () => {
 			if (response.status === 201) {
 				setSuccess(true);
 			}
-			console.log("Click");
 		} catch (err) {
 			setError(true);
 			setTimeout(() => {
