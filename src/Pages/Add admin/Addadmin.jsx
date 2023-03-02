@@ -69,8 +69,6 @@ const Addadmin = () => {
 		}
 
 		if (isValidEmail && isValidPassword && enterdData.Password === enterdData.retype_password && isValidName) {
-			console.log(enterdData);
-			console.log("validated and ready to be sent to server");
 			const postData = {
 				password: enterdData.Password,
 				email: enterdData.user_email,
@@ -146,10 +144,7 @@ const Addadmin = () => {
 
 					<h1>Retype Password</h1>
 					<input name="retype_password" type="password"></input>
-					<button className={style.Spantwo}>Create account</button>
-
-					{/* <h1>Access Level:</h1> */}
-					{/* //TODO: may get removed */}
+					<button>Create account</button>
 				</form>
 			</div>
 			{showSuccess && (

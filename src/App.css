@@ -3,11 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Playfair Display', serif;
-    /* !just for testing content overrflow  */
+    /* ! -----------------------------just for testing content overrflow  ------------------------------------*/
     /* outline: #2bb67355 dotted 5px; */
     /* background-color: #472bb62d; */
 }
 
+/* !----------------------------------- font color for active link on navbar ------------------------------ */
 .Link_Text_Active {
     display: block;
     font-size: 1.5rem;
@@ -27,7 +28,7 @@
     transition: all 0.2s ease;
 }
 
-/* carousel  hero*/
+/* ! ---------------------------------------------carousel on hero component -----------------------------------------------*/
 .carousel_card {
     display: flex;
     flex: 1;
@@ -67,7 +68,7 @@
     border-radius: 5rem;
 }
 
-/* Testomonial */
+/* ! --------------------------------------------------Testomonial carousel -------------------------------- */
 .Testicarousel_card {
     display: flex;
     flex-direction: column;
@@ -110,6 +111,7 @@
     border-radius: 5rem;
 }
 
+/*  ! ---------------------------------------- Active links on admin side bar component ------------------------- */
 .AdminDash-Active h1 {
     color: #2bb673;
 }
@@ -118,14 +120,14 @@
     color: white;
 }
 
-
+/* ! --------------------------------------- set min height for ckeditor text area ------------------------------------- */
 .ck-editor__editable {
     min-height: 150px;
-    max-width: 1100px;
+    /* max-width: 1100px; */
 
 }
 
-/*  success board */
+/* ! ---------------------------------------------- action feedback on admin pages ------------------------------ */
 .successBoard,
 .FailedBoard {
     position: fixed;
@@ -149,6 +151,7 @@
     background-color: red;
 }
 
+/* ! -------------------------------------------- loading animation at hero component in homepage ------------------------------ */
 .loader {
     display: grid;
     place-items: center;

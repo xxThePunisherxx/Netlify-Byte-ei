@@ -1,10 +1,11 @@
 import React from "react";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import style from "./EnrollForm.module.css";
 import useFetch from "../../Utils/Hooks/fetch";
 import uuid from "react-uuid";
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const EnrollForm = () => {
 	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
@@ -28,11 +29,9 @@ const EnrollForm = () => {
 			try {
 				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/form/add", postData);
 				if (response.status === 201) {
-					// console.log("Success");
 					setSuccess(true);
 				}
 			} catch (err) {
-				// console.log("Failed");
 				setError(true);
 				setTimeout(() => {
 					setError(false);
@@ -45,10 +44,6 @@ const EnrollForm = () => {
 			}, 2000);
 		}
 	};
-
-	useEffect(() => {
-		EnrollRef.current.focus();
-	}, []);
 
 	return (
 		<>
@@ -112,7 +107,39 @@ const EnrollForm = () => {
 					</form>
 				</div>
 			)}
-			{Success && <h1>Succesfully Enrolled</h1>}
+			{Success && (
+				<div className={style.SuccesFormSubmit_Message}>
+					{/* Feeback form  response */}
+					{/* <h1>
+						Thank you for taking the time to share your feedback with us. We appreciate your honest and constructive comments about our website.
+					</h1>
+					<h1>
+						Your feedback helps us improve our service and deliver a better experience for you and other customers. We are always looking for ways to
+						make our website more user-friendly, informative, and engaging.
+					</h1>
+					<h1>
+						We have noted your suggestions and we will work on implementing them as soon as possible. If you have any additional questions or
+						concerns, please feel free to contact us anytime.
+					</h1>
+					<h1>Thank you again for your valuable feedback and your continued support.</h1> */}
+					{/* Contact form response */}
+					<h1>Thank you for joining our training programs!</h1>
+					<h1>
+						We have received your message and we will get back to you within 2-3 buisness days. We appreciate your interest in our services and we
+						look forward to assisting you with your inquiry.
+					</h1>
+					{/* <h1>
+						In the meantime, you can check out our FAQ page for some common questions and answers. You can also follow us on social media to stay
+						updated on our latest news and offers.
+					</h1> */}
+					<h1>In order to provide you with more details, we have sent you an email that contains further information.</h1>
+					<h1>
+						In the meantime, you can check out trainings we provide at our <Link to="/courses">trainings</Link> page. You can also follow us on social
+						media to stay updated on our latest news and offers.
+					</h1>
+					<h1>Thank you for choosing us and have a great day!</h1>
+				</div>
+			)}
 			{Error && (
 				<div className={style.err}>
 					<h1>Something went wrong</h1>

@@ -3,6 +3,8 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const useFetchAuth = (url) => {
+	//
+	//  ------------------------------- this hook gets data form API that require auth token on request header --------------------------------------------
 	const { auth } = useAuth();
 
 	const [ispending, setIsPending] = useState(true);

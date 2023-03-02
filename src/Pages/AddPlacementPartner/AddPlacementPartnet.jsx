@@ -99,7 +99,7 @@ const AddPlacementPartnet = () => {
 							<button onClick={handleUpload}>Upload image</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-						<button className={style.Spantwo}>Add Partner</button>
+						<button>Add Partner</button>
 					</form>
 				</div>
 			</div>

@@ -50,7 +50,6 @@ const UpdateTeam = () => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-		console.log(enterdData);
 		const postData = {
 			name: enterdData.team_name,
 			position: enterdData.team_position,

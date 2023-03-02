@@ -7,7 +7,6 @@ import useFetch from "../../Utils/Hooks/fetch";
 const Hero = () => {
 	const { data: trainingData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
 	const filteredData = trainingData.training.filter((Individual) => Individual.priority < 8);
-	console.log(filteredData);
 
 	return (
 		<div className={style.Hero_Container}>

@@ -58,7 +58,7 @@ const AddCourseCate = () => {
 					<form onSubmit={handleSubmit} autoComplete="off" className={style.FormWrapper}>
 						<h1>Category Category</h1>
 						<input name="course_Category" type="text" required ref={cateRef}></input>
-						<button className={style.Spantwo}>Add category</button>
+						<button>Add category</button>
 					</form>
 				</div>
 			</div>

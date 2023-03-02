@@ -72,7 +72,6 @@ const AddTestomonial = () => {
 			description: enterdData.testominial,
 			course: enterdData.dropDown,
 		};
-		// console.log(postData);
 		if (enterdData.dropdown !== "null" && enterdData.testominial.length < 300) {
 			try {
 				const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/testimonial/update/${testomonialID}`, postData, {

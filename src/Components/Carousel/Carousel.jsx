@@ -42,7 +42,6 @@ function Carousel({ images, EnableautoPlay, ShowItemFor }) {
 			}}
 		>
 			<div className={style.carouselWrapper}>
-				{console.log(images)}
 				{images.map((image, index) => {
 					let link = `/course-view/${image._id}`;
 					return (

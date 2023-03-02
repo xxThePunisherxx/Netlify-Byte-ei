@@ -53,7 +53,6 @@ const UpdateStudentProjects = () => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-		console.log(enterdData);
 		const postData = {
 			title: enterdData.project_name,
 			name: enterdData.student_name,

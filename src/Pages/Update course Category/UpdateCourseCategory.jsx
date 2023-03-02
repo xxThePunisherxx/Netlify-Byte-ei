@@ -21,7 +21,6 @@ const UpdateCourseCategory = () => {
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
-		console.log(enterdData);
 		const postData = {
 			course_type: enterdData.course_Category,
 		};
@@ -32,7 +31,6 @@ const UpdateCourseCategory = () => {
 					withCredentails: true,
 				},
 			});
-			console.log(response);
 			if (response.status === 201) {
 				setShowSuccess(true);
 				setTimeout(() => {
@@ -70,7 +68,7 @@ const UpdateCourseCategory = () => {
 								required
 								ref={editcatRef}
 							></input>
-							<button className={style.Spantwo}>Submit</button>
+							<button>Submit</button>
 						</form>
 					)}
 				</div>

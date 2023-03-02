@@ -5,28 +5,26 @@ const AuthContext = createContext({});
 export const AuthProvider = ({ children }) => {
 	const d = new Date();
 	const LoginTime = d.getTime();
-	// initilize auth object  values
 	let parsedLocalData = { Role: "", Token: "" };
-	// get user details from localstorage.
 	const localStoredData = localStorage.getItem("User Info");
-	// store first login time
+
+	//! ---------------------------------- store login time to auto logout after 24hr ---------------------------------------------------------------
 	const FirstLoginTime = JSON.parse(localStorage.getItem("User time"));
 	let Expire = false;
 	if (localStoredData) {
 		Expire = LoginTime - FirstLoginTime.StoreLoginTime >= 86400000;
-		// check how much time passed since first login.
 	}
 	if (Expire) {
 		localStorage.clear();
+		// ! ------------------------------------ logout user if last login was more than 1 day ago -------------------------------------------------
 	}
 
 	if (localStoredData && !Expire) {
-		// set auth values if the token in not expired
 		parsedLocalData = JSON.parse(localStoredData);
 	}
 
 	const [auth, setAuth] = useState({
-		// set vaule of auth provider form localstorage. If data are not availiable in localstorage use value initilized above
+		//!------- set vaule of auth provider form localstorage. If data are not availiable in localstorage use value initilized above--------------------
 		Role: parsedLocalData.LocalRole,
 		Token: parsedLocalData.LocalToken,
 	});

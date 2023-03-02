@@ -26,7 +26,6 @@ import UpdateAdmin from "./Pages/Update Admin/UpdateAdmin";
 import AddTestomonial from "./Pages/Add Testomonial/AddTestomonial";
 import AboutUs from "./Pages/About Us/AboutUs";
 import StudentProject from "./Pages/Student Project/StudentProject";
-import AdminSidebar from "./Components/Admin Side Bar/AdminSidebar";
 import UpdateTestomonial from "./Pages/UpdateTestomonial/UpdateTestomonial";
 import AddTeam from "./Pages/AddTeam/AddTeam";
 import UpdateTeam from "./Pages/UpdateTeam/UpdateTeam";
@@ -42,7 +41,7 @@ import SubmittedFormData from "./Pages/SubmittedFormData/SubmittedFormData";
 function App() {
 	return (
 		<Routes>
-			{/* These are unprotected routes */}
+			{/* -------------------------------These are unprotected routes ----------------------------------------------*/}
 			<Route path="/" element={<ClientLayout />}>
 				<Route path="/" element={<Homepage />} />
 				<Route path="/courses" element={<Courses />} />
@@ -54,18 +53,18 @@ function App() {
 				<Route path="/studentProjects" element={<StudentProject />} />
 				<Route path="/allClients" element={<ClientsAll />} />
 				<Route path="/unauthorized" element={<Unauthorized />} />
-				{/* <Route path="/test" element={<Test />} /> just for quick testing of page */}
 				<Route path="/course-view/:courseID" element={<IndividualCourse />} />
 				<Route path="/project-view/:projectID" element={<InividualProjectDescription />} />
 				<Route path="/inquiry" element={<InquireyForm />} />
 				<Route path="/enroll" element={<EnrollForm />} />
 				<Route path="*" element={<NotFound />} />
+				{/* <Route path="/test" element={<Test />} /> just for quick testing of page */}
 			</Route>
 			<Route>
-				{/* These are protected routes */}
+				{/* ---------------------------------- These are protected routes ---------------------------------------*/}
+				{/* ---------------------------- both admin and super-admin can access these routes ------------------------------*/}
 				<Route path="/adminLogin" element={<Admin />} />
 				<Route element={<RequireAuth allowedRoles={["superAdmin", "admin"]} />}>
-					{/* both admin and super-admin can access these routes */}
 					<Route path="/admin" element={<AdminLayout />}>
 						<Route path="addCourse" element={<AddCourse />} />
 						<Route path="updateCourse/:courseID" element={<Updatecourse />} />
@@ -85,16 +84,12 @@ function App() {
 						<Route path="formData" element={<SubmittedFormData />} />
 					</Route>
 				</Route>
+				{/* -----------------------------only super-admin can access these routes ------------------------------- */}
 				<Route element={<RequireAuth allowedRoles={["superAdmin"]} />}>
-					{/* only super-admin can access these routes */}
 					<Route path="/admin" element={<AdminLayout />}>
 						<Route path="addAdmin" element={<Addadmin />} />
 						<Route path="updateUser/:adminID" element={<UpdateAdmin />} />
 					</Route>
-				</Route>
-				<Route>
-					{/*  //! just for testing sidebar component, to be removed at final  stage */}
-					<Route path="side" element={<AdminSidebar />} />
 				</Route>
 			</Route>
 		</Routes>

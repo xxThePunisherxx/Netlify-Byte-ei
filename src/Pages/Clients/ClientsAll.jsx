@@ -4,7 +4,6 @@ import useFetch from "../../Utils/Hooks/fetch";
 
 const ClientsAll = () => {
 	const { data: ClientsData, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/partner");
-	console.log(ClientsData);
 	return (
 		<div className={style.ClientsContainer}>
 			<h1>

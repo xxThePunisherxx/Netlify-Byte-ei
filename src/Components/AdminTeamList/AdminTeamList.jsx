@@ -17,7 +17,6 @@ const AdminTeamList = () => {
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const { data: TeamResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/team/");
-	console.log(TeamResponse);
 	const handleDeletePopup = (id) => {
 		// show popup for confirming delete.
 		setShowconfirmDelete(true);
