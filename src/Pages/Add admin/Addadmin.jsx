@@ -4,18 +4,24 @@ import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const Addadmin = () => {
 	const { auth } = useAuth();
 	const navigate = useNavigate();
+	// ! -------------------------------------------------- disable button when action is being performed ---------------------------------------
+	const [disable, setDisable] = useState(false);
 
+	// ! --------------------------------------------------- state to show Message Board for varoius actions ------------------------------------------
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const [showName, setshowName] = useState(false);
 	const [showEmailerr, setshowEmailerr] = useState(false);
 	const [showpwdErr, setShowpwdErr] = useState(false);
 	const [showMatcherr, setShowMatcherr] = useState(false);
+
 	const addAdminRef = useRef();
 	const emailRef = useRef();
 	const passwordRef = useRef();
@@ -25,6 +31,8 @@ const Addadmin = () => {
 	}, []);
 
 	const handlesubmit = async (e) => {
+		setDisable(true);
+		setShowWorking(true);
 		const emailRegex = new RegExp(
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		);
@@ -46,7 +54,6 @@ const Addadmin = () => {
 		}
 		if (isValidEmail === false) {
 			setshowEmailerr(true);
-
 			setTimeout(() => {
 				emailRef.current.focus(); // set focus to email input feild.
 				setshowEmailerr(false);
@@ -82,14 +89,18 @@ const Addadmin = () => {
 					},
 				});
 				if (response.status === 201) {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setTimeout(() => {
 						setShowSuccess(false);
+						setDisable(false);
 						navigate("/admin/dashboard");
 					}, 1000);
 				}
 			} catch (err) {
+				setShowWorking(false);
 				setShowFail(true);
+				setDisable(false);
 				setTimeout(() => {
 					setShowFail(false);
 					navigate("/admin/dashboard");
@@ -138,26 +149,22 @@ const Addadmin = () => {
 					<input name="user_Name" type="text" required ref={addAdminRef}></input>
 					<h1>Email</h1>
 					<input name="user_email" type="text" ref={emailRef}></input>
-
 					<h1>Password</h1>
 					<input name="Password" type="password" ref={passwordRef}></input>
-
 					<h1>Retype Password</h1>
 					<input name="retype_password" type="password"></input>
-					<button>Create account</button>
+					<button disabled={disable}>Create account</button>
 				</form>
 			</div>
 			{showSuccess && (
-				//* Success Message on succesfull course
-				<div className="successBoard">
-					<h1>Course category Added successfully</h1>
-				</div>
+				//* Success Message on succesfull course addition
+				<MessageBoard Message_type="successBoard" Message="Added successfully" />
 			)}
+
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
-				//* Fail Message on succesfull course
-				<div className="FailedBoard">
-					<h1>Something went wrong. Please try again.</h1>
-				</div>
+				//* failed Message on course addition
+				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />
 			)}
 		</>
 	);

@@ -14,6 +14,8 @@ const AdminList = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
+
 	const dummyArr = [0, 1, 2]; // just for adding skeleton.
 	const { auth } = useAuth();
 	const { data: trainingData, ispending } = useFetchAuth("https://learning-management-system-kx6y.onrender.com/api/user/admin/users");
@@ -28,6 +30,7 @@ const AdminList = () => {
 	};
 
 	const handleConfirm = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/user/delete/" + ToDelete, {
 				headers: {
@@ -37,6 +40,7 @@ const AdminList = () => {
 			});
 
 			if (response.status === 200) {
+				setShowWorking(false);
 				setTimeout(() => {
 					setShowSuccess(true);
 					setShowconfirmDelete(false);
@@ -47,6 +51,7 @@ const AdminList = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -106,11 +111,6 @@ const AdminList = () => {
 									</div>
 								);
 							})}
-							{/* {!ispending && (
-								<Link to={"/admin/addAdmin"}>
-									<button className={style.new}>Add admin</button>
-								</Link>
-							)} */}
 							{ShowconfirmDelete && (
 								<div className={style.popup}>
 									<div className={style.close_btn}>
@@ -141,8 +141,10 @@ const AdminList = () => {
 
 			{showSuccess && (
 				//* Success Message
-				<MessageBoard Message_type="successBoard" Message="Course category Added succesfully" />
+				<MessageBoard Message_type="successBoard" Message="Deleted succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
+
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

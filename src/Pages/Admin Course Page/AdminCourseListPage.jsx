@@ -11,13 +11,15 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminCourseListPage = () => {
 	const { auth } = useAuth();
+	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; // just for adding skeleton.
 
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
-	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const { data: trainingResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
 	const trainingData = trainingResponse.training;
 	const handleDeletePopup = (id) => {
 		setShowconfirmDelete(true);
@@ -27,6 +29,8 @@ const AdminCourseListPage = () => {
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {
+		setShowWorking(true);
+
 		try {
 			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/training/delete/" + ToDelete, {
 				headers: {
@@ -36,6 +40,7 @@ const AdminCourseListPage = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setshowSuccecss(true);
 					setTimeout(() => {
 						setshowSuccecss(false);
@@ -44,6 +49,7 @@ const AdminCourseListPage = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -60,31 +66,45 @@ const AdminCourseListPage = () => {
 						Add <span className={style.Headinghighlight}> Course</span>
 					</h1>
 				</div>
+				{ispending && (
+					<div className={style.TrainingGrid}>
+						{dummyArr.map(() => (
+							<div key={uuid()} className={style.Training}>
+								<div className={style.Skel}>
+									<div className={style.imgDiv}></div>
+									<div className={style.H1Div}></div>
+									<div className={style.H2Div}></div>
+								</div>
+							</div>
+						))}
+					</div>
+				)}
 				<div className={style.allCourseGrid}>
-					{trainingData.map((Training) => (
-						<div key={uuid()} className={style.AdminCourseCard}>
-							<div className={style.AdminCourseCard_Info}>
-								<img src={Training.image} alt={Training.title}></img>
-								<h1>{Training.title}</h1>
-								<h2>{Training.duration}</h2>
-							</div>
-							<div className={style.AdminCourseCard_Btn}>
-								<Link to={`/admin/updateCourse/${Training._id}`}>
-									<button className={style.Edit_Btn}>
-										<MdModeEditOutline />
+					{!ispending &&
+						trainingData.map((Training) => (
+							<div key={uuid()} className={style.AdminCourseCard}>
+								<div className={style.AdminCourseCard_Info}>
+									<img src={Training.image} alt={Training.title}></img>
+									<h1>{Training.title}</h1>
+									<h2>{Training.duration}</h2>
+								</div>
+								<div className={style.AdminCourseCard_Btn}>
+									<Link to={`/admin/updateCourse/${Training._id}`}>
+										<button className={style.Edit_Btn}>
+											<MdModeEditOutline />
+										</button>
+									</Link>
+									<button
+										className={style.Delete_Btn}
+										onClick={(e) => {
+											handleDeletePopup(Training._id);
+										}}
+									>
+										<MdDeleteSweep />
 									</button>
-								</Link>
-								<button
-									className={style.Delete_Btn}
-									onClick={(e) => {
-										handleDeletePopup(Training._id);
-									}}
-								>
-									<MdDeleteSweep />
-								</button>
+								</div>
 							</div>
-						</div>
-					))}
+						))}
 				</div>
 			</div>
 
@@ -112,6 +132,7 @@ const AdminCourseListPage = () => {
 				</div>
 			)}
 			{showSuccecss && <MessageBoard Message_type="successBoard" Message="Course Deleted Succesfully" />}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

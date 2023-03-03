@@ -29,6 +29,9 @@ const RemoveCourse = () => {
 	const [showImage, setShowImage] = useState(true);
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
+	const [disable, setDisable] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
+	const [disableUpload, setDisableUpload] = useState(false);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -83,6 +86,8 @@ const RemoveCourse = () => {
 	}, []);
 
 	const handlesubmit = async (e) => {
+		setDisable(true);
+		setShowWorking(true);
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
@@ -106,15 +111,19 @@ const RemoveCourse = () => {
 				},
 			});
 			if (response.status === 201) {
+				setShowWorking(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setTimeout(() => {
+						setDisable(false);
 						setShowSuccess(false);
 					}, 1000);
 					navigate("/admin/dashboard");
 				}, 2000);
 			}
 		} catch (error) {
+			setShowWorking(false);
+			setDisable(false);
 			setShowFailed(true);
 			setTimeout(() => {
 				setShowFailed(false);
@@ -125,6 +134,8 @@ const RemoveCourse = () => {
 		setSelectedFile(event.target.files[0]);
 	};
 	const handleUpload = async (event) => {
+		setShowWorking(true);
+		setDisableUpload(true);
 		event.preventDefault();
 		const fd = new FormData();
 		fd.append("file", selectedFile);
@@ -136,6 +147,8 @@ const RemoveCourse = () => {
 				},
 			});
 			if (response) {
+				setShowWorking(false);
+				setDisableUpload(false);
 				setUploadedURl(response.data.path.path);
 				setShowSuccessUpload(true);
 				setShowImage(true);
@@ -144,6 +157,8 @@ const RemoveCourse = () => {
 				}, 1000);
 			}
 		} catch (err) {
+			setShowWorking(false);
+			setDisableUpload(false);
 			setShowFailedUpload(true);
 			setTimeout(() => {
 				setShowFailedUpload(false);
@@ -189,7 +204,9 @@ const RemoveCourse = () => {
 						<h1>Course Image</h1>
 						<div className={style.ImageUpload}>
 							<input name="course_Image" type="file" onChange={fileSelectedHandler}></input>
-							<button onClick={handleUpload}>Upload image</button>
+							<button disabled={disableUpload} onClick={handleUpload}>
+								Upload image
+							</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
 						<h1>Course Priority</h1>
@@ -209,7 +226,7 @@ const RemoveCourse = () => {
 								</option>
 							))}
 						</select>
-						<button>Update</button>
+						<button disabled={disable}>Update</button>
 					</form>
 				</div>
 			</div>
@@ -230,6 +247,7 @@ const RemoveCourse = () => {
 				//* failed Message on course addition
 				<MessageBoard Message_type="FailedBoard" Message="Could not upload image. Please try again." />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 		</>
 	);
 };
