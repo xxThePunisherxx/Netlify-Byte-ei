@@ -40,6 +40,9 @@ import SubmittedFormData from "./Pages/SubmittedFormData/SubmittedFormData";
 import IndividualEnrollFormData from "./Pages/IndividualEnrollFormData/IndividualEnrollFormData";
 import IndividualInquireyFormData from "./Pages/IndividualInquireyFormData/IndividualInquireyFormData";
 import IndividualContactFormData from "./Pages/IndividualContactFormData/IndividualContactFormData";
+import AllEnrollFormData from "./Pages/AllEnrollFormData/AllEnrollFormData";
+import AllInquireyFormData from "./Pages/AllInquireyFormData/AllInquireyFormData";
+import AllContactFormData from "./Pages/AllContactFormData/AllContactFormData";
 
 function App() {
 	return (
@@ -83,6 +86,9 @@ function App() {
 						<Route path="addCategory" element={<AddCourseCate />} />
 						<Route path="allCourse" element={<AdminCourseListPage />} />
 						<Route path="allTeam" element={<AdminTeamListPage />} />
+						<Route path="allEnrollData" element={<AllEnrollFormData />} />
+						<Route path="allInquireyData" element={<AllInquireyFormData />} />
+						<Route path="allContactData" element={<AllContactFormData />} />
 						<Route path="addTestomonial" element={<AddTestomonial />} />
 						<Route path="addTeam" element={<AddTeam />} />
 						<Route path="addPlacementPartner" element={<AddPlacementPartnet />} />
