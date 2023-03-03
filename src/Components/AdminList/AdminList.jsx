@@ -111,11 +111,6 @@ const AdminList = () => {
 									</div>
 								);
 							})}
-							{/* {!ispending && (
-								<Link to={"/admin/addAdmin"}>
-									<button className={style.new}>Add admin</button>
-								</Link>
-							)} */}
 							{ShowconfirmDelete && (
 								<div className={style.popup}>
 									<div className={style.close_btn}>
