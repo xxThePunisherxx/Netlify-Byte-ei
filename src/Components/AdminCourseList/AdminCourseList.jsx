@@ -14,6 +14,7 @@ const AdminCourseList = () => {
 	const dummyArr = [0, 1, 2, 3]; // just for adding skeleton.
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
@@ -31,6 +32,7 @@ const AdminCourseList = () => {
 	};
 
 	const handleConfirm = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/training/delete/" + ToDelete, {
 				headers: {
@@ -39,6 +41,7 @@ const AdminCourseList = () => {
 				},
 			});
 			if (response.status === 201) {
+				setShowWorking(false);
 				setTimeout(() => {
 					setshowSuccecss(true);
 					setTimeout(() => {
@@ -48,6 +51,7 @@ const AdminCourseList = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -133,6 +137,7 @@ const AdminCourseList = () => {
 				)}
 			</div>
 			{showSuccecss && <MessageBoard Message_type="successBoard" Message="Course Deleted Succesfully" />}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

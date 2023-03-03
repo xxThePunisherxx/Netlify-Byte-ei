@@ -1,4 +1,5 @@
-.allCourseGrid {
+.allCourseGrid,
+.TrainingGrid {
     display: grid;
     padding: 20px;
     grid-template-columns: repeat(5, 1fr);
@@ -207,4 +208,42 @@
     border-radius: 20px;
     color: white;
 
+}
+
+.Skel .imgDiv {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    border-radius: 20px;
+}
+
+.Skel .H1Div,
+.H2Div {
+    width: 99%;
+    height: 39px;
+    padding: 15px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    margin: 10px auto;
+    border-radius: 20px;
+
+}
+
+@keyframes Load {
+    100% {
+        background-position: -100% 0;
+    }
 }
