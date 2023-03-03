@@ -26,7 +26,7 @@ const SubmittedFormData = () => {
 
 	//  ------------------------------------------ state to store id of things to delete -------------------------------------------------------
 
-	const [ToDeleteEnroll, setToDeleteEnroll] = useState(null);
+	const [ToDeleteEnroll, setToDeleteEnroll] = useState();
 	const [ToDeleteInquirey, setToDeleteInquirey] = useState();
 	const [ToDeleteContact, setToDeleteContact] = useState();
 
@@ -102,7 +102,7 @@ const SubmittedFormData = () => {
 			if (response.status === 201) {
 				setTimeout(() => {
 					setShowSuccess(true);
-					setShowconfirmDeleteEnroll(false);
+					setShowconfirmDeleteInquirey(false);
 					setTimeout(() => {
 						setShowSuccess(false);
 					}, 1000);
@@ -113,7 +113,7 @@ const SubmittedFormData = () => {
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
-				setShowconfirmDeleteEnroll(false);
+				setShowconfirmDeleteInquirey(false);
 			}, 1000);
 		}
 	};
@@ -128,7 +128,7 @@ const SubmittedFormData = () => {
 			if (response.status === 201) {
 				setTimeout(() => {
 					setShowSuccess(true);
-					setShowconfirmDeleteEnroll(false);
+					setShowconfirmDeleteContact(false);
 					setTimeout(() => {
 						setShowSuccess(false);
 					}, 1000);
@@ -139,7 +139,7 @@ const SubmittedFormData = () => {
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
-				setShowconfirmDeleteEnroll(false);
+				setShowconfirmDeleteContact(false);
 			}, 1000);
 		}
 	};
@@ -159,7 +159,7 @@ const SubmittedFormData = () => {
 								<h2>Phone Number</h2>
 								<h2>Course</h2>
 							</div>
-							{EnrollFormDataResponse.registerForm.map((Data) => {
+							{EnrollFormDataResponse.registerForm.slice(0, 5).map((Data) => {
 								return (
 									<div className={style.Enroll_Table_Data} key={Data._id}>
 										<h3>
@@ -180,6 +180,9 @@ const SubmittedFormData = () => {
 									</div>
 								);
 							})}
+							<Link to={"/admin/allEnrollData"}>
+								<button className={style.View_btn}>View All Data</button>
+							</Link>
 						</div>
 					)}
 					<div className={style.InquireyFormDataWrapper}>
@@ -196,7 +199,7 @@ const SubmittedFormData = () => {
 									<h2>Course</h2>
 									<h2>Message</h2>
 								</div>
-								{InquireyFormDataResponse.enquiry.map((Data) => {
+								{InquireyFormDataResponse.enquiry.slice(0, 5).map((Data) => {
 									return (
 										<div className={style.Inquirey_Table_Data} key={Data._id}>
 											<h3>
@@ -222,6 +225,9 @@ const SubmittedFormData = () => {
 										</div>
 									);
 								})}
+								<Link to={"/admin/allInquireyData"}>
+									<button className={style.View_btn}>View All Data</button>
+								</Link>
 							</div>
 						)}
 					</div>
@@ -238,7 +244,7 @@ const SubmittedFormData = () => {
 									<h2>Phone Number</h2>
 									<h2>Message</h2>
 								</div>
-								{ContactFormDataResponse.feedback.map((Data) => {
+								{ContactFormDataResponse.feedback.slice(0, 5).map((Data) => {
 									return (
 										<div className={style.Contact_Table_Data} key={Data._id}>
 											<h3>
@@ -262,6 +268,9 @@ const SubmittedFormData = () => {
 										</div>
 									);
 								})}
+								<Link to={"/admin/allContactData"}>
+									<button className={style.View_btn}>View All Data</button>
+								</Link>
 							</div>
 						)}
 					</div>
