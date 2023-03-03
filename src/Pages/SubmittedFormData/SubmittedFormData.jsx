@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import MessageBoard from "../../Components/Message Board/MessageBoard";
+import { Link } from "react-router-dom";
 
 const SubmittedFormData = () => {
 	const { auth } = useAuth();
@@ -161,10 +162,18 @@ const SubmittedFormData = () => {
 							{EnrollFormDataResponse.registerForm.map((Data) => {
 								return (
 									<div className={style.Enroll_Table_Data} key={Data._id}>
-										<h3>{Data.legalName}</h3>
-										<h3>{Data.email}</h3>
-										<h3>{Data.phoneNumber}</h3>
-										<h3>{Data.course}</h3>
+										<h3>
+											<Link to={`/admin/IndividualEnrollData/${Data._id}`}>{Data.legalName}</Link>
+										</h3>
+										<h3>
+											<Link to={`/admin/IndividualEnrollData/${Data._id}`}>{Data.email}</Link>
+										</h3>
+										<h3>
+											<Link to={`/admin/IndividualEnrollData/${Data._id}`}>{Data.phoneNumber}</Link>
+										</h3>
+										<h3>
+											<Link to={`/admin/IndividualEnrollData/${Data._id}`}>{Data.course}</Link>
+										</h3>
 										<button className={style.Delete_Btn} onClick={() => handleDeletePopupEnroll(Data._id)}>
 											<MdDeleteSweep />
 										</button>
@@ -182,20 +191,30 @@ const SubmittedFormData = () => {
 							<div className={style.Enroll_Data}>
 								<div className={style.Inquirey_Table_Headings}>
 									<h2>Name</h2>
-									<h2>Course</h2>
 									<h2>Email</h2>
 									<h2>Phone Number</h2>
+									<h2>Course</h2>
 									<h2>Message</h2>
 								</div>
 								{InquireyFormDataResponse.enquiry.map((Data) => {
 									return (
 										<div className={style.Inquirey_Table_Data} key={Data._id}>
-											<h3>{Data.legalName}</h3>
-											<h3>{Data.course}</h3>
-											<h3>{Data.email}</h3>
-											<h3>{Data.phoneNumber}</h3>
+											<h3>
+												<Link to={`/admin/IndividualInquireyData/${Data._id}`}>{Data.legalName}</Link>
+											</h3>
+											<h3>
+												<Link to={`/admin/IndividualInquireyData/${Data._id}`}>{Data.email}</Link>
+											</h3>
+											<h3>
+												<Link to={`/admin/IndividualInquireyData/${Data._id}`}>{Data.phoneNumber}</Link>
+											</h3>
+											<h3>
+												<Link to={`/admin/IndividualInquireyData/${Data._id}`}>{Data.course}</Link>
+											</h3>
 											<div className={style.Text_Ellipse}>
-												<h3>{Data.message}</h3>
+												<h3>
+													<Link to={`/admin/IndividualInquireyData/${Data._id}`}>{Data.message}</Link>
+												</h3>
 											</div>
 											<button className={style.Delete_Btn} onClick={() => handleDeletePopupInquirey(Data._id)}>
 												<MdDeleteSweep />
@@ -222,11 +241,20 @@ const SubmittedFormData = () => {
 								{ContactFormDataResponse.feedback.map((Data) => {
 									return (
 										<div className={style.Contact_Table_Data} key={Data._id}>
-											<h3>{Data.legalName}</h3>
-											<h3>{Data.email}</h3>
-											<h3>{Data.phoneNumber}</h3>
+											<h3>
+												<Link to={`/admin/IndividualContactData/${Data._id}`}>{Data.legalName}</Link>
+											</h3>
+											<h3>
+												<Link to={`/admin/IndividualContactData/${Data._id}`}>{Data.email}</Link>
+											</h3>
+											<h3>
+												<Link to={`/admin/IndividualContactData/${Data._id}`}>{Data.phoneNumber}</Link>
+											</h3>
+
 											<div className={style.Text_Ellipse}>
-												<h3>{Data.message}</h3>
+												<h3>
+													<Link to={`/admin/IndividualContactData/${Data._id}`}>{Data.message}</Link>
+												</h3>
 											</div>
 											<button className={style.Delete_Btn} onClick={() => handleDeletePopupContact(Data._id)}>
 												<MdDeleteSweep />
