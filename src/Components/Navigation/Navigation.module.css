@@ -1,10 +1,3 @@
-:root {
-    --navBar-background: #1d1d1d;
-    --smallScreenNav-border: #e7e7e7;
-    --hamburger-color: #e7e7e7;
-    --Linkcolor-hover: #2bb673;
-}
-
 a {
     text-decoration: none;
 }
@@ -117,9 +110,9 @@ ul {
         left: 0;
         top: 100%;
         width: 100%;
-        background-color: var(--navBar-background);
-        border-top: 1px solid var(--smallScreenNav-border);
-        border-bottom: 1px solid var(--smallScreenNav-border);
+        background-color: #1d1d1d;
+        border-top: 1px solid #e7e7e7;
+        border-bottom: 1px solid #e7e7e7;
         opacity: 0;
         visibility: hidden;
 
