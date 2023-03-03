@@ -37,6 +37,9 @@ import UpdateStudentProjects from "./Pages/UpdateStudentProjects/UpdateStudentPr
 import InividualProjectDescription from "./Pages/InividualProjectDescription/InividualProjectDescription";
 import UpdatePartner from "./Pages/UpdatePartner/UpdatePartner";
 import SubmittedFormData from "./Pages/SubmittedFormData/SubmittedFormData";
+import IndividualEnrollFormData from "./Pages/IndividualEnrollFormData/IndividualEnrollFormData";
+import IndividualInquireyFormData from "./Pages/IndividualInquireyFormData/IndividualInquireyFormData";
+import IndividualContactFormData from "./Pages/IndividualContactFormData/IndividualContactFormData";
 
 function App() {
 	return (
@@ -71,6 +74,9 @@ function App() {
 						<Route path="updateCourseCategory/:categoryID" element={<UpdateCourseCategory />} />
 						<Route path="updateTestomonial/:testomonialID" element={<UpdateTestomonial />} />
 						<Route path="updateTeam/:teamID" element={<UpdateTeam />} />
+						<Route path="IndividualEnrollData/:EnrollID" element={<IndividualEnrollFormData />} />
+						<Route path="IndividualInquireyData/:InquireyID" element={<IndividualInquireyFormData />} />
+						<Route path="IndividualContactData/:ContactID" element={<IndividualContactFormData />} />
 						<Route path="updateStudentProject/:projectID" element={<UpdateStudentProjects />} />
 						<Route path="updatePartner/:partnerID" element={<UpdatePartner />} />
 						<Route path="dashboard" element={<AdminDashboard />} />
