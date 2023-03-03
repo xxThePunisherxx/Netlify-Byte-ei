@@ -13,11 +13,15 @@ const UpdateAdmin = () => {
 	const { auth } = useAuth();
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
+	const [disable, setDisable] = useState(false);
 
 	const { data: UserData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/user/admin/user/${adminID}`);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setDisable(true);
+		setShowWorking(true);
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
 		let postData = {
@@ -37,15 +41,19 @@ const UpdateAdmin = () => {
 				},
 			});
 			if (response.status === 200) {
+				setShowWorking(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setTimeout(() => {
+						setDisable(false);
 						setShowSuccess(false);
 					}, 1000);
 					navigate("/admin/dashboard");
 				}, 2000);
 			}
 		} catch (error) {
+			setShowWorking(false);
+			setDisable(false);
 			setShowFailed(true);
 			setTimeout(() => {
 				setShowFailed(false);
@@ -77,7 +85,7 @@ const UpdateAdmin = () => {
 								{/* <option value="Admin">Admin</option> */}
 								<option value="superAdmin">Super Admin</option>
 							</select>
-							<button>Update</button>
+							<button disabled={disable}>Update</button>
 						</form>
 					)}
 				</div>
@@ -87,6 +95,8 @@ const UpdateAdmin = () => {
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="User details Updated succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
+
 			{showFailed && (
 				//* failed Message on course addition
 				<MessageBoard Message_type="FailedBoard" Message="Could not update user details. Please try again." />
