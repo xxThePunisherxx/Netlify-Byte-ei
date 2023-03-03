@@ -1,0 +1,142 @@
+.ContactFormDataWrapper h1 {
+    font-size: 5rem;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.HeadingHighlight {
+    color: #2bb673;
+}
+
+.Contact_Data {
+    display: grid;
+    grid-template-rows: 30px 1fr;
+    padding: 2rem;
+    row-gap: 10px;
+}
+
+
+.Contact_Table_Headings,
+.Contact_Table_Data {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 30px;
+}
+
+
+
+
+.Contact_Table_Data button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    transition: color ease .2s;
+    cursor: pointer;
+}
+
+.Delete_Btn:hover {
+    color: red;
+}
+
+.Text_Ellipse * {
+    width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*  Confirm Delete Popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -55%);
+    height: 300px;
+    width: 600px;
+    background-color: rgb(43, 43, 43);
+    display: grid;
+    place-items: center;
+    align-content: center;
+    border-radius: 20px;
+}
+
+.popup h1 {
+    margin-top: 0;
+    font-size: 0;
+}
+
+.close_btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.close_btn button {
+    font-size: 2rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border-top-right-radius: 20px;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all ease-in .2s;
+}
+
+.close_btn button:hover {
+    color: red;
+}
+
+.contnets {
+    display: grid;
+    justify-items: center;
+    padding: 1rem;
+}
+
+.contnets h1 {
+    font-size: 2rem;
+    color: rgba(255, 0, 0, 0.45);
+
+}
+
+.contnets h2 {
+    font-size: 15px;
+    color: white;
+    opacity: .3;
+}
+
+.button_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.button_grid button {
+    font-size: 1.4rem;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.button_grid .delete {
+    background-color: rgba(255, 0, 0, 0.45);
+    color: white;
+    transition: all ease-in .2s;
+}
+
+.button_grid .delete:hover {
+    color: rgba(255, 0, 0);
+    background-color: white;
+}
+
+.button_grid .cancel {
+    background-color: black;
+    color: white;
+    transition: all ease-in .2s;
+}
+
+.button_grid .cancel:hover {
+    color: black;
+    background-color: white;
+}
