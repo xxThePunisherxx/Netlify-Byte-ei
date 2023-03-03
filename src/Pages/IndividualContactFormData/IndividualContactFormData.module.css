@@ -1,0 +1,26 @@
+.EnrollData_Wrapper h1 {
+    font-size: 5rem;
+    padding: 5rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.EnrollForm_Data {
+    width: calc(100vw - 300px - 25%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+    column-gap: 20px;
+}
+
+.EnrollForm_Data h1 {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.EnrollForm_Data h2 {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    font-weight: 400;
+}
