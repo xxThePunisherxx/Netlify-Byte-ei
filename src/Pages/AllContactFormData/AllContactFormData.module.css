@@ -1,41 +1,15 @@
-.EnrollFormDataWrapper h1 {
+.ContactFormDataWrapper h1 {
     font-size: 5rem;
     text-transform: capitalize;
     text-align: center;
     margin-top: 30px;
 }
 
-.View_btn {
-    cursor: pointer;
-    margin: 0 auto;
-    margin-top: 20px;
-    font-size: 2rem;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    padding: 0.6em 1.1em;
-    gap: 0.4rem;
-    font-weight: bold;
-    background-color: #2bb673;
-    border-radius: 10px;
-    transition: all ease-in .2s;
-    color: white;
-    border: none;
-}
-
-.View_btn:hover {
-
-    color: #2bb673;
-    background-color: white;
-    border: 1px solid #2bb673;
-
-}
 
 .HeadingHighlight {
     color: #2bb673;
 }
 
-.Enroll_Data,
 .Contact_Data {
     display: grid;
     grid-template-rows: 30px 1fr;
@@ -43,24 +17,17 @@
     row-gap: 10px;
 }
 
-.Enroll_Table_Headings,
+
 .Contact_Table_Headings,
-.Contact_Table_Data,
-.Enroll_Table_Data {
+.Contact_Table_Data {
     display: grid;
     grid-template-columns: repeat(4, 1fr) 30px;
 }
 
-.Inquirey_Table_Headings,
-.Inquirey_Table_Data {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr) 30px;
 
-}
 
-.Enroll_Table_Data button,
-.Contact_Table_Data button,
-.Inquirey_Table_Data button {
+
+.Contact_Table_Data button {
     border: none;
     background-color: transparent;
     font-size: 1.5rem;
