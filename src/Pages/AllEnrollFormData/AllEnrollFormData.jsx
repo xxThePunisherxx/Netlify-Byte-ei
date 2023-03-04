@@ -10,7 +10,7 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 const AllEnrollFormData = () => {
 	const { auth } = useAuth();
 
-	const { data: EnrollFormDataResponse, ispending: EnrollDataPending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/form");
+	const { data: EnrollFormDataResponse, ispending: EnrollDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/form");
 	const [ShowconfirmDeleteEnroll, setShowconfirmDeleteEnroll] = useState(false);
 	const [ToDeleteEnroll, setToDeleteEnroll] = useState();
 	const [showSuccess, setShowSuccess] = useState(false);
@@ -26,7 +26,7 @@ const AllEnrollFormData = () => {
 	};
 	const handleConfirmEnroll = async () => {
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/form/delete/" + ToDeleteEnroll, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/form/delete/" + ToDeleteEnroll, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

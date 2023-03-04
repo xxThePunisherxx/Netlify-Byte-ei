@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const EnrollForm = () => {
-	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 	const [showSelectCat, setShowSelectCat] = useState(false);
 	const [Error, setError] = useState(false);
 	const [Success, setSuccess] = useState(false);
@@ -27,7 +27,7 @@ const EnrollForm = () => {
 		};
 		if (enterdData.dropdown !== "null") {
 			try {
-				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/form/add", postData);
+				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/form/add", postData);
 				if (response.status === 201) {
 					setSuccess(true);
 				}

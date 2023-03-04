@@ -5,7 +5,7 @@ import useFetchAuth from "../../Utils/Hooks/fetchAuth";
 
 const IndividualInquireyFormData = () => {
 	const { InquireyID } = useParams();
-	const { data: InquireyFormData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/enquiry/${InquireyID}`);
+	const { data: InquireyFormData, ispending } = useFetchAuth(`https://byte-backend-demo.up.railway.app/api/enquiry/${InquireyID}`);
 	return (
 		<>
 			<div className={style.EnrollData_Wrapper}>

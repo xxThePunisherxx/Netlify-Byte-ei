@@ -43,7 +43,7 @@ const Login = () => {
 		};
 
 		try {
-			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/user/login", postData);
+			const response = await axios.post("https://byte-backend-demo.up.railway.app/api/user/login", postData);
 			const accessToken = response?.data?.token;
 			const role = response?.data?.user.role;
 			let localData = { LocalToken: accessToken, LocalRole: role };

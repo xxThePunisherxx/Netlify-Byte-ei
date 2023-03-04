@@ -22,7 +22,7 @@ const Contact = () => {
 			message: enterdData.Message,
 		};
 		try {
-			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/feedback/add", postData);
+			const response = await axios.post("https://byte-backend-demo.up.railway.app/api/feedback/add", postData);
 
 			if (response.status === 201) {
 				setSuccess(true);

@@ -24,7 +24,7 @@ const AddTestomonial = () => {
 	const [showMaxLen, setShowMaxLen] = useState(false);
 	const [showSelectCat, setShowSelectCat] = useState(false);
 
-	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -45,7 +45,7 @@ const AddTestomonial = () => {
 		};
 		if (enterdData.dropdown !== "null" && enterdData.testominial.length < 300) {
 			try {
-				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/testimonial/add", postData, {
+				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/testimonial/add", postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -82,7 +82,7 @@ const AddTestomonial = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/file/single", fd, {
+			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

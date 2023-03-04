@@ -16,7 +16,7 @@ const AdminTeamListPage = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
-	const { data: TeamResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/team/");
+	const { data: TeamResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/team/");
 	const handleDeletePopup = (id) => {
 		// show popup for confirming delete.
 		setShowconfirmDelete(true);
@@ -28,7 +28,7 @@ const AdminTeamListPage = () => {
 	};
 	const handleConfirm = async () => {
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/team/delete/" + ToDelete, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/team/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

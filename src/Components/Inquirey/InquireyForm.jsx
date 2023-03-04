@@ -7,7 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const InquireyForm = () => {
-	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 	const [showSelectCat, setShowSelectCat] = useState(false);
 	const [Error, setError] = useState(false);
 	const [Success, setSuccess] = useState(false);
@@ -26,7 +26,7 @@ const InquireyForm = () => {
 		};
 		if (enterdData.dropdown !== "null") {
 			try {
-				const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/enquiry/add", postData);
+				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/enquiry/add", postData);
 				if (response.status === 201) {
 					setSuccess(true);
 				}

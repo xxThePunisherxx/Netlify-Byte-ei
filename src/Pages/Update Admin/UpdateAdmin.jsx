@@ -16,7 +16,7 @@ const UpdateAdmin = () => {
 	const [showWorking, setShowWorking] = useState(false);
 	const [disable, setDisable] = useState(false);
 
-	const { data: UserData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/user/admin/user/${adminID}`);
+	const { data: UserData, ispending } = useFetchAuth(`https://byte-backend-demo.up.railway.app/api/user/admin/user/${adminID}`);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -34,7 +34,7 @@ const UpdateAdmin = () => {
 		}
 
 		try {
-			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/user/role/${adminID}`, postData, {
+			const response = await axios.put(`https://byte-backend-demo.up.railway.app/api/user/role/${adminID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
