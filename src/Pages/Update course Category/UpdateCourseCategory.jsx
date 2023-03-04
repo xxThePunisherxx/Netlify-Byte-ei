@@ -15,7 +15,7 @@ const UpdateCourseCategory = () => {
 	const navigate = useNavigate();
 	const editcatRef = useRef();
 	const { categoryID } = useParams();
-	const { data: UserData, ispending } = useFetchAuth(`https://learning-management-system-kx6y.onrender.com/api/category/${categoryID}`);
+	const { data: UserData, ispending } = useFetchAuth(`https://byte-backend-demo.up.railway.app/api/category/${categoryID}`);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -25,7 +25,7 @@ const UpdateCourseCategory = () => {
 			course_type: enterdData.course_Category,
 		};
 		try {
-			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/category/update/${categoryID}`, postData, {
+			const response = await axios.put(`https://byte-backend-demo.up.railway.app/api/category/update/${categoryID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

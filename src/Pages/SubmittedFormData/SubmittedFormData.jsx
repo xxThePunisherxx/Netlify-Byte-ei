@@ -10,13 +10,9 @@ import { Link } from "react-router-dom";
 
 const SubmittedFormData = () => {
 	const { auth } = useAuth();
-	const { data: EnrollFormDataResponse, ispending: EnrollDataPending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/form");
-	const { data: ContactFormDataResponse, ispending: ContactDataPending } = useFetch(
-		"https://learning-management-system-kx6y.onrender.com/api/feedback"
-	);
-	const { data: InquireyFormDataResponse, ispending: InquireyDataPending } = useFetch(
-		"https://learning-management-system-kx6y.onrender.com/api/enquiry"
-	);
+	const { data: EnrollFormDataResponse, ispending: EnrollDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/form");
+	const { data: ContactFormDataResponse, ispending: ContactDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/feedback");
+	const { data: InquireyFormDataResponse, ispending: InquireyDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/enquiry");
 
 	// ------------------------------state to handle delete confirmation poups---------------------------------------------------------------------
 
@@ -65,7 +61,7 @@ const SubmittedFormData = () => {
 	// ----------------------------------------- function to handle delete confirmation on respective popups -------------------------------------------
 	const handleConfirmEnroll = async () => {
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/form/delete/" + ToDeleteEnroll, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/form/delete/" + ToDeleteEnroll, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -92,7 +88,7 @@ const SubmittedFormData = () => {
 	};
 	const handleConfirmInquirey = async () => {
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/enquiry/delete/" + ToDeleteInquirey, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/enquiry/delete/" + ToDeleteInquirey, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -119,7 +115,7 @@ const SubmittedFormData = () => {
 	};
 	const handleConfirmContact = async () => {
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/feedback/delete/" + ToDeleteContact, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/feedback/delete/" + ToDeleteContact, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

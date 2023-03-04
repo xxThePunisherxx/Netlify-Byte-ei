@@ -37,7 +37,7 @@ const RemoveCourse = () => {
 		const fetchData = async () => {
 			// get request to get pre-update value of the course.
 			try {
-				let response = await axios.get("https://learning-management-system-kx6y.onrender.com/api/training/" + courseID, {
+				let response = await axios.get("https://byte-backend-demo.up.railway.app/api/training/" + courseID, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -65,7 +65,7 @@ const RemoveCourse = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				let response = await axios.get("https://learning-management-system-kx6y.onrender.com/api/category", {
+				let response = await axios.get("https://byte-backend-demo.up.railway.app/api/category", {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -104,7 +104,7 @@ const RemoveCourse = () => {
 		};
 
 		try {
-			const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/training/update/${courseID}`, postData, {
+			const response = await axios.put(`https://byte-backend-demo.up.railway.app/api/training/update/${courseID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -140,7 +140,7 @@ const RemoveCourse = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/file/single", fd, {
+			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

@@ -18,7 +18,7 @@ const AdminCourseList = () => {
 
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
-	const { data: trainingResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const { data: trainingResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 	const trainingData = trainingResponse.training;
 
 	const handleDeletePopup = (id) => {
@@ -34,7 +34,7 @@ const AdminCourseList = () => {
 	const handleConfirm = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/training/delete/" + ToDelete, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/training/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

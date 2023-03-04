@@ -35,7 +35,7 @@ const AddStudentProject = () => {
 		};
 
 		try {
-			const response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/project/add", postData, {
+			const response = await axios.post("https://byte-backend-demo.up.railway.app/api/project/add", postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -66,7 +66,7 @@ const AddStudentProject = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/file/single", fd, {
+			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

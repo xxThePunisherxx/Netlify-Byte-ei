@@ -9,7 +9,7 @@ import useFetch from "../../Utils/Hooks/fetch";
 const Team = () => {
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7]; // just for adding skeleton.
 
-	const { data: TeamResponse, ispending } = useFetch("https://learning-management-system-kx6y.onrender.com/api/team/");
+	const { data: TeamResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/team/");
 
 	return (
 		<>

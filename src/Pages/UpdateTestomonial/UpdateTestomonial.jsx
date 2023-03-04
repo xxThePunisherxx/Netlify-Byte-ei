@@ -26,13 +26,13 @@ const AddTestomonial = () => {
 	const [showSelectCat, setShowSelectCat] = useState(false);
 	const [TestomonialResponse, setTestomonialResponse] = useState([{}]);
 
-	const { data: trainingResponse } = useFetch("https://learning-management-system-kx6y.onrender.com/api/training");
+	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 
 	useEffect(() => {
 		const fetchData = async () => {
 			// get request to get pre-update value of the course.
 			try {
-				let response = await axios.get(`https://learning-management-system-kx6y.onrender.com/api/testimonial/${testomonialID}`, {
+				let response = await axios.get(`https://byte-backend-demo.up.railway.app/api/testimonial/${testomonialID}`, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -74,7 +74,7 @@ const AddTestomonial = () => {
 		};
 		if (enterdData.dropdown !== "null" && enterdData.testominial.length < 300) {
 			try {
-				const response = await axios.put(`https://learning-management-system-kx6y.onrender.com/api/testimonial/update/${testomonialID}`, postData, {
+				const response = await axios.put(`https://byte-backend-demo.up.railway.app/api/testimonial/update/${testomonialID}`, postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -111,7 +111,7 @@ const AddTestomonial = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://learning-management-system-kx6y.onrender.com/api/file/single", fd, {
+			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

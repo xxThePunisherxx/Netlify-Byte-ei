@@ -9,9 +9,7 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 import { Link } from "react-router-dom";
 
 const AllContactFormData = () => {
-	const { data: ContactFormDataResponse, ispending: ContactDataPending } = useFetch(
-		"https://learning-management-system-kx6y.onrender.com/api/feedback"
-	);
+	const { data: ContactFormDataResponse, ispending: ContactDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/feedback");
 	const { auth } = useAuth();
 	const [ShowconfirmDeleteContact, setShowconfirmDeleteContact] = useState(false);
 	const [ToDeleteContact, setToDeleteContact] = useState();
@@ -26,7 +24,7 @@ const AllContactFormData = () => {
 	};
 	const handleConfirmContact = async () => {
 		try {
-			let response = await axios.delete("https://learning-management-system-kx6y.onrender.com/api/feedback/delete/" + ToDeleteContact, {
+			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/feedback/delete/" + ToDeleteContact, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

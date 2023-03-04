@@ -8,7 +8,7 @@ import { useParams } from "react-router";
 const InividualProjectDescription = () => {
 	const { projectID } = useParams();
 	let githubLink = "";
-	const { data: ProjectData, ispending } = useFetch(`https://learning-management-system-kx6y.onrender.com/api/project/${projectID}`);
+	const { data: ProjectData, ispending } = useFetch(`https://byte-backend-demo.up.railway.app/api/project/${projectID}`);
 	if (ProjectData.studentProject) {
 		githubLink = `https://${ProjectData.studentProject.githubLink}`;
 	}

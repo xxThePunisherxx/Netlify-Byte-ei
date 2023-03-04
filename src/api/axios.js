@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-	baseURL: "https://learning-management-system-kx6y.onrender.com",
+	baseURL: "https://byte-backend-demo.up.railway.app",
 });
