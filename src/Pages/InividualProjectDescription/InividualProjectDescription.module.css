@@ -46,3 +46,40 @@
     font-size: 1.3rem;
     text-align: justify;
 }
+
+.Skel .imgDiv {
+    /* width: 80%; */
+    height: 350px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    /* border-radius: 20px; */
+}
+
+.Skel .H1Div {
+    width: 80%;
+    height: 350px;
+    padding: 15px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    border-radius: 20px;
+    margin: 20px auto;
+
+}
+
+@keyframes Load {
+    100% {
+        background-position: -100% 0;
+    }
+}

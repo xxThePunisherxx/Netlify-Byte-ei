@@ -14,6 +14,12 @@ const InividualProjectDescription = () => {
 	}
 	return (
 		<>
+			{ispending && (
+				<div className={style.Skel}>
+					<div className={style.imgDiv}></div>
+					<div className={style.H1Div}></div>
+				</div>
+			)}
 			{!ispending && (
 				<div className={style.project_wrapper}>
 					<div className={style.Project_Heading}>
