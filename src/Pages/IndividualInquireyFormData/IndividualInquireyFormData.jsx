@@ -8,9 +8,9 @@ const IndividualInquireyFormData = () => {
 	const { data: InquireyFormData, ispending } = useFetchAuth(`https://byte-backend-demo.up.railway.app/api/enquiry/${InquireyID}`);
 	return (
 		<>
-			<div className={style.EnrollData_Wrapper}>
-				<h1>Trainees Inquirey Detail</h1>
-				{!ispending && (
+			{!ispending && (
+				<div className={style.EnrollData_Wrapper}>
+					<h1>{InquireyFormData.enquiry.legalName} sent</h1>
 					<div className={style.EnrollForm_Data}>
 						<h1>Name</h1>
 						<h2>{InquireyFormData.enquiry.legalName}</h2>
@@ -22,8 +22,8 @@ const IndividualInquireyFormData = () => {
 						<h1>Message</h1>
 						<h2>{InquireyFormData.enquiry.message}</h2>
 					</div>
-				)}
-			</div>
+				</div>
+			)}
 		</>
 	);
 };

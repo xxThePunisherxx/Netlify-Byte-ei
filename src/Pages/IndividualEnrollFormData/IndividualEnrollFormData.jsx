@@ -9,9 +9,9 @@ const IndividualEnrollFormData = () => {
 
 	return (
 		<>
-			<div className={style.EnrollData_Wrapper}>
-				<h1>Enrolled Trainees Detail</h1>
-				{!ispending && (
+			{!ispending && (
+				<div className={style.EnrollData_Wrapper}>
+					<h1>{EnrollFormData.registerForm.legalName} sent</h1>
 					<div className={style.EnrollForm_Data}>
 						<h1>Name</h1>
 						<h2>{EnrollFormData.registerForm.legalName}</h2>
@@ -22,8 +22,8 @@ const IndividualEnrollFormData = () => {
 						<h1>Phone Number</h1>
 						<h2>{EnrollFormData.registerForm.phoneNumber}</h2>
 					</div>
-				)}
-			</div>
+				</div>
+			)}
 		</>
 	);
 };
