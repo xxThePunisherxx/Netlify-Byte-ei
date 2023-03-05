@@ -9,48 +9,48 @@
     align-items: center;
 }
 
+
 .ClientsContainer h1 {
     text-align: center;
     font-size: 5rem;
     padding: 5rem;
 }
 
-.ClientsContainer button {
-    cursor: pointer;
-    margin: 0 auto;
-    margin-top: 50px;
-    font-size: 2rem;
-    width: fit-content;
-    display: flex;
-    padding: 0.5em 0.9em;
-    gap: 0.4rem;
-    font-weight: bold;
-    background-color: #2bb673;
-    border-radius: 10px;
-    transition: all ease-in .2s;
-    color: white;
-    border: none;
-}
-
-
-.ClientsContainer button:hover {
-    color: #2bb673;
-    background-color: white;
-    border: 1px solid #2bb673;
-}
-
-.ClientsContainer button a {
-    color: black;
-}
-
 .ImagesGrid {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
     width: 80%;
     justify-content: space-evenly;
     margin: 0 auto;
 }
 
 .ImagesGrid img {
-    width: 150px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 1669px) {
+    .ClientsContainer h1 {
+        font-size: 5rem;
+        padding: 4rem;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .ClientsContainer h1 {
+        font-size: 3rem;
+        padding: 3rem;
+    }
+}
+
+@media screen and (max-width: 669px) {
+    .ClientsContainer h1 {
+        font-size: 3rem;
+        padding: 2rem;
+    }
+
+    .ImagesGrid img {
+        width: 200px;
+    }
 }
