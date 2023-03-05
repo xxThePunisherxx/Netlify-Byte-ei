@@ -14,7 +14,7 @@ const Clients = () => {
 			{!ispending && (
 				<div className={style.ImagesGrid}>
 					{ClientsData.partner.slice(0, 5).map((item) => (
-						<a href={item.companyWebsite}>
+						<a key={item._id} href={item.companyWebsite}>
 							<img key={item._id} src={item.image} alt={item.link} />
 						</a>
 					))}
