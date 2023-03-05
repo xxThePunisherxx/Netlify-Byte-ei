@@ -16,6 +16,7 @@ const AdminStudentProjectList = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 	const { data: ProjectData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/project");
 	let ProjectDataArr = ProjectData?.studentProjects;
 
@@ -29,6 +30,7 @@ const AdminStudentProjectList = () => {
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/project/delete/" + ToDelete, {
 				headers: {
@@ -38,6 +40,7 @@ const AdminStudentProjectList = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setshowSuccecss(true);
 					setTimeout(() => {
 						setshowSuccecss(false);
@@ -46,6 +49,7 @@ const AdminStudentProjectList = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -75,7 +79,7 @@ const AdminStudentProjectList = () => {
 							</div>
 						)}
 						{!ispending &&
-							ProjectDataArr.slice(0, 8).map((Team) => (
+							ProjectDataArr.map((Team) => (
 								<div key={uuid()} className={style.AdminCourseCard}>
 									<div className={style.AdminCourseCard_Info}>
 										<img src={Team.image} alt={Team.title}></img>
@@ -97,11 +101,6 @@ const AdminStudentProjectList = () => {
 								</div>
 							))}
 					</div>
-					{!ispending && (
-						<Link to={"/admin/allTeam"}>
-							<button className={style.new}>View All</button>
-						</Link>
-					)}
 				</div>
 			</div>
 			{ShowconfirmDelete && (
@@ -128,6 +127,7 @@ const AdminStudentProjectList = () => {
 				</div>
 			)}
 			{showSuccecss && <MessageBoard Message_type="successBoard" Message="Deleted Succesfully" />}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && <MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />}
 		</>
 	);

@@ -16,6 +16,7 @@ const AdminTestomonialList = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 	const { data: TestomonialResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/testimonial");
 
 	const handleDeletePopup = (id) => {
@@ -28,6 +29,8 @@ const AdminTestomonialList = () => {
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {
+		setShowWorking(true);
+
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/testimonial/delete/" + ToDelete, {
 				headers: {
@@ -37,6 +40,7 @@ const AdminTestomonialList = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setshowSuccecss(true);
 					setTimeout(() => {
 						setshowSuccecss(false);
@@ -45,6 +49,7 @@ const AdminTestomonialList = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -122,6 +127,7 @@ const AdminTestomonialList = () => {
 				</div>
 			)}
 			{showSuccecss && <MessageBoard Message_type="successBoard" Message="Testomonial Deleted Succesfully" />}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && <MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />}
 		</>
 	);

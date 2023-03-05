@@ -23,6 +23,9 @@ const AddTestomonial = () => {
 	const [showImage, setShowImage] = useState(false);
 	const [showMaxLen, setShowMaxLen] = useState(false);
 	const [showSelectCat, setShowSelectCat] = useState(false);
+	const [disable, setDisable] = useState(false);
+	const [disableUpload, setDisableUpload] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 
@@ -44,6 +47,8 @@ const AddTestomonial = () => {
 			course: enterdData.dropDown,
 		};
 		if (enterdData.dropdown !== "null" && enterdData.testominial.length < 300) {
+			setDisable(true);
+			setShowWorking(true);
 			try {
 				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/testimonial/add", postData, {
 					headers: {
@@ -52,6 +57,8 @@ const AddTestomonial = () => {
 					},
 				});
 				if (response.status === 201) {
+					setShowWorking(false);
+					setDisable(false);
 					setShowSuccess(true);
 					setTimeout(() => {
 						setTimeout(() => {
@@ -61,6 +68,8 @@ const AddTestomonial = () => {
 					}, 2000);
 				}
 			} catch (err) {
+				setShowWorking(false);
+				setDisable(false);
 				setShowFailed(true);
 				setTimeout(() => {
 					setShowFailed(false);
@@ -79,6 +88,8 @@ const AddTestomonial = () => {
 	};
 	const handleUpload = async (event) => {
 		event.preventDefault();
+		setDisableUpload(true);
+		setShowWorking(true);
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
@@ -90,6 +101,8 @@ const AddTestomonial = () => {
 			});
 			if (response) {
 				setUploadedURl(response.data.path.path);
+				setDisableUpload(false);
+				setShowWorking(false);
 				setShowSuccessUpload(true);
 				setShowImage(true);
 				setTimeout(() => {
@@ -97,6 +110,8 @@ const AddTestomonial = () => {
 				}, 1000);
 			}
 		} catch (err) {
+			setDisableUpload(false);
+			setShowWorking(false);
 			setShowFailedUpload(true);
 			setTimeout(() => {
 				setShowFailedUpload(false);
@@ -120,7 +135,9 @@ const AddTestomonial = () => {
 						<h1>Students photo</h1>
 						<div className={style.ImageUpload}>
 							<input name="students_Image" type="file" onChange={fileSelectedHandler}></input>
-							<button onClick={handleUpload}>Upload image</button>
+							<button onClick={handleUpload} disabled={disableUpload}>
+								Upload image
+							</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
 						<h1 className={style.ck}>Testomonial </h1>
@@ -136,7 +153,7 @@ const AddTestomonial = () => {
 								</option>
 							))}
 						</select>
-						<button>Submit</button>
+						<button disabled={disable}>Submit</button>
 					</form>
 				</div>
 			</div>
@@ -145,6 +162,8 @@ const AddTestomonial = () => {
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="Testomonial Added Succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
+
 			{showSuccessUpload && (
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="Image uploaded succesfully" />

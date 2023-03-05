@@ -11,6 +11,8 @@ const UpdateCourseCategory = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
 	const { auth } = useAuth();
+	const [disable, setDisable] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const navigate = useNavigate();
 	const editcatRef = useRef();
@@ -19,6 +21,8 @@ const UpdateCourseCategory = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setDisable(true);
+		setShowWorking(true);
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
 		const postData = {
@@ -32,6 +36,8 @@ const UpdateCourseCategory = () => {
 				},
 			});
 			if (response.status === 201) {
+				setShowWorking(false);
+				setDisable(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setTimeout(() => {
@@ -41,6 +47,8 @@ const UpdateCourseCategory = () => {
 				}, 2000);
 			}
 		} catch (error) {
+			setShowWorking(false);
+			setDisable(false);
 			setShowFailed(true);
 			setTimeout(() => {
 				setShowFailed(false);
@@ -68,7 +76,7 @@ const UpdateCourseCategory = () => {
 								required
 								ref={editcatRef}
 							></input>
-							<button>Submit</button>
+							<button disabled={disable}>Submit</button>
 						</form>
 					)}
 				</div>
@@ -78,6 +86,8 @@ const UpdateCourseCategory = () => {
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="Course Category Updated succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
+
 			{showFailed && (
 				//* failed Message on course addition
 				<MessageBoard Message_type="FailedBoard" Message="Could not update course category. Please try again." />

@@ -20,10 +20,15 @@ const AddStudentProject = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
 	const [showImage, setShowImage] = useState(false);
+	const [disable, setDisable] = useState(false);
+	const [disableUpload, setDisableUpload] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 	const [ckPara, setCkPara] = useState("");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setDisable(true);
+		setShowWorking(true);
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
 		const postData = {
@@ -42,6 +47,8 @@ const AddStudentProject = () => {
 				},
 			});
 			if (response.status === 201) {
+				setShowWorking(false);
+				setDisable(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setTimeout(() => {
@@ -51,6 +58,8 @@ const AddStudentProject = () => {
 				}, 2000);
 			}
 		} catch (err) {
+			setShowWorking(false);
+			setDisable(false);
 			setShowFailed(true);
 			setTimeout(() => {
 				setShowFailed(false);
@@ -63,6 +72,8 @@ const AddStudentProject = () => {
 	};
 	const handleUpload = async (event) => {
 		event.preventDefault();
+		setDisableUpload(true);
+		setShowWorking(true);
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
@@ -74,6 +85,8 @@ const AddStudentProject = () => {
 			});
 			if (response) {
 				setUploadedURl(response.data.path.path);
+				setDisableUpload(false);
+				setShowWorking(false);
 				setShowSuccessUpload(true);
 				setShowImage(true);
 				setTimeout(() => {
@@ -81,6 +94,8 @@ const AddStudentProject = () => {
 				}, 1000);
 			}
 		} catch (err) {
+			setDisableUpload(false);
+			setShowWorking(false);
 			setShowFailedUpload(true);
 			setTimeout(() => {
 				setShowFailedUpload(false);
@@ -104,7 +119,9 @@ const AddStudentProject = () => {
 						<h1>Image</h1>
 						<div className={style.ImageUpload}>
 							<input name="project_Image" type="file" required onChange={fileSelectedHandler}></input>
-							<button onClick={handleUpload}>Upload image</button>
+							<button onClick={handleUpload} disabled={disableUpload}>
+								Upload image
+							</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
 						<h1>Description</h1>
@@ -121,7 +138,7 @@ const AddStudentProject = () => {
 						<h1>Stuents name</h1>
 						<input name="student_name" type="text" required></input>
 
-						<button>Submit</button>
+						<button disabled={disable}>Submit</button>
 					</form>
 				</div>
 			</div>
@@ -130,6 +147,7 @@ const AddStudentProject = () => {
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message=" Added Succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showSuccessUpload && (
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="Image uploaded succesfully" />

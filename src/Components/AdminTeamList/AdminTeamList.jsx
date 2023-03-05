@@ -16,6 +16,7 @@ const AdminTeamList = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 	const { data: TeamResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/team/");
 	const handleDeletePopup = (id) => {
 		// show popup for confirming delete.
@@ -27,6 +28,7 @@ const AdminTeamList = () => {
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/team/delete/" + ToDelete, {
 				headers: {
@@ -36,6 +38,7 @@ const AdminTeamList = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setshowSuccecss(true);
 					setTimeout(() => {
 						setshowSuccecss(false);
@@ -44,6 +47,7 @@ const AdminTeamList = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -121,6 +125,7 @@ const AdminTeamList = () => {
 				</div>
 			)}
 			{showSuccecss && <MessageBoard Message_type="successBoard" Message="Deleted Succesfully" />}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && <MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />}
 		</>
 	);
