@@ -10,6 +10,8 @@ const AddCourseCate = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const { auth } = useAuth();
+	const [disable, setDisable] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const cateRef = useRef();
 	const navigate = useNavigate();
@@ -17,6 +19,8 @@ const AddCourseCate = () => {
 		cateRef.current.focus();
 	}, []);
 	const handleSubmit = async (e) => {
+		setDisable(true);
+		setShowWorking(true);
 		e.preventDefault();
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
@@ -32,6 +36,8 @@ const AddCourseCate = () => {
 			});
 
 			if (response.status === 201) {
+				setShowWorking(false);
+				setDisable(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setShowSuccess(false);
@@ -39,6 +45,8 @@ const AddCourseCate = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setDisable(false);
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -58,7 +66,7 @@ const AddCourseCate = () => {
 					<form onSubmit={handleSubmit} autoComplete="off" className={style.FormWrapper}>
 						<h1>Category Category</h1>
 						<input name="course_Category" type="text" required ref={cateRef}></input>
-						<button>Add category</button>
+						<button disabled={disable}>Add category</button>
 					</form>
 				</div>
 			</div>
@@ -66,6 +74,8 @@ const AddCourseCate = () => {
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Course category Added successfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
+
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

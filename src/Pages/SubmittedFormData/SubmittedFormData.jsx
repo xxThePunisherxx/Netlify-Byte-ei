@@ -30,6 +30,7 @@ const SubmittedFormData = () => {
 
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	// ----------------------------------------------- Function to handle respective delete popus --------------------------------------------
 
@@ -60,6 +61,7 @@ const SubmittedFormData = () => {
 
 	// ----------------------------------------- function to handle delete confirmation on respective popups -------------------------------------------
 	const handleConfirmEnroll = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/form/delete/" + ToDeleteEnroll, {
 				headers: {
@@ -70,6 +72,7 @@ const SubmittedFormData = () => {
 
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setShowconfirmDeleteEnroll(false);
 					setTimeout(() => {
@@ -79,6 +82,7 @@ const SubmittedFormData = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -87,6 +91,7 @@ const SubmittedFormData = () => {
 		}
 	};
 	const handleConfirmInquirey = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/enquiry/delete/" + ToDeleteInquirey, {
 				headers: {
@@ -97,6 +102,7 @@ const SubmittedFormData = () => {
 
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setShowconfirmDeleteInquirey(false);
 					setTimeout(() => {
@@ -106,6 +112,7 @@ const SubmittedFormData = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -114,6 +121,7 @@ const SubmittedFormData = () => {
 		}
 	};
 	const handleConfirmContact = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/feedback/delete/" + ToDeleteContact, {
 				headers: {
@@ -123,6 +131,7 @@ const SubmittedFormData = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setShowconfirmDeleteContact(false);
 					setTimeout(() => {
@@ -132,6 +141,7 @@ const SubmittedFormData = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -350,6 +360,7 @@ const SubmittedFormData = () => {
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Removed succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

@@ -17,6 +17,9 @@ const UpdateTeam = () => {
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFailed, setShowFailed] = useState(false);
 	const [showImage, setShowImage] = useState(false);
+	const [disable, setDisable] = useState(false);
+	const [disableUpload, setDisableUpload] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 	const [TestomonialResponse, setTestomonialResponse] = useState({});
 
 	useEffect(() => {
@@ -48,6 +51,8 @@ const UpdateTeam = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setDisable(true);
+		setShowWorking(true);
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
 		const postData = {
@@ -66,6 +71,8 @@ const UpdateTeam = () => {
 				},
 			});
 			if (response.status === 201) {
+				setShowWorking(false);
+				setDisable(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setTimeout(() => {
@@ -75,6 +82,8 @@ const UpdateTeam = () => {
 				}, 2000);
 			}
 		} catch (err) {
+			setShowWorking(false);
+			setDisable(false);
 			setShowFailed(true);
 			setTimeout(() => {
 				setShowFailed(false);
@@ -87,6 +96,8 @@ const UpdateTeam = () => {
 	};
 	const handleUpload = async (event) => {
 		event.preventDefault();
+		setDisableUpload(true);
+		setShowWorking(true);
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
@@ -98,6 +109,8 @@ const UpdateTeam = () => {
 			});
 			if (response) {
 				setUploadedURl(response.data.path.path);
+				setDisableUpload(false);
+				setShowWorking(false);
 				setShowSuccessUpload(true);
 				setShowImage(true);
 				setTimeout(() => {
@@ -105,6 +118,8 @@ const UpdateTeam = () => {
 				}, 1000);
 			}
 		} catch (err) {
+			setDisableUpload(false);
+			setShowWorking(false);
 			setShowFailedUpload(true);
 			setTimeout(() => {
 				setShowFailedUpload(false);
@@ -126,7 +141,9 @@ const UpdateTeam = () => {
 						<h1>Image</h1>
 						<div className={style.ImageUpload}>
 							<input name="team_Image" type="file" onChange={fileSelectedHandler}></input>
-							<button onClick={handleUpload}>Upload image</button>
+							<button onClick={handleUpload} disabled={disableUpload}>
+								Upload image
+							</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
 						<h1>Position</h1>
@@ -135,7 +152,7 @@ const UpdateTeam = () => {
 						<input name="team_email" type="email" required defaultValue={TestomonialResponse.email}></input>
 						<h1>Social Link</h1>
 						<input name="team_social_email" type="text" required defaultValue={TestomonialResponse.socialPlatform}></input>
-						<button>Submit</button>
+						<button disabled={disable}>Submit</button>
 					</form>
 				</div>
 			</div>
@@ -144,6 +161,7 @@ const UpdateTeam = () => {
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="Updated Succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showSuccessUpload && (
 				//* Success Message on succesfull course addition
 				<MessageBoard Message_type="successBoard" Message="Image uploaded succesfully" />

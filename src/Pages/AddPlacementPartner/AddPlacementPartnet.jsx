@@ -13,6 +13,9 @@ const AddPlacementPartnet = () => {
 	const [selectedFile, setSelectedFile] = useState();
 	const [showSuccessUpload, setShowSuccessUpload] = useState(false);
 	const [showFailedUpload, setShowFailedUpload] = useState(false);
+	const [disable, setDisable] = useState(false);
+	const [disableUpload, setDisableUpload] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const { auth } = useAuth();
 
@@ -23,6 +26,8 @@ const AddPlacementPartnet = () => {
 	}, []);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setDisable(true);
+		setShowWorking(true);
 		const data = new FormData(e.target);
 		let enterdData = Object.fromEntries(data.entries());
 		const postData = {
@@ -38,6 +43,8 @@ const AddPlacementPartnet = () => {
 			});
 
 			if (response.status === 201) {
+				setShowWorking(false);
+				setDisable(false);
 				setShowSuccess(true);
 				setTimeout(() => {
 					setShowSuccess(false);
@@ -45,6 +52,8 @@ const AddPlacementPartnet = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
+			setDisable(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -57,6 +66,8 @@ const AddPlacementPartnet = () => {
 	};
 	const handleUpload = async (event) => {
 		event.preventDefault();
+		setDisableUpload(true);
+		setShowWorking(true);
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
@@ -68,6 +79,8 @@ const AddPlacementPartnet = () => {
 			});
 			if (response) {
 				setUploadedURl(response.data.path.path);
+				setDisableUpload(false);
+				setShowWorking(false);
 				setShowSuccessUpload(true);
 				setShowImage(true);
 				setTimeout(() => {
@@ -75,6 +88,8 @@ const AddPlacementPartnet = () => {
 				}, 1000);
 			}
 		} catch (err) {
+			setDisableUpload(false);
+			setShowWorking(false);
 			setShowFailedUpload(true);
 			setTimeout(() => {
 				setShowFailedUpload(false);
@@ -96,10 +111,12 @@ const AddPlacementPartnet = () => {
 						<h1>Company Image</h1>
 						<div className={style.ImageUpload}>
 							<input name="course_Image" type="file" required onChange={fileSelectedHandler}></input>
-							<button onClick={handleUpload}>Upload image</button>
+							<button onClick={handleUpload} disabled={disableUpload}>
+								Upload image
+							</button>
 						</div>
 						{showImage && <img className={style.Uplaod_Img} src={uploadedURl} alt="Upload  preview"></img>}
-						<button>Add Partner</button>
+						<button disabled={disable}>Add Partner</button>
 					</form>
 				</div>
 			</div>
@@ -107,6 +124,7 @@ const AddPlacementPartnet = () => {
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Course category Added successfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

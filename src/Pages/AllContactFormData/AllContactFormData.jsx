@@ -15,6 +15,7 @@ const AllContactFormData = () => {
 	const [ToDeleteContact, setToDeleteContact] = useState();
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 	const handleDeletePopupContact = (id) => {
 		setShowconfirmDeleteContact(true);
 		setToDeleteContact(id);
@@ -23,6 +24,7 @@ const AllContactFormData = () => {
 		setShowconfirmDeleteContact(false);
 	};
 	const handleConfirmContact = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/feedback/delete/" + ToDeleteContact, {
 				headers: {
@@ -32,6 +34,7 @@ const AllContactFormData = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setShowconfirmDeleteContact(false);
 					setTimeout(() => {
@@ -41,6 +44,7 @@ const AllContactFormData = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -118,6 +122,8 @@ const AllContactFormData = () => {
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Removed succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
+
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

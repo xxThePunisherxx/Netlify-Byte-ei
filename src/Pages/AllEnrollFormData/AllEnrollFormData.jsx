@@ -15,6 +15,7 @@ const AllEnrollFormData = () => {
 	const [ToDeleteEnroll, setToDeleteEnroll] = useState();
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const handleDeletePopupEnroll = (id) => {
 		setShowconfirmDeleteEnroll(true);
@@ -25,6 +26,7 @@ const AllEnrollFormData = () => {
 		setShowconfirmDeleteEnroll(false);
 	};
 	const handleConfirmEnroll = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/form/delete/" + ToDeleteEnroll, {
 				headers: {
@@ -35,6 +37,7 @@ const AllEnrollFormData = () => {
 
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setShowconfirmDeleteEnroll(false);
 					setTimeout(() => {
@@ -44,6 +47,7 @@ const AllEnrollFormData = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -118,6 +122,7 @@ const AllEnrollFormData = () => {
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Removed succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

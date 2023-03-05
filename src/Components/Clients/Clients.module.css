@@ -47,12 +47,14 @@
     display: flex;
     flex-wrap: wrap;
     width: 80%;
+    gap: 20px;
     justify-content: space-evenly;
     margin: 0 auto;
 }
 
 .ImagesGrid img {
-    width: 150px;
+    width: 300px;
+    border-radius: 20px;
 }
 
 @media screen and (max-width: 1669px) {
@@ -73,5 +75,9 @@
     .ClientsContainer h1 {
         font-size: 3rem;
         padding: 2rem;
+    }
+
+    .ImagesGrid img {
+        width: 200px;
     }
 }

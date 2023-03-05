@@ -15,6 +15,7 @@ const CourseCategoryList = () => {
 	const [ToDelete, setToDelete] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
+	const [showWorking, setShowWorking] = useState(false);
 
 	const dummyArr = [0, 1, 2, 3, 4, 5]; // just for adding skeleton.
 	const { data: trainingData, ispending } = useFetchAuth("https://byte-backend-demo.up.railway.app/api/category");
@@ -30,6 +31,7 @@ const CourseCategoryList = () => {
 	};
 
 	const handleConfirm = async () => {
+		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/category/delete/" + ToDelete, {
 				headers: {
@@ -39,6 +41,7 @@ const CourseCategoryList = () => {
 			});
 			if (response.status === 201) {
 				setTimeout(() => {
+					setShowWorking(false);
 					setShowSuccess(true);
 					setShowconfirmDelete(false);
 					setTimeout(() => {
@@ -48,6 +51,7 @@ const CourseCategoryList = () => {
 				}, 1000);
 			}
 		} catch (error) {
+			setShowWorking(false);
 			setShowFail(true);
 			setTimeout(() => {
 				setShowFail(false);
@@ -132,6 +136,7 @@ const CourseCategoryList = () => {
 				//* Success Message
 				<MessageBoard Message_type="successBoard" Message="Course category Added succesfully" />
 			)}
+			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
 			{showFail && (
 				//* Fail Message
 				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />

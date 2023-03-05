@@ -9,9 +9,9 @@ const IndividualContactFormData = () => {
 
 	return (
 		<>
-			<div className={style.EnrollData_Wrapper}>
-				<h1>Enrolled Trainees Detail</h1>
-				{!ispending && (
+			{!ispending && (
+				<div className={style.EnrollData_Wrapper}>
+					<h1>{IndividualContactData.feedback.legalName} sent</h1>
 					<div className={style.EnrollForm_Data}>
 						<h1>Name</h1>
 						<h2>{IndividualContactData.feedback.legalName}</h2>
@@ -23,8 +23,8 @@ const IndividualContactFormData = () => {
 						<h1>Message</h1>
 						<h2>{IndividualContactData.feedback.message}</h2>
 					</div>
-				)}
-			</div>
+				</div>
+			)}
 		</>
 	);
 };
