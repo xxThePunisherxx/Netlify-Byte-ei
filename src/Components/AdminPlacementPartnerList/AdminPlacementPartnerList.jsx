@@ -11,21 +11,28 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminPlacementPartnerList = () => {
 	const { auth } = useAuth();
-	const dummyArr = [0, 1, 2, 3]; // just for adding skeleton.
+
+	// --------------------------------------------------just for adding skeleton.----------------------------------------------------------------------------------------------------
+	const dummyArr = [0, 1, 2, 3];
+
+	// -------------------------------------------------- show or hide delete confirmation ----------------------------------------------------------------------------------------------------
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
+
+	//  -------------------------------------------------- show or hide message board ----------------------------------------------------------------------------------------------------
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
+
 	const { data: ClientsData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/partner");
 
 	const handleDeletePopup = (id) => {
-		// show popup for confirming delete.
+		//-------------------------------------------------- show popup for confirming delete.----------------------------------------------------------------------------------------------------
 		setShowconfirmDelete(true);
 		setToDelete(id);
 	};
 	const handleCancel = () => {
-		// hide popup for delete confirmation.
+		//-------------------------------------------------- hide popup for delete confirmation.--------------------------------------------------
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {

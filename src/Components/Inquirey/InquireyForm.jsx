@@ -9,6 +9,8 @@ import { useState } from "react";
 const InquireyForm = () => {
 	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 	const [showSelectCat, setShowSelectCat] = useState(false);
+
+	//  ------------------------------------------------------------------ Message Board things ------------------------------------------------------------------
 	const [Error, setError] = useState(false);
 	const [Success, setSuccess] = useState(false);
 

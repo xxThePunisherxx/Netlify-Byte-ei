@@ -11,27 +11,34 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminCourseList = () => {
 	const { auth } = useAuth();
-	const dummyArr = [0, 1, 2, 3]; // just for adding skeleton.
+	//  ------------------------------------------------------- just for adding skeleton. -----------------------------------------------------------------
+	const dummyArr = [0, 1, 2, 3];
+
+	//  ------------------------------------------------------- message board state --------------------------------------------------------------------------
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
+	//  ----------------------------------------------------- delete popup  -------------------------------------------------------------------------
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
+
+	//  ---------------------------------------------------- store id of things to delete ---------------------------------------------------------------
 	const [ToDelete, setToDelete] = useState(false);
 	const { data: trainingResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 	const trainingData = trainingResponse.training;
 
 	const handleDeletePopup = (id) => {
-		// show popup for confirming delete.
+		// --------------------------------------------------show popup for confirming delete. ------------------------------------------------------
 		setShowconfirmDelete(true);
 		setToDelete(id);
 	};
 	const handleCancel = () => {
-		// hide popup for delete confirmation.
+		//-------------------------------------------- hide popup for delete confirmation. -----------------------------------------------------------
 		setShowconfirmDelete(false);
 	};
 
 	const handleConfirm = async () => {
+		//--------------------------------------------------- delete if confirmed -------------------------------------------------------------------------
 		setShowWorking(true);
 		try {
 			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/training/delete/" + ToDelete, {

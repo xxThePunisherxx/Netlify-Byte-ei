@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./Clients.module.css";
 import { Link } from "react-router-dom";
-// import { ClientsData } from "../../Data/clients";
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Clients = () => {

@@ -9,6 +9,7 @@ import Logo from "../../assets/Logo.png";
 import useAuth from "../../hooks/useAuth";
 
 const AdminSidebar = () => {
+	// ------------------------------------------ remove contents of localstorage. -------------------------------------------------------------------------
 	const handleClick = () => {
 		localStorage.clear();
 	};

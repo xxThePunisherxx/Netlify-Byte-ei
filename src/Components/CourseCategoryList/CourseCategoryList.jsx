@@ -11,22 +11,26 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const CourseCategoryList = () => {
 	const { auth } = useAuth();
+	//  ------------------------------------------------------------------ delete popups things ------------------------------------------------------------------
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
+
+	//  ------------------------------------------------------------------ message board things --------------------------------------------------------------------------
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const dummyArr = [0, 1, 2, 3, 4, 5]; // just for adding skeleton.
+	//------------------------------------------------------------------ just for adding skeleton. ------------------------------------------------------------------
+	const dummyArr = [0, 1, 2, 3, 4, 5];
 	const { data: trainingData, ispending } = useFetchAuth("https://byte-backend-demo.up.railway.app/api/category");
-	//  * new function
+
 	const handleDeletePopup = (id) => {
-		// show popup for confirming delete.
+		//------------------------------------------------------------------ show popup for confirming delete. ------------------------------------------------------------------------
 		setShowconfirmDelete(true);
 		setToDelete(id);
 	};
 	const handleCancel = () => {
-		// hide popup for delete confirmation.
+		//------------------------------------------------------------------ hide popup for delete confirmation. ------------------------------------------------------------------
 		setShowconfirmDelete(false);
 	};
 
@@ -132,15 +136,9 @@ const CourseCategoryList = () => {
 					</>
 				)}
 			</div>
-			{showSuccess && (
-				//* Success Message
-				<MessageBoard Message_type="successBoard" Message="Course category Added succesfully" />
-			)}
+			{showSuccess && <MessageBoard Message_type="successBoard" Message="Course category Added succesfully" />}
 			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
-			{showFail && (
-				//* Fail Message
-				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />
-			)}
+			{showFail && <MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />}
 		</>
 	);
 };
