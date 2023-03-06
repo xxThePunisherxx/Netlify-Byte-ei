@@ -242,6 +242,7 @@
 .BannerHeading h1 {
     font-size: 3rem;
     font-weight: 800;
+    text-align: center;
 }
 
 
@@ -291,6 +292,10 @@
         padding: 20px;
     }
 
+    .Training_header h2 {
+        font-size: 1.5rem;
+    }
+
     .training_header_btn {
         width: 100%;
     }
@@ -307,6 +312,11 @@
     .Training_Description,
     .course_overview {
         width: 95%;
+    }
+
+    .BannerHeading h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
     }
 
 }
@@ -351,6 +361,10 @@
     .Training_Description h1 {
         font-size: 2.2rem;
     }
+
+    .Training_header h2 {
+        font-size: 1.3rem;
+    }
 }
 
 @media screen and (max-width: 503px) {
@@ -392,6 +406,11 @@
 
     .Training_Description h1 {
         font-size: 2.2rem;
+    }
+
+    .BannerHeading h1 {
+        font-size: 2rem;
+        font-weight: 800;
     }
 }
 
