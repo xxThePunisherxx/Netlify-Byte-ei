@@ -11,22 +11,29 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminStudentProjectList = () => {
 	const { auth } = useAuth();
-	const dummyArr = [0, 1, 2, 3]; // just for adding skeleton.
+
+	// -------------------------------------------------- just for adding skeleton. ----------------------------------------------------------------------------------------------------
+	const dummyArr = [0, 1, 2, 3];
+
+	// -------------------------------------------------- things for delete popup ----------------------------------------------------------------------------------------------------
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
+
+	//  -------------------------------------------------- things for showing or hiding message board --------------------------------------------------
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
+
 	const { data: ProjectData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/project");
 	let ProjectDataArr = ProjectData?.studentProjects;
 
 	const handleDeletePopup = (id) => {
-		// show popup for confirming delete.
+		// --------------------------------------------------show popup for confirming delete.----------------------------------------------------------------------------------------------------
 		setShowconfirmDelete(true);
 		setToDelete(id);
 	};
 	const handleCancel = () => {
-		// hide popup for delete confirmation.
+		// -------------------------------------------------- hide popup for delete confirmation.  --------------------------------------------------
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {

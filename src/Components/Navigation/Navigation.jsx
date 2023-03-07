@@ -42,7 +42,7 @@ const Navigation = () => {
 											to={Link.Linkto}
 											className={({ isActive }) => {
 												return "Link_Text_" + (isActive ? "Active" : "Unactive");
-												// css properties are in App.css
+												//!------------------------------ css properties are in App.css ---------------------------------------------------
 											}}
 										>
 											{Link.LinkName}

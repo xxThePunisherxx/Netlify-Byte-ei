@@ -1,5 +1,5 @@
 .Dashboard {
     display: flex;
     flex-direction: column;
-    padding-top: 2rem;
+    padding: 2rem;
 }

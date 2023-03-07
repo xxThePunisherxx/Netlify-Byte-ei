@@ -36,6 +36,7 @@ function Carousel({ images, EnableautoPlay, ShowItemFor }) {
 				}
 			}}
 			onMouseLeave={() => {
+				//  ------------------------------------------------------------------ pause on mouse hover ------------------------------------------------------------------
 				if (EnableautoPlay === true) {
 					setAutoPlay(true);
 				} else setAutoPlay(false);
@@ -59,6 +60,7 @@ function Carousel({ images, EnableautoPlay, ShowItemFor }) {
 					<h1>&rsaquo;</h1>
 				</div>
 				<div className={style.carouselPagination}>
+					{/* ------------------------------------------------------------------ paginatin ------------------------------------------------------------------ */}
 					{images.map((_, index) => {
 						return (
 							<div

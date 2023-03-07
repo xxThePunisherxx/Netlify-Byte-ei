@@ -6,7 +6,7 @@ const Unauthorized = () => {
 	return (
 		<div className={style.notfoundContainer}>
 			<div className={style.contents}>
-				<h1>You are not supposed to see this. </h1>
+				<h1>Sorry, you do not have permission to access this page. Please contact the administrator if you think this is a mistake.</h1>
 				<Link to={"/"}>
 					<button>Go back to homepage.</button>
 				</Link>

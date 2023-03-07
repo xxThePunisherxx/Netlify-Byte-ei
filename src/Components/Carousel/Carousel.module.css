@@ -65,5 +65,6 @@
     position: absolute;
     bottom: 5px;
     left: 50%;
+    width: fit-content;
     transform: translate(-50%, 0);
 }

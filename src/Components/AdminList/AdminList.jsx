@@ -10,22 +10,31 @@ import useAuth from "../../hooks/useAuth";
 import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminList = () => {
+	const { auth } = useAuth();
+
+	// --------------------------------------------------- show or hide delete popups ---------------------------------------------------------------
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
+
+	//  ------------------------------------------------ store id of things to delete ----------------------------------------------------------
 	const [ToDelete, setToDelete] = useState(false);
+
+	//  ------------------------------------------------------ hide or show message board -------------------------------------------------------
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const dummyArr = [0, 1, 2]; // just for adding skeleton.
-	const { auth } = useAuth();
+	// --------------------------------------------------just for adding skeleton. --------------------------------------------------------------------
+	const dummyArr = [0, 1, 2];
+
 	const { data: trainingData, ispending } = useFetchAuth("https://byte-backend-demo.up.railway.app/api/user/admin/users");
+
 	const handleDeletePopup = (id) => {
-		// show popup for confirming delete.
+		// --------------------------------------------------show popup for confirming delete. ---------------------------------------------------------
 		setShowconfirmDelete(true);
 		setToDelete(id);
 	};
 	const handleCancel = () => {
-		// hide popup for delete confirmation.
+		// --------------------------------------------------hide popup for delete confirmation. --------------------------------------------------
 		setShowconfirmDelete(false);
 	};
 
@@ -139,16 +148,9 @@ const AdminList = () => {
 				)}
 			</div>
 
-			{showSuccess && (
-				//* Success Message
-				<MessageBoard Message_type="successBoard" Message="Deleted succesfully" />
-			)}
+			{showSuccess && <MessageBoard Message_type="successBoard" Message="Deleted succesfully" />}
 			{showWorking && <MessageBoard Message_type="Working" Message="Procressing Please Wait" />}
-
-			{showFail && (
-				//* Fail Message
-				<MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />
-			)}
+			{showFail && <MessageBoard Message_type="FailedBoard" Message="Something went wrong. Please try again." />}
 		</>
 	);
 };

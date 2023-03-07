@@ -11,20 +11,26 @@ import MessageBoard from "../../Components/Message Board/MessageBoard";
 
 const AdminTeamList = () => {
 	const { auth } = useAuth();
-	const dummyArr = [0, 1, 2, 3]; // just for adding skeleton.
+	// ---------------------------------------------------- just for adding skeleton. ------------------------------------------------------------------------------
+	const dummyArr = [0, 1, 2, 3];
+
+	//  ----------------------------------------------------------- delete popup things ------------------------------------------------------------------------------
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
+
+	//  ------------------------------------------------------------------ Messsage board things ------------------------------------------------------------------
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
+
 	const { data: TeamResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/team/");
 	const handleDeletePopup = (id) => {
-		// show popup for confirming delete.
+		// ------------------------------------------------------------------show popup for confirming delete. ------------------------------------------------------------------
 		setShowconfirmDelete(true);
 		setToDelete(id);
 	};
 	const handleCancel = () => {
-		// hide popup for delete confirmation.
+		// ------------------------------------------------------------------ hide popup for delete confirmation. ------------------------------------------------------------------
 		setShowconfirmDelete(false);
 	};
 	const handleConfirm = async () => {

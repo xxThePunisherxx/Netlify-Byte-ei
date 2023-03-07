@@ -1,5 +1,6 @@
 .notfoundContainer {
-    height: 100vh;
+    padding: 5rem;
+    min-height: 100vh;
     display: grid;
     place-items: center;
 }
@@ -32,4 +33,46 @@
 .contents button:hover {
     background-size: 320%;
     background-position: right center;
+}
+
+@media(max-width:1300px) {
+    .notfoundContainer {
+        padding: 4rem;
+    }
+
+    .contents {
+        font-size: 2rem;
+    }
+
+    .contents button {
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width:500px) {
+    .notfoundContainer {
+        padding: 3rem;
+    }
+
+    .contents {
+        font-size: 2rem;
+    }
+
+    .contents button {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:400px) {
+    .notfoundContainer {
+        padding: 1rem;
+    }
+
+    .contents {
+        font-size: 2rem;
+    }
+
+    .contents button {
+        font-size: 1rem;
+    }
 }

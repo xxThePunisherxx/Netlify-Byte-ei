@@ -9,6 +9,7 @@
     padding: 2rem;
     grid-template-columns: var(--grid-cols);
     column-gap: 20px;
+    max-width: 100vw;
 }
 
 .Footer_Container h1 {
@@ -88,7 +89,7 @@
     color: #e2e2e2;
 }
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 450px) {
     :root {
         --grid-cols: repeat(auto-fit, minmax(200px, 1fr));
     }

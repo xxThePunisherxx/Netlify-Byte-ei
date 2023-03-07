@@ -7,21 +7,22 @@ import useAuth from "../../hooks/useAuth";
 import { useLocation } from "react-router-dom";
 
 const Login = () => {
-	const d = new Date();
 	const usernameRef = useRef();
 	const errorRef = useRef();
 	const navigate = useNavigate();
 	const location = useLocation();
+	// ----------------------- redirect user to page they were trying to view befor they were sent to login page,------------------------------------------------
+	//==================================if no previos page was found redirerct to dashboard------------------------------------------
 	const from = location.state?.from?.pathname || "/admin/dashboard";
 	const { auth, setAuth } = useAuth();
 	const [email, setemail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errMsg, setErrMsg] = useState("");
+	const d = new Date();
 
 	useEffect(() => {
-		// redirect to dashboard if auth.role is present
+		//------------------------------ redirect to dashboard if auth.role is found stored in  local storage. -----------------------------------------------------------------
 		if (auth.Role) {
-			// if (auth.Role === "admin") {
 			navigate("/admin/dashboard");
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

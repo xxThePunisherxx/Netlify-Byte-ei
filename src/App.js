@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./Pages/Homepage/Homepage";
 import Courses from "./Pages/Courses/Courses";
-import Comming from "./Pages/CommingSoon/Comming";
+// import Comming from "./Pages/CommingSoon/Comming";
 import ClientsAll from "./Pages/Clients/ClientsAll";
 import NotFound from "./Pages/NotFound/NotFound";
 import Admin from "./Pages/Admin/Admin";
@@ -55,7 +55,7 @@ function App() {
 				<Route path="/team" element={<Team />} />
 				<Route path="/aboutUS" element={<AboutUs />} />
 				<Route path="contact" element={<Contact />} />
-				<Route path="/gallery" element={<Comming />} />
+				{/* <Route path="/gallery" element={<Comming />} /> */}
 				<Route path="/studentProjects" element={<StudentProject />} />
 				<Route path="/allClients" element={<ClientsAll />} />
 				<Route path="/unauthorized" element={<Unauthorized />} />

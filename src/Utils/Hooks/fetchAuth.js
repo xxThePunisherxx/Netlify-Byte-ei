@@ -36,7 +36,7 @@ const useFetchAuth = (url) => {
 		}
 		fetchData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [url]);
+	}, []);
 	return { data, ispending, error, response };
 };
 export default useFetchAuth;

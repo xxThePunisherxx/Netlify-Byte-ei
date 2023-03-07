@@ -7,16 +7,17 @@ export const AuthProvider = ({ children }) => {
 	const LoginTime = d.getTime();
 	let parsedLocalData = { Role: "", Token: "" };
 	const localStoredData = localStorage.getItem("User Info");
+	const previousLoginTime = localStorage.getItem("User time");
 
 	//! ---------------------------------- store login time to auto logout after 24hr ---------------------------------------------------------------
-	const FirstLoginTime = JSON.parse(localStorage.getItem("User time"));
+	const FirstLoginTime = JSON.parse(previousLoginTime);
 	let Expire = false;
-	if (localStoredData) {
+	if (previousLoginTime) {
 		Expire = LoginTime - FirstLoginTime.StoreLoginTime >= 86400000;
 	}
 	if (Expire) {
 		localStorage.clear();
-		// ! ------------------------------------ logout user if last login was more than 1 day ago -------------------------------------------------
+		// ! ------------------------------------ clear data on localstorage if last login was more than 1 day ago -------------------------------------------------
 	}
 
 	if (localStoredData && !Expire) {

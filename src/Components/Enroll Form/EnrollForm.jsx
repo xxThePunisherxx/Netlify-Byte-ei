@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 const EnrollForm = () => {
 	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
 	const [showSelectCat, setShowSelectCat] = useState(false);
+
+	// ------------------------------------------------------------------ Message board things ------------------------------------------------------------------
 	const [Error, setError] = useState(false);
 	const [Success, setSuccess] = useState(false);
 

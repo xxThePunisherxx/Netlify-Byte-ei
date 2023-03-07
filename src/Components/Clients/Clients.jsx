@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./Clients.module.css";
 import { Link } from "react-router-dom";
-// import { ClientsData } from "../../Data/clients";
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Clients = () => {
@@ -14,7 +13,7 @@ const Clients = () => {
 			{!ispending && (
 				<div className={style.ImagesGrid}>
 					{ClientsData.partner.slice(0, 5).map((item) => (
-						<a href={item.companyWebsite}>
+						<a key={item._id} href={item.companyWebsite}>
 							<img key={item._id} src={item.image} alt={item.link} />
 						</a>
 					))}

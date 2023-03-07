@@ -31,8 +31,8 @@ const StudentProject = () => {
 				<div className={style.TrainingGrid}>
 					{ProjectDataArr.map((item) => (
 						<div className={style.Training} key={item._id}>
-							<img src={item.image} alt={item.Title} />
-							<div dangerouslySetInnerHTML={{ __html: item.title }}></div>
+							<img src={item.image} alt={item.title} />
+							<h1>{item.title}</h1>
 							<Link to={`/project-view/${item._id}`}>
 								<button>Learn more</button>
 							</Link>
