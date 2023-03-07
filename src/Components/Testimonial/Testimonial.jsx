@@ -12,7 +12,15 @@ const Testimonial = () => {
 			<h1 className={style.MainHeading}>
 				What our <span className={style.HeadingHighlight}>students say</span>
 			</h1>
-			<div>{!ispending && <TestomonialCarousel images={Testominials} EnableautoPlay={true} ShowItemFor={5000} />}</div>
+
+			<div>
+				{ispending && (
+					<div className={style.Skel}>
+						<div className={style.imgDiv}></div>
+					</div>
+				)}
+				{!ispending && <TestomonialCarousel images={Testominials} EnableautoPlay={true} ShowItemFor={5000} />}
+			</div>
 		</div>
 	);
 };
