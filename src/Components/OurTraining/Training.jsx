@@ -8,7 +8,7 @@ const Training = () => {
 	//--------------------------------------- just for adding skeleton.--------------------------------------------------------------------------------
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7];
 
-	const { data: trainingData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingData, ispending } = useFetch("https://backendapp.up.railway.app/api/training");
 	let TrrainingDataArr = trainingData?.training;
 	let SlicedTraining = TrrainingDataArr.slice(0, 12);
 

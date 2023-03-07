@@ -3,7 +3,7 @@ import style from "./ClientsAll.module.css";
 import useFetch from "../../Utils/Hooks/fetch";
 
 const ClientsAll = () => {
-	const { data: ClientsData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/partner");
+	const { data: ClientsData, ispending } = useFetch("https://backendapp.up.railway.app/api/partner");
 	return (
 		<div className={style.ClientsContainer}>
 			<h1>

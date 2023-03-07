@@ -7,7 +7,7 @@ import useFetch from "../../Utils/Hooks/fetch";
 const IndividualCourse = () => {
 	const { courseID } = useParams();
 	// const [IndividualtrainingData, setIndividualTrainingData] = useState([{}]);
-	const { data: IndividualtrainingData, ispending } = useFetch(`https://byte-backend-demo.up.railway.app/api/training/${courseID}`);
+	const { data: IndividualtrainingData, ispending } = useFetch(`https://backendapp.up.railway.app/api/training/${courseID}`);
 
 	return (
 		<>

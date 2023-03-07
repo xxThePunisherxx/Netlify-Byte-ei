@@ -27,7 +27,7 @@ const AddTestomonial = () => {
 	const [disableUpload, setDisableUpload] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingResponse } = useFetch("https://backendapp.up.railway.app/api/training");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -50,7 +50,7 @@ const AddTestomonial = () => {
 			setDisable(true);
 			setShowWorking(true);
 			try {
-				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/testimonial/add", postData, {
+				const response = await axios.post("https://backendapp.up.railway.app/api/testimonial/add", postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -93,7 +93,7 @@ const AddTestomonial = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
+			let response = await axios.post("https://backendapp.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

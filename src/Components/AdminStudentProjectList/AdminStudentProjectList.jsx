@@ -24,7 +24,7 @@ const AdminStudentProjectList = () => {
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const { data: ProjectData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/project");
+	const { data: ProjectData, ispending } = useFetch("https://backendapp.up.railway.app/api/project");
 	let ProjectDataArr = ProjectData?.studentProjects;
 
 	const handleDeletePopup = (id) => {
@@ -39,7 +39,7 @@ const AdminStudentProjectList = () => {
 	const handleConfirm = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/project/delete/" + ToDelete, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/project/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

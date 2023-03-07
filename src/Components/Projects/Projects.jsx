@@ -8,7 +8,7 @@ const Projects = () => {
 	// ---------------------------------------------------just for adding skeleton.----------------------------------------------------------------------
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7];
 
-	const { data: ProjectData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/project");
+	const { data: ProjectData, ispending } = useFetch("https://backendapp.up.railway.app/api/project");
 	let ProjectDataArr = ProjectData?.studentProjects;
 
 	return (

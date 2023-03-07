@@ -82,7 +82,7 @@ const Addadmin = () => {
 				name: enterdData.user_Name,
 			};
 			try {
-				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/user/register", postData, {
+				const response = await axios.post("https://backendapp.up.railway.app/api/user/register", postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,

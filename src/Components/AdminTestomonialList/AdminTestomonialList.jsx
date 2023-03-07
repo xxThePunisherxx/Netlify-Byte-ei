@@ -22,7 +22,7 @@ const AdminTestomonialList = () => {
 	const [showSuccecss, setshowSuccecss] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
-	const { data: TestomonialResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/testimonial");
+	const { data: TestomonialResponse, ispending } = useFetch("https://backendapp.up.railway.app/api/testimonial");
 
 	const handleDeletePopup = (id) => {
 		// ------------------------------------------------------------------ show popup for confirming delete. ------------------------------------------------------------------
@@ -37,7 +37,7 @@ const AdminTestomonialList = () => {
 		setShowWorking(true);
 
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/testimonial/delete/" + ToDelete, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/testimonial/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

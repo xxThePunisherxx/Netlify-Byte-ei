@@ -24,7 +24,7 @@ const AdminPlacementPartnerList = () => {
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const { data: ClientsData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/partner");
+	const { data: ClientsData, ispending } = useFetch("https://backendapp.up.railway.app/api/partner");
 
 	const handleDeletePopup = (id) => {
 		//-------------------------------------------------- show popup for confirming delete.----------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ const AdminPlacementPartnerList = () => {
 	const handleConfirm = async () => {
 		try {
 			setShowWorking(true);
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/team/delete/" + ToDelete, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/team/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

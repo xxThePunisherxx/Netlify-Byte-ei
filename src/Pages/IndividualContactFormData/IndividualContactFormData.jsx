@@ -5,7 +5,7 @@ import useFetchAuth from "../../Utils/Hooks/fetchAuth";
 
 const IndividualContactFormData = () => {
 	const { ContactID } = useParams();
-	const { data: IndividualContactData, ispending } = useFetchAuth(`https://byte-backend-demo.up.railway.app/api/feedback/${ContactID}`);
+	const { data: IndividualContactData, ispending } = useFetchAuth(`https://backendapp.up.railway.app/api/feedback/${ContactID}`);
 
 	return (
 		<>
