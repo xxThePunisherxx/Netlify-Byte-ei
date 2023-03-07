@@ -31,8 +31,6 @@ const Addadmin = () => {
 	}, []);
 
 	const handlesubmit = async (e) => {
-		setDisable(true);
-		setShowWorking(true);
 		const emailRegex = new RegExp(
 			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 		);
@@ -81,6 +79,8 @@ const Addadmin = () => {
 				email: enterdData.user_email,
 				name: enterdData.user_Name,
 			};
+			setDisable(true);
+			setShowWorking(true);
 			try {
 				const response = await axios.post("https://backendapp.up.railway.app/api/user/register", postData, {
 					headers: {
