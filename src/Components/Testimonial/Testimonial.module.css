@@ -9,6 +9,26 @@
     color: #2bb673;
 }
 
+.Skel .imgDiv {
+    margin: 0 auto;
+    width: 80%;
+    height: 480px;
+    background: linear-gradient(120deg,
+            #e5e5e5 30%,
+            #f0f0f0 38%,
+            #f0f0f0 40%,
+            #e5e5e5 48%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    animation: Load 2s infinite;
+    border-radius: 20px;
+}
+
+@keyframes Load {
+    100% {
+        background-position: -100% 0;
+    }
+}
 
 
 @media screen and (max-width: 1669px) {

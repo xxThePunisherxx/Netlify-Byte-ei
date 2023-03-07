@@ -19,7 +19,7 @@ const AdminCourseListPage = () => {
 
 	const [ShowconfirmDelete, setShowconfirmDelete] = useState(false);
 	const [ToDelete, setToDelete] = useState(false);
-	const { data: trainingResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingResponse, ispending } = useFetch("https://backendapp.up.railway.app/api/training");
 	const trainingData = trainingResponse.training;
 	const handleDeletePopup = (id) => {
 		setShowconfirmDelete(true);
@@ -32,7 +32,7 @@ const AdminCourseListPage = () => {
 		setShowWorking(true);
 
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/training/delete/" + ToDelete, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/training/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

@@ -2,11 +2,12 @@ import React from "react";
 import style from "./Courses.module.css";
 import { Link } from "react-router-dom";
 import useFetch from "../../Utils/Hooks/fetch";
+import uuid from "react-uuid";
 
 const Courses = () => {
 	const dummyArr = [0, 1, 2, 3, 4, 5, 6, 7]; // just for adding skeleton.
 
-	const { data: trainingData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingData, ispending } = useFetch("https://backendapp.up.railway.app/api/training");
 	let TrrainingDataArr = trainingData?.training;
 
 	return (
@@ -17,7 +18,7 @@ const Courses = () => {
 			{ispending && (
 				<div className={style.TrainingGrid}>
 					{dummyArr.map(() => (
-						<div className={style.Training}>
+						<div className={style.Training} key={uuid()}>
 							<div className={style.Skel}>
 								<div className={style.imgDiv}></div>
 								<div className={style.H1Div}></div>
@@ -29,7 +30,7 @@ const Courses = () => {
 			)}
 			<div className={style.TrainingGrid}>
 				{TrrainingDataArr.map((item) => (
-					<div className={style.Training} key={item._id}>
+					<div key={uuid()} className={style.Training}>
 						<img src={item.image} alt={item.Title} />
 						<h1>{item.title}</h1>
 						<h2>Duration: {item.duration}</h2>

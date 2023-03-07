@@ -4,7 +4,7 @@ import TestomonialCarousel from "../../Components/TestomonialCarousel/Testomonia
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Testimonial = () => {
-	const { data: TestomonialServerResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/testimonial");
+	const { data: TestomonialServerResponse, ispending } = useFetch("https://backendapp.up.railway.app/api/testimonial");
 	const Testominials = TestomonialServerResponse.testimonial;
 
 	return (
@@ -12,7 +12,15 @@ const Testimonial = () => {
 			<h1 className={style.MainHeading}>
 				What our <span className={style.HeadingHighlight}>students say</span>
 			</h1>
-			<div>{!ispending && <TestomonialCarousel images={Testominials} EnableautoPlay={true} ShowItemFor={5000} />}</div>
+
+			<div>
+				{ispending && (
+					<div className={style.Skel}>
+						<div className={style.imgDiv}></div>
+					</div>
+				)}
+				{!ispending && <TestomonialCarousel images={Testominials} EnableautoPlay={true} ShowItemFor={5000} />}
+			</div>
 		</div>
 	);
 };

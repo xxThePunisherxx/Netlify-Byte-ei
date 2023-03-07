@@ -29,13 +29,13 @@ const AddTestomonial = () => {
 	const [disableUpload, setDisableUpload] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingResponse } = useFetch("https://backendapp.up.railway.app/api/training");
 
 	useEffect(() => {
 		const fetchData = async () => {
 			// get request to get pre-update value of the course.
 			try {
-				let response = await axios.get(`https://byte-backend-demo.up.railway.app/api/testimonial/${testomonialID}`, {
+				let response = await axios.get(`https://backendapp.up.railway.app/api/testimonial/${testomonialID}`, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -79,7 +79,7 @@ const AddTestomonial = () => {
 			setDisable(true);
 			setShowWorking(true);
 			try {
-				const response = await axios.put(`https://byte-backend-demo.up.railway.app/api/testimonial/update/${testomonialID}`, postData, {
+				const response = await axios.put(`https://backendapp.up.railway.app/api/testimonial/update/${testomonialID}`, postData, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -122,7 +122,7 @@ const AddTestomonial = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
+			let response = await axios.post("https://backendapp.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

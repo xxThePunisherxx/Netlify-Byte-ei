@@ -22,7 +22,7 @@ const CourseCategoryList = () => {
 
 	//------------------------------------------------------------------ just for adding skeleton. ------------------------------------------------------------------
 	const dummyArr = [0, 1, 2, 3, 4, 5];
-	const { data: trainingData, ispending } = useFetchAuth("https://byte-backend-demo.up.railway.app/api/category");
+	const { data: trainingData, ispending } = useFetchAuth("https://backendapp.up.railway.app/api/category");
 
 	const handleDeletePopup = (id) => {
 		//------------------------------------------------------------------ show popup for confirming delete. ------------------------------------------------------------------------
@@ -37,7 +37,7 @@ const CourseCategoryList = () => {
 	const handleConfirm = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/category/delete/" + ToDelete, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/category/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

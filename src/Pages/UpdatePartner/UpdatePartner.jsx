@@ -25,7 +25,7 @@ const UpdatePartner = () => {
 		const fetchData = async () => {
 			// get request to get pre-update value of the course.
 			try {
-				let response = await axios.get(`https://byte-backend-demo.up.railway.app/api/partner/${partnerID}`, {
+				let response = await axios.get(`https://backendapp.up.railway.app/api/partner/${partnerID}`, {
 					headers: {
 						Authorization: `Bearer ${auth.Token}`,
 						withCredentails: true,
@@ -57,7 +57,7 @@ const UpdatePartner = () => {
 			image: uploadedURl,
 		};
 		try {
-			const response = await axios.put(`https://byte-backend-demo.up.railway.app/api/partner/update/${partnerID}`, postData, {
+			const response = await axios.put(`https://backendapp.up.railway.app/api/partner/update/${partnerID}`, postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -93,7 +93,7 @@ const UpdatePartner = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
+			let response = await axios.post("https://backendapp.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

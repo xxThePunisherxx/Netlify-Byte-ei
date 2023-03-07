@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const AllInquireyFormData = () => {
 	const { auth } = useAuth();
-	const { data: InquireyFormDataResponse, ispending: InquireyDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/enquiry");
+	const { data: InquireyFormDataResponse, ispending: InquireyDataPending } = useFetch("https://backendapp.up.railway.app/api/enquiry");
 	const [showSuccess, setShowSuccess] = useState(false);
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
@@ -26,7 +26,7 @@ const AllInquireyFormData = () => {
 	const handleConfirmInquirey = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/enquiry/delete/" + ToDeleteInquirey, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/enquiry/delete/" + ToDeleteInquirey, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Clients = () => {
-	const { data: ClientsData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/partner");
+	const { data: ClientsData, ispending } = useFetch("https://backendapp.up.railway.app/api/partner");
 	return (
 		<div className={style.ClientsContainer}>
 			<h1>

@@ -37,7 +37,7 @@ const AddTeam = () => {
 		};
 
 		try {
-			const response = await axios.post("https://byte-backend-demo.up.railway.app/api/team/add", postData, {
+			const response = await axios.post("https://backendapp.up.railway.app/api/team/add", postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -74,7 +74,7 @@ const AddTeam = () => {
 		const fd = new FormData();
 		fd.append("file", selectedFile);
 		try {
-			let response = await axios.post("https://byte-backend-demo.up.railway.app/api/file/single", fd, {
+			let response = await axios.post("https://backendapp.up.railway.app/api/file/single", fd, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

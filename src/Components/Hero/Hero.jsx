@@ -5,7 +5,7 @@ import Carousel from "../Carousel/Carousel";
 import useFetch from "../../Utils/Hooks/fetch";
 
 const Hero = () => {
-	const { data: trainingData, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingData, ispending } = useFetch("https://backendapp.up.railway.app/api/training");
 
 	//  ------------------------------------------------------------------  data for hero carousel ------------------------------------------------------------------
 	const filteredData = trainingData.training.filter((Individual) => Individual.priority < 8);

@@ -23,7 +23,7 @@ const AdminTeamList = () => {
 	const [showFail, setShowFail] = useState(false);
 	const [showWorking, setShowWorking] = useState(false);
 
-	const { data: TeamResponse, ispending } = useFetch("https://byte-backend-demo.up.railway.app/api/team/");
+	const { data: TeamResponse, ispending } = useFetch("https://backendapp.up.railway.app/api/team/");
 	const handleDeletePopup = (id) => {
 		// ------------------------------------------------------------------show popup for confirming delete. ------------------------------------------------------------------
 		setShowconfirmDelete(true);
@@ -36,7 +36,7 @@ const AdminTeamList = () => {
 	const handleConfirm = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/team/delete/" + ToDelete, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/team/delete/" + ToDelete, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

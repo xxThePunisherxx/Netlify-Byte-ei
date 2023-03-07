@@ -5,7 +5,7 @@ import useFetchAuth from "../../Utils/Hooks/fetchAuth";
 
 const IndividualInquireyFormData = () => {
 	const { InquireyID } = useParams();
-	const { data: InquireyFormData, ispending } = useFetchAuth(`https://byte-backend-demo.up.railway.app/api/enquiry/${InquireyID}`);
+	const { data: InquireyFormData, ispending } = useFetchAuth(`https://backendapp.up.railway.app/api/enquiry/${InquireyID}`);
 	return (
 		<>
 			{!ispending && (

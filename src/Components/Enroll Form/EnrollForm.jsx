@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const EnrollForm = () => {
-	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingResponse } = useFetch("https://backendapp.up.railway.app/api/training");
 	const [showSelectCat, setShowSelectCat] = useState(false);
 
 	// ------------------------------------------------------------------ Message board things ------------------------------------------------------------------
@@ -29,7 +29,7 @@ const EnrollForm = () => {
 		};
 		if (enterdData.dropdown !== "null") {
 			try {
-				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/form/add", postData);
+				const response = await axios.post("https://backendapp.up.railway.app/api/form/add", postData);
 				if (response.status === 201) {
 					setSuccess(true);
 				}

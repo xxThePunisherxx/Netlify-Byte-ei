@@ -7,7 +7,7 @@ import axios from "axios";
 import { useState } from "react";
 
 const InquireyForm = () => {
-	const { data: trainingResponse } = useFetch("https://byte-backend-demo.up.railway.app/api/training");
+	const { data: trainingResponse } = useFetch("https://backendapp.up.railway.app/api/training");
 	const [showSelectCat, setShowSelectCat] = useState(false);
 
 	//  ------------------------------------------------------------------ Message Board things ------------------------------------------------------------------
@@ -28,7 +28,7 @@ const InquireyForm = () => {
 		};
 		if (enterdData.dropdown !== "null") {
 			try {
-				const response = await axios.post("https://byte-backend-demo.up.railway.app/api/enquiry/add", postData);
+				const response = await axios.post("https://backendapp.up.railway.app/api/enquiry/add", postData);
 				if (response.status === 201) {
 					setSuccess(true);
 				}

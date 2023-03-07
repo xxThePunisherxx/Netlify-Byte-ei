@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 
 const SubmittedFormData = () => {
 	const { auth } = useAuth();
-	const { data: EnrollFormDataResponse, ispending: EnrollDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/form");
-	const { data: ContactFormDataResponse, ispending: ContactDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/feedback");
-	const { data: InquireyFormDataResponse, ispending: InquireyDataPending } = useFetch("https://byte-backend-demo.up.railway.app/api/enquiry");
+	const { data: EnrollFormDataResponse, ispending: EnrollDataPending } = useFetch("https://backendapp.up.railway.app/api/form");
+	const { data: ContactFormDataResponse, ispending: ContactDataPending } = useFetch("https://backendapp.up.railway.app/api/feedback");
+	const { data: InquireyFormDataResponse, ispending: InquireyDataPending } = useFetch("https://backendapp.up.railway.app/api/enquiry");
 
 	// ------------------------------state to handle delete confirmation poups---------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ const SubmittedFormData = () => {
 	const handleConfirmEnroll = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/form/delete/" + ToDeleteEnroll, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/form/delete/" + ToDeleteEnroll, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -93,7 +93,7 @@ const SubmittedFormData = () => {
 	const handleConfirmInquirey = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/enquiry/delete/" + ToDeleteInquirey, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/enquiry/delete/" + ToDeleteInquirey, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
@@ -123,7 +123,7 @@ const SubmittedFormData = () => {
 	const handleConfirmContact = async () => {
 		setShowWorking(true);
 		try {
-			let response = await axios.delete("https://byte-backend-demo.up.railway.app/api/feedback/delete/" + ToDeleteContact, {
+			let response = await axios.delete("https://backendapp.up.railway.app/api/feedback/delete/" + ToDeleteContact, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,

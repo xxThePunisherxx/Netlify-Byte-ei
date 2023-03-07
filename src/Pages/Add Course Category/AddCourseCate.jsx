@@ -28,7 +28,7 @@ const AddCourseCate = () => {
 			course_type: enterdData.course_Category,
 		};
 		try {
-			const response = await axios.post("https://byte-backend-demo.up.railway.app/api/category/add", postData, {
+			const response = await axios.post("https://backendapp.up.railway.app/api/category/add", postData, {
 				headers: {
 					Authorization: `Bearer ${auth.Token}`,
 					withCredentails: true,
