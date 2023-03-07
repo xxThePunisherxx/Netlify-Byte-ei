@@ -25,6 +25,7 @@
     text-align: left;
     margin: 0;
     font-weight: 400;
+    text-transform: none;
 }
 
 .admin_Table_Heading {
